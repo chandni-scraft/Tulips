@@ -1,1 +1,224 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"breadcrumbs":false,"show_page_title":true,"page_title_alignment":"text-center","info_title":"","info_content":"","section_width":"max-w-page","color_scheme":"scheme-c0a43f71-877e-4cef-807e-4f3399b91217","spacing_top":"2","spacing_bottom":"2"}},"page_banner_Ga8LaX":{"type":"page-banner","custom_css":["h2 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}","h1 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}"],"settings":{"heading":"","heading_size":"h3","text":"","show_default_description":false,"show_on_description":"desktop","content_position":"center","content_alignment":"center","media_position":"background","page_menu":"","enable_breadcrumbs":false,"section_height":"33svh","video_external":"","show_controls_on_video":false,"section_height_mobile":"33svh","video_external_mobile":"","show_controls_on_video_mobile":false,"section_width":"max-w-page","color_scheme":"scheme-7","color_scheme_for_media":"","image_blur_effect":false,"spacing_top":"2","spacing_bottom":"6"}},"banner_below_img_kDtwNM":{"type":"banner-below-img","settings":{"wave_image":"shopify:\/\/shop_images\/Group_7381_9689a597-ce59-494d-8a4d-1615b0011373.svg"}},"featured_products_ijtjyr":{"type":"featured-products","blocks":{"collection_RLc39G":{"type":"collection","settings":{"title":"","collection":"bundles-combos","products":[],"vendor":"","collection_of_products":"","show_unavailable_products":false}}},"block_order":["collection_RLc39G"],"name":"t:sections.featured-products.name","settings":{"layout":"layout-2","enable_new_styles":true,"button_color_scheme":"green","custom_add_to_cart_bg":"#a4c86e","custom_add_to_cart_text":"#ffffff","custom_add_to_cart_outline":"#a4c86e","custom_buy_now_bg":"#006f62","custom_buy_now_text":"#ffffff","custom_buy_now_outline":"#006f62","product_filter":"all","heading":" Perfect Pairs for Everyday Hygiene","heading_size":"h3","subheading":"","button_label":"","button_link":"","button_style":"button--filled","max_products":12,"show_navigation_arrows":true,"slideshow_autoplay_interval":0,"tab_button_style":"button--filled","section_width":"max-w-page","color_scheme":"","spacing_top":"2","spacing_bottom":"2"}},"custom_liquid_x9yeqU":{"type":"custom-liquid","custom_css":[".custom-heading-wrapper {max-width: 800px; margin: 0 auto;}",".custom-heading-title {font-family: \"TheSeasonsBold\", sans-serif; font-size: 5rem; text-align: center;}"],"name":"t:sections.custom-liquid.name","settings":{"custom_liquid":"<div class=\"custom-heading-wrapper\"> <h2 class=\"custom-heading-title\">Hygiene Essentials at Lower Prices<\/h2><\/div>","section_width":"max-w-page","color_scheme":"","spacing_top":"2","spacing_bottom":"0"}},"featured_products_pkBFF4":{"type":"featured-products","blocks":{"collection_Hy9RiR":{"type":"collection","settings":{"title":"","collection":"","products":["9ae45a08-be82-8f79-e39a-8f1f4f1fdab0","absorbent-cotton-roll-100-gm-in-a-ziplock-bag","1df2e982-f1d3-3a4e-f165-e0b0b460df09","absorbent-cotton-roll","aloe-vera-cleansing-milk","dd5034ff-bd9c-f2bc-6a90-45041a748b4f","b350f7af-272a-689f-336e-4c84e4bfbb8b","6292e098-b5c2-3a9f-f1a0-f05330fb9d00","8b7e2e82-2d2a-dc0b-cc1a-3cf8cc12240e","e5fb5544-6ae9-0d4c-8956-ab42082e128f","6057eadf-613e-5e8d-e0ea-38655abda803","be28ea4f-d9e9-7a17-2b91-8a166d423fc7","22fa7119-227e-7013-2fda-303ab043a970","9d5c46ab-80f8-7824-bc2e-6cfea2195c3e","8494073a-1021-2ef2-fc81-2bcaa0a2ee90","0df3a408-2eeb-01e0-a39b-03bb9e4e3aa8","fd0e4352-0747-024a-2d01-b5e981f25960","063de770-b696-9352-0d41-b5f83d3151dc","614c8ff3-99ff-ad2f-6ee1-e13d6286906b","3f6c85ef-fd3d-da7a-4baf-d610d834489e","bb553adf-c0b7-fdba-c567-3a9b1b0ec240","47a37840-12db-2313-16a0-a26f3523e90c","d923391b-7974-5fbb-5155-e12285523ce8","eco-friendly-cotton-buds-swabs-100-sticks-in-a-jar","7698c515-34fc-3f38-eb2c-1fbdf3d8283a","d8840adb-1ca9-ca23-e99e-7ba07694d822","641893d8-af12-f08e-8cfb-7e4d2cfd1f85","0785048b-59fe-d5bd-e39e-8ce50995fd72","999c98b8-0fcd-20de-0d95-d397a643832b","fe9174b2-5dc3-ef77-a271-f1cdb0234e83"],"vendor":"","collection_of_products":"","show_unavailable_products":false}}},"block_order":["collection_Hy9RiR"],"custom_css":[],"name":"t:sections.featured-products.name","settings":{"layout":"layout-1","enable_new_styles":true,"button_color_scheme":"green","custom_add_to_cart_bg":"#a4c86e","custom_add_to_cart_text":"#ffffff","custom_add_to_cart_outline":"#a4c86e","custom_buy_now_bg":"#006f62","custom_buy_now_text":"#ffffff","custom_buy_now_outline":"#006f62","product_filter":"discounted","heading":"","heading_size":"h4","subheading":"","button_label":"","button_link":"","button_style":"button--filled","max_products":99,"show_navigation_arrows":true,"slideshow_autoplay_interval":0,"tab_button_style":"button--filled","section_width":"max-w-page","color_scheme":"","spacing_top":"0","spacing_bottom":"2"}},"custom_liquid_DU7YYd":{"type":"custom-liquid","name":"t:sections.custom-liquid.name","settings":{"custom_liquid":"<div><\/div>","section_width":"max-w-page","color_scheme":"","spacing_top":"2","spacing_bottom":"2"}}},"order":["main","page_banner_Ga8LaX","banner_below_img_kDtwNM","featured_products_ijtjyr","custom_liquid_x9yeqU","featured_products_pkBFF4","custom_liquid_DU7YYd"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": true,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-c0a43f71-877e-4cef-807e-4f3399b91217",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "page_banner_Ga8LaX": {
+      "type": "page-banner",
+      "custom_css": [
+        "h2 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}",
+        "h1 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "text": "",
+        "show_default_description": false,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": false,
+        "section_height": "33svh",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "33svh",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-7",
+        "color_scheme_for_media": "",
+        "image_blur_effect": false,
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "banner_below_img_kDtwNM": {
+      "type": "banner-below-img",
+      "settings": {
+        "wave_image": "shopify://shop_images/Group_7381_9689a597-ce59-494d-8a4d-1615b0011373.svg"
+      }
+    },
+    "featured_products_ijtjyr": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_RLc39G": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "bundles-combos",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_RLc39G"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "green",
+        "custom_add_to_cart_bg": "#a4c86e",
+        "custom_add_to_cart_text": "#ffffff",
+        "custom_add_to_cart_outline": "#a4c86e",
+        "custom_buy_now_bg": "#006f62",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#006f62",
+        "product_filter": "all",
+        "heading": " Perfect Pairs for Everyday Hygiene",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 12,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "custom_liquid_x9yeqU": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".custom-heading-wrapper {max-width: 800px; margin: 0 auto;}",
+        ".custom-heading-title {font-family: \"TheSeasonsBold\", sans-serif; font-size: 5rem; text-align: center;}"
+      ],
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<div class=\"custom-heading-wrapper\"> <h2 class=\"custom-heading-title\">Hygiene Essentials at Lower Prices</h2></div>",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "featured_products_pkBFF4": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_Hy9RiR": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "products": [
+              "9ae45a08-be82-8f79-e39a-8f1f4f1fdab0",
+              "absorbent-cotton-roll-100-gm-in-a-ziplock-bag",
+              "1df2e982-f1d3-3a4e-f165-e0b0b460df09",
+              "absorbent-cotton-roll",
+              "aloe-vera-cleansing-milk",
+              "dd5034ff-bd9c-f2bc-6a90-45041a748b4f",
+              "baby-wet-wipes-lid-pack-grapefruit-extract",
+              "6292e098-b5c2-3a9f-f1a0-f05330fb9d00",
+              "8b7e2e82-2d2a-dc0b-cc1a-3cf8cc12240e",
+              "e5fb5544-6ae9-0d4c-8956-ab42082e128f",
+              "6057eadf-613e-5e8d-e0ea-38655abda803",
+              "be28ea4f-d9e9-7a17-2b91-8a166d423fc7",
+              "22fa7119-227e-7013-2fda-303ab043a970",
+              "cotton-pad-50-pcs-in-a-ziplock-bag",
+              "8494073a-1021-2ef2-fc81-2bcaa0a2ee90",
+              "0df3a408-2eeb-01e0-a39b-03bb9e4e3aa8",
+              "handmade-bathing-bar-chandan-kesar",
+              "handmade-bathing-bar-aloe-fresh",
+              "614c8ff3-99ff-ad2f-6ee1-e13d6286906b",
+              "gemstone-soap",
+              "bb553adf-c0b7-fdba-c567-3a9b1b0ec240",
+              "47a37840-12db-2313-16a0-a26f3523e90c",
+              "d923391b-7974-5fbb-5155-e12285523ce8",
+              "eco-friendly-cotton-buds-swabs-100-sticks-in-a-jar",
+              "eco-friendly-cotton-buds-swabs-100-sticks-in-a-jar-1",
+              "d8840adb-1ca9-ca23-e99e-7ba07694d822",
+              "641893d8-af12-f08e-8cfb-7e4d2cfd1f85",
+              "dual-colour-soap-combo",
+              "999c98b8-0fcd-20de-0d95-d397a643832b",
+              "fe9174b2-5dc3-ef77-a271-f1cdb0234e83"
+            ],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_Hy9RiR"
+      ],
+      "custom_css": [],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-1",
+        "enable_new_styles": true,
+        "button_color_scheme": "green",
+        "custom_add_to_cart_bg": "#a4c86e",
+        "custom_add_to_cart_text": "#ffffff",
+        "custom_add_to_cart_outline": "#a4c86e",
+        "custom_buy_now_bg": "#006f62",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#006f62",
+        "product_filter": "discounted",
+        "heading": "",
+        "heading_size": "h4",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "2"
+      }
+    },
+    "custom_liquid_DU7YYd": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<div></div>",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_banner_Ga8LaX",
+    "banner_below_img_kDtwNM",
+    "featured_products_ijtjyr",
+    "custom_liquid_x9yeqU",
+    "featured_products_pkBFF4",
+    "custom_liquid_DU7YYd"
+  ]
+}
