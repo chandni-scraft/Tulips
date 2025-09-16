@@ -1335,6 +1335,7 @@ product-tabs {
   opacity: 1;
   pointer-events: all;
   transition: all 450ms cubic-bezier(0.68, 0, 0.35, 1);
+  margin-top: 20px;
 }
 
 .product__sticky-cart .button svg {
