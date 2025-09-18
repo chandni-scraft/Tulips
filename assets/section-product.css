@@ -1717,7 +1717,7 @@ swiper-product-thumbs,
 }
 
 .main-product__media .swiper-button-prev {
-  transform: rotate(180deg);
+  transform: rotate(180deg) !important;
 }
 
 .main-product__media .swiper-button::after {
