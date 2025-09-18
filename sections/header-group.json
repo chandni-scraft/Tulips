@@ -41,7 +41,7 @@
           "settings": {
             "show_on": "desktop",
             "link_label": "New Products",
-            "link": "",
+            "link": "https://tulipshygiene.store/collections/our-products",
             "icon": "theme-box"
           }
         },
