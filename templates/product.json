@@ -100,6 +100,10 @@
             "show_gift_card_recipient": false
           }
         },
+        "es_back_in_stock_product_restore_email_yW4PKD": {
+          "type": "shopify://apps/es-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
+          "settings": {}
+        },
         "e6d841d6-2f71-40b3-956a-912df13f9f6e": {
           "type": "inventory_notice",
           "settings": {
@@ -253,6 +257,7 @@
         "custom_text_n7XG8i",
         "divider_HGwyhB",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
+        "es_back_in_stock_product_restore_email_yW4PKD",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
         "b2dabe12-2158-4ba6-bc54-9baae453acf5",
