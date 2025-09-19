@@ -82,64 +82,52 @@ class NotifyMe {
     spinner.classList.remove('hidden');
     
     try {
-      // Try using the hidden Shopify form approach
-      const hiddenForm = document.getElementById('notify-me-contact-form');
-      console.log('Hidden form found:', !!hiddenForm);
+      // Use direct submission which is more reliable
+      const formBody = new URLSearchParams();
+      formBody.append('form_type', 'contact');
+      formBody.append('utf8', '✓');
+      formBody.append('contact[email]', email);
+      formBody.append('contact[body]', `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`);
       
-      if (hiddenForm) {
-        // Use the Shopify form with proper CSRF protection
-        const emailInput = hiddenForm.querySelector('#notify-email-hidden');
-        const bodyInput = hiddenForm.querySelector('#notify-body-hidden');
+      console.log('Submitting notification for:', productTitle, 'Email:', email);
+      
+      const response = await fetch('/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': '*/*'
+        },
+        body: formBody.toString()
+      });
+      
+      console.log('Response status:', response.status);
+      
+      // If fetch fails, try XMLHttpRequest as fallback
+      if (!response.ok && response.status !== 302 && !response.redirected) {
+        console.log('Fetch failed, trying XMLHttpRequest fallback...');
         
-        if (!emailInput || !bodyInput) {
-          console.error('Hidden form inputs not found');
-          throw new Error('Form configuration error');
-        }
-        
-        emailInput.value = email;
-        bodyInput.value = `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`;
-        
-        const formData = new FormData(hiddenForm);
-        const response = await fetch(hiddenForm.action || '/contact', {
-          method: 'POST',
-          body: new URLSearchParams(formData)
-        });
-        
-        console.log('Hidden form response:', response.status, response.ok, response.redirected);
-        
-        if (response.ok || response.redirected || response.status === 302) {
+        if (window.submitNotifyMeForm) {
+          const productInfo = `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`;
+          await window.submitNotifyMeForm(email, productInfo);
           this.handleSuccess(messageDiv, form, formWrapper);
-        } else {
-          const responseText = await response.text();
-          console.error('Form submission failed with response:', responseText);
-          throw new Error('Form submission failed');
+          return;
         }
+      }
+      
+      // Check for various success conditions
+      if (response.ok || response.status === 200 || response.status === 201 || response.status === 302 || response.redirected) {
+        this.handleSuccess(messageDiv, form, formWrapper);
+      } else if (response.status === 422) {
+        // Validation error from Shopify
+        throw new Error('Invalid email address or form data');
+      } else if (response.status === 404) {
+        // Contact endpoint not found
+        throw new Error('Contact form endpoint not found');
       } else {
-        // Fallback to direct submission
-        const formBody = new URLSearchParams();
-        formBody.append('form_type', 'contact');
-        formBody.append('utf8', '✓');
-        formBody.append('contact[email]', email);
-        formBody.append('contact[body]', `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`);
-        
-        console.log('Using direct submission fallback');
-        const response = await fetch('/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: formBody.toString()
-        });
-        
-        console.log('Direct submission response:', response.status, response.ok, response.redirected);
-        
-        if (response.ok || response.redirected || response.status === 302) {
-          this.handleSuccess(messageDiv, form, formWrapper);
-        } else {
-          const responseText = await response.text();
-          console.error('Direct submission failed with response:', responseText);
-          throw new Error('Direct submission failed');
-        }
+        // Other errors
+        const responseText = await response.text();
+        console.error('Submission failed. Status:', response.status, 'Response:', responseText);
+        throw new Error(`Submission failed with status: ${response.status}`);
       }
 
     } catch (error) {
