@@ -5,9 +5,11 @@ class NotifyMe {
 
   initializeEventListeners() {
     document.addEventListener('click', (e) => {
-      if (e.target.closest('.notify-me-trigger')) {
+      const notifyTrigger = e.target.closest('.notify-me-trigger');
+      if (notifyTrigger && notifyTrigger.hasAttribute('data-action') && notifyTrigger.getAttribute('data-action') === 'notify-me') {
         e.preventDefault();
-        this.showNotifyForm(e.target.closest('.notify-me-trigger'));
+        e.stopPropagation();
+        this.showNotifyForm(notifyTrigger);
       }
       
       if (e.target.closest('.notify-me-form__close')) {
@@ -29,15 +31,25 @@ class NotifyMe {
   }
 
   showNotifyForm(button) {
+    console.log('Notify button clicked');
     const productForm = button.closest('product-form');
+    if (!productForm) {
+      console.error('Product form not found');
+      return;
+    }
+    
     const notifyFormWrapper = productForm.querySelector('.notify-me-form-wrapper');
+    console.log('Notify form wrapper:', notifyFormWrapper);
     
     if (notifyFormWrapper) {
       notifyFormWrapper.hidden = false;
+      notifyFormWrapper.style.display = 'block';
       const emailInput = notifyFormWrapper.querySelector('input[type="email"]');
       if (emailInput) {
         emailInput.focus();
       }
+    } else {
+      console.error('Notify form wrapper not found');
     }
   }
 
@@ -149,6 +161,8 @@ class NotifyMe {
   }
 }
 
-if (typeof window.notifyMe === 'undefined') {
-  window.notifyMe = new NotifyMe();
-}
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof window.notifyMe === 'undefined') {
+    window.notifyMe = new NotifyMe();
+  }
+});

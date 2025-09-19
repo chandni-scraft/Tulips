@@ -161,13 +161,10 @@
         -%}
         <button
           id="ProductSubmitButton-{{ section_id }}"
-          type="submit"
+          type="{% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}button{% else %}submit{% endif %}"
           name="add"
           class="product-form__submit button button--filled uppercase button--full{% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %} notify-me-trigger{% endif %}"
-          {% if product.selected_or_first_available_variant.available == false
-            or quantity_rule_soldout
-            or product.selected_or_first_available_variant == null
-          %}
+          {% if product.selected_or_first_available_variant == null %}
             disabled
           {% endif %}
           {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
