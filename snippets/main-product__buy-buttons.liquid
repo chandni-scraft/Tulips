@@ -12,6 +12,7 @@
 {% endcomment %}
 
 {%- if product != blank -%}
+  {%- render 'notify-me-form' -%}
   {%- liquid
     assign gift_card_recipient_feature_active = false
     if block.settings.show_gift_card_recipient and product.gift_card?
@@ -202,7 +203,12 @@
     {%- endform -%}
     
     {%- comment -%} Out of stock notification form {%- endcomment -%}
-    <div class="notify-me-form-wrapper" data-product-id="{{ product.id }}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" hidden>
+    <div class="notify-me-form-wrapper" 
+         data-product-id="{{ product.id }}" 
+         data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+         data-product-title="{{ product.title | escape }}"
+         data-variant-title="{{ product.selected_or_first_available_variant.title | escape }}"
+         hidden>
       <form class="notify-me-form" novalidate>
         <div class="notify-me-form__header">
           <h3>{{ 'product.notify_when_available' | t | default: 'Notify me when available' }}</h3>

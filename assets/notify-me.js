@@ -31,15 +31,12 @@ class NotifyMe {
   }
 
   showNotifyForm(button) {
-    console.log('Notify button clicked');
     const productForm = button.closest('product-form');
     if (!productForm) {
-      console.error('Product form not found');
       return;
     }
     
     const notifyFormWrapper = productForm.querySelector('.notify-me-form-wrapper');
-    console.log('Notify form wrapper:', notifyFormWrapper);
     
     if (notifyFormWrapper) {
       notifyFormWrapper.hidden = false;
@@ -48,8 +45,6 @@ class NotifyMe {
       if (emailInput) {
         emailInput.focus();
       }
-    } else {
-      console.error('Notify form wrapper not found');
     }
   }
 
@@ -70,6 +65,8 @@ class NotifyMe {
     const formWrapper = form.closest('.notify-me-form-wrapper');
     const productId = formWrapper.dataset.productId;
     const variantId = formWrapper.dataset.variantId;
+    const productTitle = formWrapper.dataset.productTitle || 'Product';
+    const variantTitle = formWrapper.dataset.variantTitle || '';
     const submitButton = form.querySelector('.notify-me-form__submit');
     const buttonText = submitButton.querySelector('.button-text');
     const spinner = submitButton.querySelector('.loading__spinner');
@@ -85,31 +82,51 @@ class NotifyMe {
     spinner.classList.remove('hidden');
     
     try {
-      const response = await fetch('/contact#notify-me-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: new URLSearchParams({
-          'form_type': 'contact',
-          'utf8': '✓',
-          'contact[email]': email,
-          'contact[body]': `Back in stock notification request for Product ID: ${productId}, Variant ID: ${variantId}`,
-          'contact[product_id]': productId,
-          'contact[variant_id]': variantId,
-          'contact[tags]': 'back-in-stock'
-        })
-      });
-
-      if (response.ok) {
-        this.showMessage(messageDiv, 'Success! You\'ll be notified when this item is back in stock.', 'success');
-        setTimeout(() => {
-          this.hideNotifyForm(formWrapper);
-        }, 3000);
+      // Try using the hidden Shopify form approach
+      const hiddenForm = document.getElementById('notify-me-contact-form');
+      
+      if (hiddenForm) {
+        // Use the Shopify form with proper CSRF protection
+        const emailInput = hiddenForm.querySelector('#notify-email-hidden');
+        const bodyInput = hiddenForm.querySelector('#notify-body-hidden');
+        
+        emailInput.value = email;
+        bodyInput.value = `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`;
+        
+        const formData = new FormData(hiddenForm);
+        const response = await fetch(hiddenForm.action, {
+          method: 'POST',
+          body: new URLSearchParams(formData)
+        });
+        
+        if (response.ok || response.redirected || response.status === 302) {
+          this.handleSuccess(messageDiv, form, formWrapper);
+        } else {
+          throw new Error('Form submission failed');
+        }
       } else {
-        throw new Error('Failed to submit notification request');
+        // Fallback to direct submission
+        const formBody = new URLSearchParams();
+        formBody.append('form_type', 'contact');
+        formBody.append('utf8', '✓');
+        formBody.append('contact[email]', email);
+        formBody.append('contact[body]', `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`);
+        
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formBody.toString()
+        });
+        
+        if (response.ok || response.redirected || response.status === 302) {
+          this.handleSuccess(messageDiv, form, formWrapper);
+        } else {
+          throw new Error('Direct submission failed');
+        }
       }
+
     } catch (error) {
       console.error('Error submitting notification:', error);
       this.showMessage(messageDiv, 'Sorry, there was an error. Please try again.', 'error');
@@ -130,6 +147,14 @@ class NotifyMe {
     messageDiv.classList.remove('success', 'error');
     messageDiv.classList.add(type);
     messageDiv.hidden = false;
+  }
+
+  handleSuccess(messageDiv, form, formWrapper) {
+    this.showMessage(messageDiv, 'Success! You\'ll be notified when this item is back in stock.', 'success');
+    form.reset();
+    setTimeout(() => {
+      this.hideNotifyForm(formWrapper);
+    }, 3000);
   }
 
   updateButtonState() {
