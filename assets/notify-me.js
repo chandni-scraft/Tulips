@@ -59,7 +59,7 @@ class NotifyMe {
     messageDiv.classList.remove('success', 'error');
   }
 
-  async handleFormSubmit(form) {
+  handleFormSubmit(form) {
     const formData = new FormData(form);
     const email = formData.get('email');
     const formWrapper = form.closest('.notify-me-form-wrapper');
@@ -67,9 +67,6 @@ class NotifyMe {
     const variantId = formWrapper.dataset.variantId;
     const productTitle = formWrapper.dataset.productTitle || 'Product';
     const variantTitle = formWrapper.dataset.variantTitle || '';
-    const submitButton = form.querySelector('.notify-me-form__submit');
-    const buttonText = submitButton.querySelector('.button-text');
-    const spinner = submitButton.querySelector('.loading__spinner');
     const messageDiv = form.querySelector('.notify-me-form__message');
     
     if (!this.validateEmail(email)) {
@@ -77,74 +74,33 @@ class NotifyMe {
       return;
     }
 
-    submitButton.disabled = true;
-    buttonText.textContent = 'Submitting...';
-    spinner.classList.remove('hidden');
+    // Create a real form and submit it (this will handle reCAPTCHA if needed)
+    const tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = '/contact';
+    tempForm.style.display = 'none';
     
-    try {
-      // Use direct submission which is more reliable
-      const formBody = new URLSearchParams();
-      formBody.append('form_type', 'contact');
-      formBody.append('utf8', '✓');
-      formBody.append('contact[email]', email);
-      formBody.append('contact[body]', `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`);
-      
-      console.log('Submitting notification for:', productTitle, 'Email:', email);
-      
-      const response = await fetch('/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': '*/*'
-        },
-        body: formBody.toString()
-      });
-      
-      console.log('Response status:', response.status);
-      
-      // If fetch fails, try XMLHttpRequest as fallback
-      if (!response.ok && response.status !== 302 && !response.redirected) {
-        console.log('Fetch failed, trying XMLHttpRequest fallback...');
-        
-        if (window.submitNotifyMeForm) {
-          const productInfo = `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`;
-          await window.submitNotifyMeForm(email, productInfo);
-          this.handleSuccess(messageDiv, form, formWrapper);
-          return;
-        }
-      }
-      
-      // Check for various success conditions
-      if (response.ok || response.status === 200 || response.status === 201 || response.status === 302 || response.redirected) {
-        this.handleSuccess(messageDiv, form, formWrapper);
-      } else if (response.status === 422) {
-        // Validation error from Shopify
-        throw new Error('Invalid email address or form data');
-      } else if (response.status === 404) {
-        // Contact endpoint not found
-        throw new Error('Contact form endpoint not found');
-      } else {
-        // Other errors
-        const responseText = await response.text();
-        console.error('Submission failed. Status:', response.status, 'Response:', responseText);
-        throw new Error(`Submission failed with status: ${response.status}`);
-      }
-
-    } catch (error) {
-      console.error('Error submitting notification:', error);
-      // Try to provide more specific error message
-      let errorMessage = 'Sorry, there was an error. Please try again.';
-      if (error.message && error.message.includes('NetworkError')) {
-        errorMessage = 'Network error. Please check your connection and try again.';
-      } else if (error.message && error.message.includes('Failed')) {
-        errorMessage = 'Failed to submit. Please try again later.';
-      }
-      this.showMessage(messageDiv, errorMessage, 'error');
-    } finally {
-      submitButton.disabled = false;
-      buttonText.textContent = window.shopifyTranslations?.notify_me_button || 'Notify me';
-      spinner.classList.add('hidden');
-    }
+    // Add form fields
+    const fields = {
+      'form_type': 'contact',
+      'utf8': '✓',
+      'contact[email]': email,
+      'contact[tags]': 'back-in-stock',
+      'contact[body]': `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}\nEmail: ${email}`
+    };
+    
+    // Create hidden inputs for each field
+    Object.keys(fields).forEach(key => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = fields[key];
+      tempForm.appendChild(input);
+    });
+    
+    // Append form to body and submit
+    document.body.appendChild(tempForm);
+    tempForm.submit();
   }
 
   validateEmail(email) {

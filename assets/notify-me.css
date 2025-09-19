@@ -165,6 +165,25 @@
   border: 1px solid #fc8181;
 }
 
+.notify-me-form__message.error a {
+  color: #1a56db;
+  text-decoration: underline;
+}
+
+.notify-me-form__message.error a:hover {
+  color: #1e40af;
+}
+
+.notify-me-form__message ol {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.notify-me-form__message li {
+  margin: 5px 0;
+  font-size: 0.875rem;
+}
+
 @media (max-width: 480px) {
   .notify-me-form-wrapper {
     width: calc(100vw - 2rem);
