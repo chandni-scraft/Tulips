@@ -218,16 +218,17 @@
         </div>
         <div class="notify-me-form__content">
           <p>{{ 'product.notify_description' | t | default: 'Enter your email to be notified when this product is back in stock.' }}</p>
-          <div class="field">
+          <div class="notify-me-field">
             <input
               type="email"
               name="email"
               id="notify-me-email-{{ section.id }}"
-              class="field__input"
+              class="notify-me-field__input"
               required
               autocomplete="email"
               placeholder="{{ 'customer.email' | t | default: 'Email' }}"
               aria-required="true"
+              data-no-validate
             >
             <label for="notify-me-email-{{ section.id }}" class="field__label visually-hidden">
               {{ 'customer.email' | t | default: 'Email' }}

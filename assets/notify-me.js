@@ -41,9 +41,9 @@ class NotifyMe {
     if (notifyFormWrapper) {
       notifyFormWrapper.hidden = false;
       notifyFormWrapper.style.display = 'block';
-      const emailInput = notifyFormWrapper.querySelector('input[type="email"]');
+      const emailInput = notifyFormWrapper.querySelector('.notify-me-field__input');
       if (emailInput) {
-        emailInput.focus();
+        setTimeout(() => emailInput.focus(), 100);
       }
     }
   }
