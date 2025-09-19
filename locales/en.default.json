@@ -160,7 +160,11 @@
     "preorder_badge": "Pre-order",
     "preorder_info": "This product is currently on pre-order.",
     "preorder_notice": "This product will ship on {{date}}.",
-    "preorder_warning_html": "* By clicking 'Pre-order', <strong>I acknowledge that I am purchasing a pre-order item, not an in-stock product</strong>, and agree to the Terms & Conditions of the pre-order process."
+    "preorder_warning_html": "* By clicking 'Pre-order', <strong>I acknowledge that I am purchasing a pre-order item, not an in-stock product</strong>, and agree to the Terms & Conditions of the pre-order process.",
+    "notify_me": "Notify Me",
+    "notify_when_available": "Notify When Available",
+    "notify_description": "Enter your email address and we'll notify you when this product is back in stock.",
+    "notify_me_button": "Notify Me"
   },
   "collection": {
     "label": "Collection",

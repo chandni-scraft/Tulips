@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(# Add Polish translations\nsed -i '/\"preorder_warning_html\":/s/\\(\".*\"\\)$/\\1,\\n    \"notify_me\": \"Powiadom mnie\",\\n    \"notify_when_available\": \"Powiadom gdy dostępne\",\\n    \"notify_description\": \"Podaj swój adres e-mail, a powiadomimy Cię, gdy ten produkt będzie ponownie dostępny.\",\\n    \"notify_me_button\": \"Powiadom mnie\"/' \"/mnt/e/shopify project/Tulips/locales/pl.json\"\n\n# Add Portuguese translations\nsed -i '/\"preorder_warning_html\":/s/\\(\".*\"\\)$/\\1,\\n    \"notify_me\": \"Notificar-me\",\\n    \"notify_when_available\": \"Notificar quando disponível\",\\n    \"notify_description\": \"Insira seu endereço de e-mail e nós o notificaremos quando este produto estiver de volta em estoque.\",\\n    \"notify_me_button\": \"Notificar-me\"/' \"/mnt/e/shopify project/Tulips/locales/pt.json\"\n\n# Add Turkish translations\nsed -i '/\"preorder_warning_html\":/s/\\(\".*\"\\)$/\\1,\\n    \"notify_me\": \"Beni bilgilendir\",\\n    \"notify_when_available\": \"Ürün gelince haber ver\",\\n    \"notify_description\": \"E-posta adresinizi girin, bu ürün tekrar stoğa geldiğinde sizi bilgilendirelim.\",\\n    \"notify_me_button\": \"Beni bilgilendir\"/' \"/mnt/e/shopify project/Tulips/locales/tr.json\"\n\n# Add Arabic translations\nsed -i '/\"preorder_warning_html\":/s/\\(\".*\"\\)$/\\1,\\n    \"notify_me\": \"أبلغني\",\\n    \"notify_when_available\": \"أبلغني عند التوفر\",\\n    \"notify_description\": \"أدخل عنوان بريدك الإلكتروني وسنخطرك عندما يعود هذا المنتج إلى المخزون.\",\\n    \"notify_me_button\": \"أبلغني\"/' \"/mnt/e/shopify project/Tulips/locales/ar.json\"\n\necho \"Translations added to all remaining files\")"
     ],
     "deny": []
   }

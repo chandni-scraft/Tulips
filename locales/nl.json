@@ -151,7 +151,11 @@
     "preorder_badge": "Pre-order",
     "preorder_info": "Dit product is momenteel beschikbaar voor pre-order.",
     "preorder_notice": "Dit product wordt verzonden op {{date}}.",
-    "preorder_warning_html": "* Door op 'Pre-order' te klikken, <strong>erken ik dat ik een pre-order artikel koop, geen product op voorraad</strong>, en ga ik akkoord met de Voorwaarden van het pre-order proces."
+    "preorder_warning_html": "* Door op 'Pre-order' te klikken, <strong>erken ik dat ik een pre-order artikel koop, geen product op voorraad</strong>, en ga ik akkoord met de Voorwaarden van het pre-order proces.",
+    "notify_me": "Stel mij op de hoogte",
+    "notify_when_available": "Informeer wanneer beschikbaar",
+    "notify_description": "Vul uw e-mailadres in en we stellen u op de hoogte wanneer dit product weer op voorraad is.",
+    "notify_me_button": "Stel mij op de hoogte"
   },
   "collection": {
     "label": "Collectie",

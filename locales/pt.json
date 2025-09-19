@@ -151,7 +151,11 @@
     "preorder_badge": "Pré-encomenda",
     "preorder_info": "Este produto está atualmente em pré-encomenda.",
     "preorder_notice": "Este produto será enviado em {{date}}.",
-    "preorder_warning_html": "* Ao clicar em 'Pré-encomenda', <strong>reconheço que estou comprando um item em pré-encomenda, não um produto em estoque</strong> e concordo com os Termos e Condições do processo de pré-encomenda."
+    "preorder_warning_html": "* Ao clicar em 'Pré-encomenda', <strong>reconheço que estou comprando um item em pré-encomenda, não um produto em estoque</strong> e concordo com os Termos e Condições do processo de pré-encomenda.",
+    "notify_me": "Notificar-me",
+    "notify_when_available": "Notificar quando disponível",
+    "notify_description": "Insira seu endereço de e-mail e nós o notificaremos quando este produto estiver de volta em estoque.",
+    "notify_me_button": "Notificar-me"
   },
   "collection": {
     "label": "Coleção",

@@ -151,7 +151,11 @@
     "preorder_badge": "Ön sipariş",
     "preorder_info": "Bu ürün şu anda ön sipariştedir.",
     "preorder_notice": "Bu ürün {{date}} tarihinde gönderilecektir.",
-    "preorder_warning_html": "* 'Ön sipariş ver' butonuna tıklayarak, <strong>stokta olan bir ürün değil, bir ön sipariş ürünü satın aldığımı kabul ediyorum</strong> ve ön sipariş sürecinin Şartlar ve Koşullarını kabul ediyorum."
+    "preorder_warning_html": "* 'Ön sipariş ver' butonuna tıklayarak, <strong>stokta olan bir ürün değil, bir ön sipariş ürünü satın aldığımı kabul ediyorum</strong> ve ön sipariş sürecinin Şartlar ve Koşullarını kabul ediyorum.",
+    "notify_me": "Beni bilgilendir",
+    "notify_when_available": "Ürün gelince haber ver",
+    "notify_description": "E-posta adresinizi girin, bu ürün tekrar stoğa geldiğinde sizi bilgilendirelim.",
+    "notify_me_button": "Beni bilgilendir"
   },
   "collection": {
     "label": "Koleksiyon",
