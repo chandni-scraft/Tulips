@@ -208,40 +208,61 @@
          data-product-title="{{ product.title | escape }}"
          data-variant-title="{{ product.selected_or_first_available_variant.title | escape }}"
          hidden>
-      <form class="notify-me-form" novalidate>
-        <div class="notify-me-form__header">
-          <h3>{{ 'product.notify_when_available' | t | default: 'Notify me when available' }}</h3>
-          <button type="button" class="notify-me-form__close" aria-label="{{ 'theme.actions.close' | t | default: 'Close' }}">
-            {% render 'icon', icon_name: 'theme-close' %}
-          </button>
-        </div>
-        <div class="notify-me-form__content">
-          <p>{{ 'product.notify_description' | t | default: 'Enter your email to be notified when this product is back in stock.' }}</p>
+      <div class="notify-me-form__header">
+        <h3>{{ 'product.notify_when_available' | t | default: 'Notify me when available' }}</h3>
+        <button type="button" class="notify-me-form__close" aria-label="{{ 'theme.actions.close' | t | default: 'Close' }}">
+          {% render 'icon', icon_name: 'theme-close' %}
+        </button>
+      </div>
+      <div class="notify-me-form__content">
+        <p>{{ 'product.notify_description' | t | default: 'Enter your email to be notified when this product is back in stock.' }}</p>
+        
+        {%- form 'contact', id: 'notify-me-form-{{ section.id }}', class: 'notify-me-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="notify-me-form__message success">
+              Success! You'll be notified when this item is back in stock.
+            </div>
+            <script>
+              setTimeout(() => {
+                document.querySelector('.notify-me-form-wrapper').hidden = true;
+              }, 3000);
+            </script>
+          {%- endif -%}
+          
+          {%- if form.errors -%}
+            <div class="notify-me-form__message error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+          
+          <input type="hidden" name="contact[tags]" value="back-in-stock">
+          <input type="hidden" name="contact[body]" value="Back in stock notification request for: {{ product.title }} (Variant: {{ product.selected_or_first_available_variant.title | default: 'Default' }}, Product ID: {{ product.id }}, Variant ID: {{ product.selected_or_first_available_variant.id }})">
+          
           <div class="notify-me-field">
             <input
               type="email"
-              name="email"
+              name="contact[email]"
               id="notify-me-email-{{ section.id }}"
               class="notify-me-field__input"
               required
               autocomplete="email"
               placeholder="Email address"
               aria-required="true"
-              data-no-validate
+              value="{{ form.email }}"
             >
             <label for="notify-me-email-{{ section.id }}" class="field__label visually-hidden">
               Email
             </label>
           </div>
+          
           <button type="submit" class="button button--full-width button--primary notify-me-form__submit">
             <span class="button-text">{{ 'product.notify_me_button' | t | default: 'Notify me' }}</span>
             <div class="loading__spinner hidden">
               {%- render 'loading-spinner' -%}
             </div>
           </button>
-          <div class="notify-me-form__message" role="alert" hidden></div>
-        </div>
-      </form>
+        {%- endform -%}
+      </div>
     </div>
   </product-form>
 {%- else -%}

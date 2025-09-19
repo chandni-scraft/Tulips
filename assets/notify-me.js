@@ -18,12 +18,7 @@ class NotifyMe {
       }
     });
 
-    document.addEventListener('submit', (e) => {
-      if (e.target.classList.contains('notify-me-form')) {
-        e.preventDefault();
-        this.handleFormSubmit(e.target);
-      }
-    });
+    // Remove the form submit handler since Shopify form will handle it naturally
 
     document.addEventListener('variant:changed', (e) => {
       this.updateButtonState();
@@ -59,69 +54,6 @@ class NotifyMe {
     messageDiv.classList.remove('success', 'error');
   }
 
-  handleFormSubmit(form) {
-    const formData = new FormData(form);
-    const email = formData.get('email');
-    const formWrapper = form.closest('.notify-me-form-wrapper');
-    const productId = formWrapper.dataset.productId;
-    const variantId = formWrapper.dataset.variantId;
-    const productTitle = formWrapper.dataset.productTitle || 'Product';
-    const variantTitle = formWrapper.dataset.variantTitle || '';
-    const messageDiv = form.querySelector('.notify-me-form__message');
-    
-    if (!this.validateEmail(email)) {
-      this.showMessage(messageDiv, 'Please enter a valid email address.', 'error');
-      return;
-    }
-
-    // Create a real form and submit it (this will handle reCAPTCHA if needed)
-    const tempForm = document.createElement('form');
-    tempForm.method = 'POST';
-    tempForm.action = '/contact';
-    tempForm.style.display = 'none';
-    
-    // Add form fields
-    const fields = {
-      'form_type': 'contact',
-      'utf8': '✓',
-      'contact[email]': email,
-      'contact[tags]': 'back-in-stock',
-      'contact[body]': `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}\nEmail: ${email}`
-    };
-    
-    // Create hidden inputs for each field
-    Object.keys(fields).forEach(key => {
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = key;
-      input.value = fields[key];
-      tempForm.appendChild(input);
-    });
-    
-    // Append form to body and submit
-    document.body.appendChild(tempForm);
-    tempForm.submit();
-  }
-
-  validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-
-  showMessage(messageDiv, message, type) {
-    messageDiv.textContent = message;
-    messageDiv.classList.remove('success', 'error');
-    messageDiv.classList.add(type);
-    messageDiv.hidden = false;
-  }
-
-  handleSuccess(messageDiv, form, formWrapper) {
-    this.showMessage(messageDiv, 'Success! You\'ll be notified when this item is back in stock.', 'success');
-    form.reset();
-    setTimeout(() => {
-      this.hideNotifyForm(formWrapper);
-    }, 3000);
-  }
 
   updateButtonState() {
     const button = document.querySelector('.product-form__submit');
