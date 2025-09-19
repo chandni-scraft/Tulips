@@ -90,6 +90,10 @@
             "spacing_bottom": "3"
           }
         },
+        "es_back_in_stock_product_restore_email_yW4PKD": {
+          "type": "shopify://apps/es-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
+          "settings": {}
+        },
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8": {
           "type": "buy_buttons",
           "settings": {
@@ -252,6 +256,7 @@
         "sku_HNK7Ka",
         "custom_text_n7XG8i",
         "divider_HGwyhB",
+        "es_back_in_stock_product_restore_email_yW4PKD",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
