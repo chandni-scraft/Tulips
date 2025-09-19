@@ -39,6 +39,7 @@
     <script src="{{- 'bodyScrollLock.min.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'pubsub.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'global.js' | asset_url -}}" defer="defer"></script>
+    <script src="{{- 'notify-me.js' | asset_url -}}" defer="defer"></script>
     <noscript>
       <style>
         img[loading='lazy'] { opacity: 1; }
@@ -52,6 +53,7 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'notify-me.css' | asset_url | stylesheet_tag }}
     {% render 'css', css: 'component-drawer.css' %}
 
     {%- if settings.enable_predictive_search -%}
@@ -132,6 +134,9 @@
         unavailable: '{{ 'product.unavailable' | t }}',
         soldOut: '{{ 'product.sold_out' | t }}',
         addSubscriptionToCart: 'Add subscription to cart'
+      }
+      window.shopifyTranslations = {
+        notify_me_button: '{{ 'product.notify_me_button' | t | default: 'Notify me' }}'
       }
       window.validationStrings = {
         invalidEmail: '{{ 'theme.form.invalid_email' | t }}'

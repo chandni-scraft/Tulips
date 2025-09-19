@@ -163,12 +163,15 @@
           id="ProductSubmitButton-{{ section_id }}"
           type="submit"
           name="add"
-          class="product-form__submit button button--filled uppercase button--full"
+          class="product-form__submit button button--filled uppercase button--full{% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %} notify-me-trigger{% endif %}"
           {% if product.selected_or_first_available_variant.available == false
             or quantity_rule_soldout
             or product.selected_or_first_available_variant == null
           %}
             disabled
+          {% endif %}
+          {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+            data-action="notify-me"
           {% endif %}
         >
           <span>
@@ -177,7 +180,8 @@
             {%- elsif product.selected_or_first_available_variant == null -%}
               {{ 'product.unavailable' | t }}
             {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-              {{ 'product.sold_out' | t }}
+              <span class="sold-out-text hidden">{{ 'product.sold_out' | t }}</span>
+              <span class="notify-me-text">{{ 'product.notify_me' | t | default: 'Notify me' }}</span>
             {%- else -%}
               {{ 'theme.actions.add_to_cart' | t }}
             {%- endif -%}
@@ -199,6 +203,43 @@
         <span class="product-form__error-message"></span>
       </div>
     {%- endform -%}
+    
+    {%- comment -%} Out of stock notification form {%- endcomment -%}
+    <div class="notify-me-form-wrapper" data-product-id="{{ product.id }}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" hidden>
+      <form class="notify-me-form" novalidate>
+        <div class="notify-me-form__header">
+          <h3>{{ 'product.notify_when_available' | t | default: 'Notify me when available' }}</h3>
+          <button type="button" class="notify-me-form__close" aria-label="{{ 'theme.actions.close' | t | default: 'Close' }}">
+            {% render 'icon', icon_name: 'theme-close' %}
+          </button>
+        </div>
+        <div class="notify-me-form__content">
+          <p>{{ 'product.notify_description' | t | default: 'Enter your email to be notified when this product is back in stock.' }}</p>
+          <div class="field">
+            <input
+              type="email"
+              name="email"
+              id="notify-me-email-{{ section.id }}"
+              class="field__input"
+              required
+              autocomplete="email"
+              placeholder="{{ 'customer.email' | t | default: 'Email' }}"
+              aria-required="true"
+            >
+            <label for="notify-me-email-{{ section.id }}" class="field__label visually-hidden">
+              {{ 'customer.email' | t | default: 'Email' }}
+            </label>
+          </div>
+          <button type="submit" class="button button--full-width button--primary notify-me-form__submit">
+            <span class="button-text">{{ 'product.notify_me_button' | t | default: 'Notify me' }}</span>
+            <div class="loading__spinner hidden">
+              {%- render 'loading-spinner' -%}
+            </div>
+          </button>
+          <div class="notify-me-form__message" role="alert" hidden></div>
+        </div>
+      </form>
+    </div>
   </product-form>
 {%- else -%}
   <div class="product-form">
