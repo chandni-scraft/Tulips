@@ -84,24 +84,34 @@ class NotifyMe {
     try {
       // Try using the hidden Shopify form approach
       const hiddenForm = document.getElementById('notify-me-contact-form');
+      console.log('Hidden form found:', !!hiddenForm);
       
       if (hiddenForm) {
         // Use the Shopify form with proper CSRF protection
         const emailInput = hiddenForm.querySelector('#notify-email-hidden');
         const bodyInput = hiddenForm.querySelector('#notify-body-hidden');
         
+        if (!emailInput || !bodyInput) {
+          console.error('Hidden form inputs not found');
+          throw new Error('Form configuration error');
+        }
+        
         emailInput.value = email;
         bodyInput.value = `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`;
         
         const formData = new FormData(hiddenForm);
-        const response = await fetch(hiddenForm.action, {
+        const response = await fetch(hiddenForm.action || '/contact', {
           method: 'POST',
           body: new URLSearchParams(formData)
         });
         
+        console.log('Hidden form response:', response.status, response.ok, response.redirected);
+        
         if (response.ok || response.redirected || response.status === 302) {
           this.handleSuccess(messageDiv, form, formWrapper);
         } else {
+          const responseText = await response.text();
+          console.error('Form submission failed with response:', responseText);
           throw new Error('Form submission failed');
         }
       } else {
@@ -112,6 +122,7 @@ class NotifyMe {
         formBody.append('contact[email]', email);
         formBody.append('contact[body]', `Back in stock notification request:\n\nProduct: ${productTitle}\nVariant: ${variantTitle}\nProduct ID: ${productId}\nVariant ID: ${variantId}`);
         
+        console.log('Using direct submission fallback');
         const response = await fetch('/contact', {
           method: 'POST',
           headers: {
@@ -120,16 +131,27 @@ class NotifyMe {
           body: formBody.toString()
         });
         
+        console.log('Direct submission response:', response.status, response.ok, response.redirected);
+        
         if (response.ok || response.redirected || response.status === 302) {
           this.handleSuccess(messageDiv, form, formWrapper);
         } else {
+          const responseText = await response.text();
+          console.error('Direct submission failed with response:', responseText);
           throw new Error('Direct submission failed');
         }
       }
 
     } catch (error) {
       console.error('Error submitting notification:', error);
-      this.showMessage(messageDiv, 'Sorry, there was an error. Please try again.', 'error');
+      // Try to provide more specific error message
+      let errorMessage = 'Sorry, there was an error. Please try again.';
+      if (error.message && error.message.includes('NetworkError')) {
+        errorMessage = 'Network error. Please check your connection and try again.';
+      } else if (error.message && error.message.includes('Failed')) {
+        errorMessage = 'Failed to submit. Please try again later.';
+      }
+      this.showMessage(messageDiv, errorMessage, 'error');
     } finally {
       submitButton.disabled = false;
       buttonText.textContent = window.shopifyTranslations?.notify_me_button || 'Notify me';
