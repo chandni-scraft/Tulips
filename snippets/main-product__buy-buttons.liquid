@@ -186,12 +186,10 @@
             {%- render 'loading-spinner' -%}
           </div>
         </button>
-        {% comment %}
-          {%- if product.metafields.theme.preorder.value != true -%}
-            {{ form | payment_button }}
-          {%- endif -%}
-        {% endcomment %}
-        {{ form | payment_button }}
+        {%- comment -%} Show Buy Now button only for in-stock products {%- endcomment -%}
+        {%- if product.selected_or_first_available_variant.available and quantity_rule_soldout == false -%}
+          {{ form | payment_button }}
+        {%- endif -%}
       </div>
 
       <div class="product-form__error-message-wrapper" role="alert" hidden>
