@@ -16,7 +16,7 @@
         "*/h1 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}"
       ],
       "settings": {
-        "heading": "",
+        "heading": "{{ collection.title }}",
         "heading_size": "h3",
         "text": "",
         "show_default_description": false,
