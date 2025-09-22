@@ -5,6 +5,16 @@
   render 'products-feed', section: section, url: url
 -%}
 
+{%- style -%}
+  /* Fixed width for Buy Now button in product recommendations */
+  #shopify-section-{{ section.id }} .shopify-payment-button__button {
+    width: 152.45px !important;
+    flex: 0 0 152.45px !important;
+    display: inline-block;
+    text-align: center;
+  }
+{%- endstyle -%}
+
 {% schema %}
 {
   "name": "t:sections.product-recommendations.name",

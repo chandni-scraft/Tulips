@@ -7,6 +7,13 @@
   .swiper-buttons--center-{{ section.id }} {
     display: none !important;
   }
+  /* Fixed width for Buy Now button in featured products */
+  #shopify-section-{{ section.id }} .shopify-payment-button__button {
+    width: 152.45px !important;
+    flex: 0 0 152.45px !important;
+    display: inline-block;
+    text-align: center;
+  }
   
   /* Custom Button Colors for Section {{ section.id }} */
   {% if section.settings.button_color_scheme == 'custom' %}
