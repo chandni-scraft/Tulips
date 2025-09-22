@@ -19,6 +19,13 @@
   }
   /* Hide dynamic Buy Now buttons inside collection product cards */
   #shopify-section-{{ section.id }} .shopify-payment-button { display: none !important; }
+  /* Fixed width for Notify me button on collection cards */
+  #shopify-section-{{ section.id }} .js-notify-me-btn {
+    width: 152.45px !important;
+    flex: 0 0 152.45px !important;
+    display: inline-block;
+    text-align: center;
+  }
   @media screen and (min-width: 750px) {
     #shopify-section-{{ section.id }} > div {
       --products_per_row: {{ section.settings.products_per_row }};
