@@ -24,6 +24,7 @@
     <meta name="msvalidate.01" content="CDEE92E8AD2D7D8FC427033C26265951" />
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -36,9 +37,46 @@
     {% render 'meta-tags' %}
     {% render 'structured-data' %}
 
+    {{ 'global.js' | asset_url | preload_tag: as: 'script' }}
     <script src="{{- 'swiper-bundle.min.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'bodyScrollLock.min.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'pubsub.js' | asset_url -}}" defer="defer"></script>
+    <script>
+      (function() {
+        const originalAddEventListener = window.addEventListener;
+        const handlerCache = new WeakMap();
+        window.addEventListener = function(type, listener, options) {
+          if (type === 'scroll' && typeof listener === 'function' && listener.name === 'updateVisibleHeightsOfAnnouncementBars') {
+            let wrapped = handlerCache.get(listener);
+            if (!wrapped) {
+              let ticking = false;
+              wrapped = function(event) {
+                if (ticking) {
+                  return;
+                }
+                ticking = true;
+                const context = this;
+                requestAnimationFrame(() => {
+                  listener.call(context, event);
+                  ticking = false;
+                });
+              };
+              handlerCache.set(listener, wrapped);
+            }
+            let normalizedOptions;
+            if (typeof options === 'boolean') {
+              normalizedOptions = { capture: options, passive: true };
+            } else if (typeof options === 'object' && options !== null) {
+              normalizedOptions = Object.assign({}, options, { passive: true });
+            } else {
+              normalizedOptions = { passive: true };
+            }
+            return originalAddEventListener.call(this, type, wrapped, normalizedOptions);
+          }
+          return originalAddEventListener.call(this, type, listener, options);
+        };
+      })();
+    </script>
     <script src="{{- 'global.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'notify-me.js' | asset_url -}}" defer="defer"></script>
     <noscript>
@@ -52,8 +90,8 @@
 
     {%- render 'settings' -%}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
     {% render 'css', css: 'component-drawer.css' %}
 
     {%- if settings.enable_predictive_search -%}
@@ -76,7 +114,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin>
   </head>
 
   <body class="template template--{{ template.name }}{% if template.suffix %} template--{{- template.suffix -}}{% endif %} is-at-top">

@@ -12,9 +12,13 @@
   assign widths = widths | default: 'auto'
   assign sizes = sizes | default: 'auto'
 
+  assign original_loading = loading
+  assign original_fetchpriority = fetchpriority
+
   # assign attr = attr | default: false
 
   assign loading = loading | default: 'lazy'
+  assign fetchpriority = fetchpriority | default: ''
   # set default section_index value
   if section.location == 'header' or section.location == 'template'
     assign default_section_index = section.index | default: 3
@@ -23,8 +27,16 @@
   endif
   assign section_index = section.index | default: default_section_index
   if section_index < 2
-    assign loading = 'eager'
-    assign fetchpriority = 'high'
+    if original_loading == blank
+      assign loading = 'eager'
+    endif
+    if original_fetchpriority == blank
+      assign fetchpriority = 'high'
+    endif
+  endif
+
+  if fetchpriority == ''
+    assign fetchpriority = nil
   endif
 
   # media index
@@ -158,6 +170,9 @@
     {% endif %}
     {% if srcset %}
       srcset="{{ srcset }}"
+    {% endif %}
+    {% if fetchpriority %}
+      fetchpriority="{{ fetchpriority }}"
     {% endif %}
     {% if attr %}
       {{- attr -}}

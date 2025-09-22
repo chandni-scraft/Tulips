@@ -1,21 +1,13 @@
 {% assign zoom_modal = section.settings.display_media_zoom %}
 {% comment %} This prevents init without save on customiser {% endcomment %}
 {% comment %} {% unless zoom_modal == 'none' %} {% endcomment %}
-<link
-  data-photoswipe
-  rel="stylesheet"
-  href="{{- 'photoswipe.css' | asset_url -}}"
-  media="print"
-  onload="this.media='all'"
->
+{% render 'photoswipe-assets' %}
 <link
   rel="stylesheet"
   href="{{- 'product-auto-scroll.css' | asset_url -}}"
   media="print"
   onload="this.media='all'"
 >
-<script data-photoswipe src="{{- 'photoswipe.umd.min.js' | asset_url -}}" defer="defer"></script>
-<script data-photoswipe src="{{- 'photoswipe-lightbox.umd.min.js' | asset_url -}}" defer="defer"></script>
 {% comment %} {% endunless %} {% endcomment %}
 
 <script src="{{ 'product-media-gallery.js' | asset_url }}" defer="defer"></script>

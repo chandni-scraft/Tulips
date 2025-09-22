@@ -7,9 +7,7 @@
 {{- 'section-highlighted-product.css' | asset_url | stylesheet_tag -}}
 
 {%- unless section.settings.disable_media_zoom -%}
-  <link rel="stylesheet" href="{{- 'photoswipe.css' | asset_url -}}" media="print" onload="this.media='all'">
-  <script src="{{- 'photoswipe-lightbox.umd.min.js' | asset_url -}}" defer="defer"></script>
-  <script src="{{- 'photoswipe.umd.min.js' | asset_url -}}" defer="defer"></script>
+  {% render 'photoswipe-assets' %}
 {%- endunless -%}
 
 <script src="{{- 'highlighted-product-media.js' | asset_url -}}" defer="defer"></script>
