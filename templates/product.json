@@ -250,6 +250,10 @@
             "review_data": "sample_data",
             "max_width": 1200
           }
+        },
+        "judge_me_reviews_verified_badge_FKJWeV": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
@@ -277,7 +281,8 @@
         "content_block_3he3xX",
         "content_block_pLRYRF",
         "content_block_tLEMR6",
-        "judge_me_reviews_review_widget_gdjc7n"
+        "judge_me_reviews_review_widget_gdjc7n",
+        "judge_me_reviews_verified_badge_FKJWeV"
       ],
       "custom_css": [
         ".product-button__goback--filled > span,.product-button__goback--text > span.button--text {font-size: 12px !important;}",
