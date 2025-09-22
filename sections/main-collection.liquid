@@ -17,6 +17,8 @@
   #shopify-section-{{ section.id }} .collection__grid {
     grid-auto-rows: minmax(var(--collection-product-card-height), auto);
   }
+  /* Hide dynamic Buy Now buttons inside collection product cards */
+  #shopify-section-{{ section.id }} .shopify-payment-button { display: none !important; }
   @media screen and (min-width: 750px) {
     #shopify-section-{{ section.id }} > div {
       --products_per_row: {{ section.settings.products_per_row }};
@@ -172,6 +174,46 @@
     {%- endpaginate -%}
   </div>
 </div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    var gridContainer = document.getElementById('ProductGridContainer');
+
+    function addNotifyButtons(root) {
+      if (!root) return;
+      var cards = root.querySelectorAll('product-card.product-card__sold-out');
+      cards.forEach(function(card) {
+        if (card.querySelector('.js-notify-me-btn')) return;
+        var linkEl = card.querySelector('[data-product-link]');
+        var href = linkEl ? linkEl.getAttribute('href') : '#';
+        var target = card.querySelector('.product-card__options') || card.querySelector('.product-card__content') || card;
+        var wrap = document.createElement('div');
+        wrap.className = 'product-card__notify';
+        wrap.innerHTML = '<a href="' + href + '" class="button button--filled js-notify-me-btn">Notify me</a>';
+        target.appendChild(wrap);
+      });
+    }
+
+    function observeGrid(root) {
+      if (!root || !('MutationObserver' in window)) return;
+      var mo = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          m.addedNodes && m.addedNodes.forEach(function(n) {
+            if (n.nodeType === 1) addNotifyButtons(n);
+          });
+        });
+      });
+      mo.observe(root, { childList: true, subtree: true });
+    }
+
+    addNotifyButtons(gridContainer || section || document);
+    observeGrid(gridContainer || section);
+    document.addEventListener('shopify:section:load', function() {
+      addNotifyButtons(gridContainer || section || document);
+    });
+  })();
+</script>
 
 {% schema %}
 {
