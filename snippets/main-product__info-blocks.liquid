@@ -17,6 +17,10 @@
   {% assign content_grid_settings = section.blocks | where: 'type', 'content_grid' %}
 
   {%- for block in section.blocks -%}
+    {%- comment -%} Skip @app blocks as they are rendered separately below the gallery {%- endcomment -%}
+    {%- if block.type == '@app' -%}
+      {%- continue -%}
+    {%- endif -%}
     {%- assign product_block_spacing = block.settings.spacing_bottom | default: '1' %}
     {%- assign product_block_class = 'product__block product__block--gap-' | append: product_block_spacing -%}
     {%- case block.type -%}
@@ -897,10 +901,6 @@
           </div>
         {% endif %}
 
-      {%- else -%}
-        <div class="product__app-block" {{ block.shopify_attributes }}>
-          {%- render block -%}
-        </div>
     {%- endcase -%}
   {%- endfor -%}
 </section>
