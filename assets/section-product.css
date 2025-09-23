@@ -1376,7 +1376,7 @@ product-tabs {
 }
 
 .product__sticky-cart .button svg path {
-  stroke: rgb(var(--color-background));
+  stroke: #a4c86e;
 }
 
 .product__sticky-cart .product__sticky-cart-wrapper {
