@@ -23,32 +23,11 @@
 }
 </script>
 
-{%- if template.name == 'product' and product -%}
-  {%- assign selected_or_first_available_variant = product.selected_or_first_available_variant -%}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "description": {{ product.description | strip_html | strip_newlines | truncate: 5000 | json }},
-    "sku": {{ selected_or_first_available_variant.sku | json }},
-    {% if product.featured_image %}
-    "image": [{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}],
-    {% endif %}
-    "brand": {
-      "@type": "Brand",
-      "name": {{ product.vendor | default: shop.name | json }}
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": {{ cart.currency.iso_code | json }},
-      "price": {{ selected_or_first_available_variant.price | money_without_currency | replace: ',', '' | json }},
-      "availability": {{ selected_or_first_available_variant.available | default: false | ternary: 'https://schema.org/InStock', 'https://schema.org/OutOfStock' | json }},
-      "url": {{ product.url | prepend: request.origin | json }}
-    }
-  }
-  </script>
-{%- endif -%}
+{%- comment -%}
+  Product JSON-LD is intentionally omitted here to avoid duplicating
+  Shopify's built-in `{{ product | structured_data }}` output in
+  `sections/main-product.liquid`.
+{%- endcomment -%}
 
 {%- if template.name == 'collection' and collection -%}
   <script type="application/ld+json">
