@@ -16,9 +16,12 @@
 
   {% assign content_grid_settings = section.blocks | where: 'type', 'content_grid' %}
 
+  {%- assign app_blocks = section.blocks | where: 'type', '@app' -%}
+  {%- assign last_app_block = app_blocks | last -%}
+
   {%- for block in section.blocks -%}
-    {%- comment -%} Skip @app blocks as they are rendered separately below the gallery {%- endcomment -%}
-    {%- if block.type == '@app' -%}
+    {%- comment -%} Skip only the last @app block (full reviews) which is rendered under gallery {%- endcomment -%}
+    {%- if block.type == '@app' and last_app_block and block.id == last_app_block.id -%}
       {%- continue -%}
     {%- endif -%}
     {%- assign product_block_spacing = block.settings.spacing_bottom | default: '1' %}

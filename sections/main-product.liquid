@@ -201,15 +201,14 @@
 
             {% comment %} End Media description {% endcomment %}
 
-            {% comment %} REVIEW WIDGETS DIRECTLY UNDER GALLERY (inside media column) {% endcomment %}
+            {% comment %} REVIEW WIDGET DIRECTLY UNDER GALLERY (render only the last @app block) {% endcomment %}
             {%- assign review_blocks = section.blocks | where: 'type', '@app' -%}
-            {%- if review_blocks.size > 0 -%}
+            {%- assign last_review_block = review_blocks | last -%}
+            {%- if last_review_block -%}
               <div class="product__review-widgets" style="margin-top: 2rem;">
-                {%- for block in review_blocks -%}
-                  <div class="product__app-block" {{ block.shopify_attributes }}>
-                    {%- render block -%}
-                  </div>
-                {%- endfor -%}
+                <div class="product__app-block" {{ last_review_block.shopify_attributes }}>
+                  {%- render last_review_block -%}
+                </div>
               </div>
             {%- endif -%}
           </div>
