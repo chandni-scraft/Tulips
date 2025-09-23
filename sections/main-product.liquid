@@ -200,6 +200,18 @@
             {% endfor %}
 
             {% comment %} End Media description {% endcomment %}
+
+            {% comment %} REVIEW WIDGETS DIRECTLY UNDER GALLERY (inside media column) {% endcomment %}
+            {%- assign review_blocks = section.blocks | where: 'type', '@app' -%}
+            {%- if review_blocks.size > 0 -%}
+              <div class="product__review-widgets" style="margin-top: 2rem;">
+                {%- for block in review_blocks -%}
+                  <div class="product__app-block" {{ block.shopify_attributes }}>
+                    {%- render block -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
           </div>
         {% endif %}
         {% comment %} PRODUCT INFO & DETAILS {% endcomment %}
@@ -227,17 +239,6 @@
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
-                {% comment %} REVIEW WIDGETS BELOW GALLERY {% endcomment %}
-      {%- assign review_blocks = section.blocks | where: 'type', '@app' -%}
-      {%- if review_blocks.size > 0 -%}
-        <div class="product__review-widgets" style="margin-top: 2rem;">
-          {%- for block in review_blocks -%}
-            <div class="product__app-block" {{ block.shopify_attributes }}>
-              {%- render block -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
               </div>
               <div class="product__sticky-cart--info-text">
                 <h5 class="product__title">{{- product.title -}}</h5>
