@@ -210,17 +210,7 @@
         </div>
       </div>
 
-      {% comment %} REVIEW WIDGETS BELOW GALLERY {% endcomment %}
-      {%- assign review_blocks = section.blocks | where: 'type', '@app' -%}
-      {%- if review_blocks.size > 0 -%}
-        <div class="product__review-widgets" style="margin-top: 2rem;">
-          {%- for block in review_blocks -%}
-            <div class="product__app-block" {{ block.shopify_attributes }}>
-              {%- render block -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
+      
 
       {% if section.settings.enable_actions_bar %}
         <div id="ProductStickyCart-{{ section.id }}" class="product__sticky-cart is-hidden">
@@ -237,6 +227,17 @@
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
+                {% comment %} REVIEW WIDGETS BELOW GALLERY {% endcomment %}
+      {%- assign review_blocks = section.blocks | where: 'type', '@app' -%}
+      {%- if review_blocks.size > 0 -%}
+        <div class="product__review-widgets" style="margin-top: 2rem;">
+          {%- for block in review_blocks -%}
+            <div class="product__app-block" {{ block.shopify_attributes }}>
+              {%- render block -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
               </div>
               <div class="product__sticky-cart--info-text">
                 <h5 class="product__title">{{- product.title -}}</h5>
