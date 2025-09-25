@@ -264,7 +264,9 @@
     flex-direction: row !important;
     gap: 8px !important;
   }
-  
+  .mobile_hidden_atc .shopify-payment-button__button{
+    padding:1.2rem !important;
+  }
   .mobile_hidden_atc > div {
     width: 100% !important;
   }
