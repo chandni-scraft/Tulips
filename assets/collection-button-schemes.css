@@ -261,7 +261,7 @@
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .mobile_hidden_atc {
-    flex-direction: column !important;
+    flex-direction: row !important;
     gap: 8px !important;
   }
   
