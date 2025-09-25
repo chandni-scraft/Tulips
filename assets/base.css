@@ -2186,6 +2186,9 @@ shopify-accelerated-checkout-cart {
 }
 
 @media screen and (max-width: 749px) {
+  .button.button--icon {
+    padding:1.2rem !important;
+  }
   .form-row--double {
     grid-template-columns: 1fr;
   }
