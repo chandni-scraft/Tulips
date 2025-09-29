@@ -144,6 +144,16 @@
         assign header_menu_text_color = block.settings.header_menu_text_color.red | append: ', ' | append: block.settings.header_menu_text_color.green | append: ', ' | append: block.settings.header_menu_text_color.blue
       -%}
 
+      {%- if forloop.first -%}
+        {%- assign desktop_loading = 'eager' -%}
+        {%- assign desktop_fetchpriority = 'high' -%}
+      {%- else -%}
+        {%- assign desktop_loading = 'lazy' -%}
+        {%- assign desktop_fetchpriority = 'low' -%}
+      {%- endif -%}
+      {%- assign mobile_loading = desktop_loading -%}
+      {%- assign mobile_fetchpriority = desktop_fetchpriority -%}
+
       <div class="hero__inner {{ block.settings.banner_layout }} {{ hero_enable_media_overlay | strip }}" data-header-menu-text-color="{{ header_menu_text_color }}">
         {% capture media_element %}
           {%- comment -%}Desktop media{%- endcomment -%}
@@ -161,7 +171,7 @@
                 {%- if block_link != blank -%}
                   <a href="{{ block_link }}">
                 {%- endif -%}
-                  {%- render 'image', image: block.settings.image, width: 2160, alt: block.settings.image.alt | default: block.settings.heading -%}
+                  {%- render 'image', image: block.settings.image, width: 2160, alt: block.settings.image.alt | default: block.settings.heading, loading: desktop_loading, fetchpriority: desktop_fetchpriority -%}
                 {%- if block_link != blank -%}
                   </a>
                 {%- endif -%}
@@ -187,7 +197,7 @@
                   {%- if block_link != blank -%}
                     <a href="{{ block_link }}">
                   {%- endif -%}
-                    {%- render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading -%}
+                    {%- render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading, loading: mobile_loading, fetchpriority: mobile_fetchpriority -%}
                   {%- if block_link != blank -%}
                     </a>
                   {%- endif -%}

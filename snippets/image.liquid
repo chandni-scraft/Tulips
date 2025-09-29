@@ -49,6 +49,18 @@
     endif
   endif
 
+  assign decoding = decoding | default: ''
+  if decoding == ''
+    if loading == 'eager'
+      assign decoding = 'auto'
+    else
+      assign decoding = 'async'
+    endif
+  endif
+  if decoding == ''
+    assign decoding = nil
+  endif
+
   assign min_image_width = 128
 
   # image optimization
@@ -149,6 +161,7 @@
       sizes: sizes,
       loading: loading,
       fetchpriority: fetchpriority,
+      decoding: decoding,
       attr: attr
   }}
 {%- else -%}
@@ -173,6 +186,9 @@
     {% endif %}
     {% if fetchpriority %}
       fetchpriority="{{ fetchpriority }}"
+    {% endif %}
+    {% if decoding %}
+      decoding="{{ decoding }}"
     {% endif %}
     {% if attr %}
       {{- attr -}}
