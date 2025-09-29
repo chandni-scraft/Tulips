@@ -44,6 +44,7 @@
     },
     "banner_below_img_4HEkF3": {
       "type": "banner-below-img",
+      "disabled": true,
       "settings": {
         "wave_image": "shopify://shop_images/Group_7381_9689a597-ce59-494d-8a4d-1615b0011373.svg"
       }
