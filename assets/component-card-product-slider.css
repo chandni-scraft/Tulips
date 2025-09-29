@@ -58,8 +58,12 @@ html.no-js .card-product-slider__slide + .card-product-slider__slide {
     margin-inline-end: auto;
   }
 
+  html .card-product-slider {
+    overflow: hidden;
+  }
+
   .swiper-wrapper.card-product-slider__wrapper {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 

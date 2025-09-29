@@ -1,4 +1,4 @@
-/* Release Theme - v1.0.8 */
+﻿/* Release Theme - v1.0.8 */
 
 *,
 *::before,
@@ -5055,4 +5055,39 @@ quick-cart-drawer {
   display: none !important;
 }
 
+
+@media screen and (max-width: 749px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .rte table,
+  table {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .rte table td,
+  .rte table th,
+  table td,
+  table th {
+    word-break: break-word;
+    white-space: normal;
+  }
+  .rte table img,
+  table img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .instafeed-new-layout,
+  .instafeed-new-layout-container,
+  .instafeed-new-layout-item,
+  .instafeed-new-layout-item-container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
 

@@ -1324,6 +1324,9 @@ product-tabs {
   inset-inline: 0;
   z-index: 3;
   width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   border-block-end: 0.1rem solid rgba(var(--color-border), var(--alpha-border));
