@@ -119,14 +119,6 @@
         unless block.settings.enable_media_overlay_mobile
           assign hero_enable_media_overlay = hero_enable_media_overlay | append: ' small-hide-media-overlay'
         endunless
-        assign hero_primary_slide = section.index0 == 0 and forloop.first
-        if hero_primary_slide
-          assign hero_media_loading = 'eager'
-          assign hero_media_fetchpriority = 'high'
-        else
-          assign hero_media_loading = 'lazy'
-          assign hero_media_fetchpriority = ''
-        endif
       %}
 
       {%- liquid
@@ -170,7 +162,7 @@
   {%- if link != blank -%}
     <a href="{{ link }}">
   {%- endif -%}
-    {%- render 'image', image: image, width: 2160, alt: image.alt | default: block.settings.heading, loading: hero_media_loading, fetchpriority: hero_media_fetchpriority -%}
+    {%- render 'image', image: image, width: 2160, alt: image.alt | default: block.settings.heading -%}
   {%- if link != blank -%}
     </a>
   {%- endif -%}
@@ -193,13 +185,22 @@
               </div>
             {%- else -%}
               <div class="media media--overlay hero__media small-up-hide">
-                {%- liquid
-                  if block.settings.image_mobile != blank
-                    render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading, loading: hero_media_loading, fetchpriority: hero_media_fetchpriority
-                  else
-                    echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'
-                  endif
-                -%}
+               {%- liquid
+  if block.settings.image_mobile != blank
+    if link != blank
+      echo '<a href="' | append: link | append: '">'
+    endif
+
+    render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading
+
+    if link != blank
+      echo '</a>'
+    endif
+  else
+    echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'
+  endif
+-%}
+
               </div>
             {%- endif -%}
           {%- endif -%}
