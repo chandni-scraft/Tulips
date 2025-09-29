@@ -12,8 +12,8 @@
     "page_banner_6kWj4z": {
       "type": "page-banner",
       "custom_css": [
-        "h2 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700; }",
-        "h1 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;display:none;}"
+        "h2 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700;}",
+        "h1 {font-family: \"TT Neoris\", sans-serif !important; font-weight: 700; display: none;}"
       ],
       "settings": {
         "heading": "",
@@ -26,7 +26,7 @@
         "media_position": "background",
         "page_menu": "",
         "enable_breadcrumbs": false,
-        "section_height": "33svh",
+        "section_height": "auto",
         "image": "shopify://shop_images/boman-irani-launch-adult-diapers-d.webp",
         "video_external": "",
         "show_controls_on_video": false,
