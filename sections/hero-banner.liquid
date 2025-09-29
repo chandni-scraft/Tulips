@@ -137,6 +137,10 @@
           assign has_mobile_media = true
         endif
 
+        assign block_link = block.settings.link
+        if block_link == blank and block.settings.button_link_1_type == 'card'
+          assign block_link = block.settings.button_link_1
+        endif
         assign header_menu_text_color = block.settings.header_menu_text_color.red | append: ', ' | append: block.settings.header_menu_text_color.green | append: ', ' | append: block.settings.header_menu_text_color.blue
       -%}
 
@@ -153,23 +157,17 @@
             </div>
           {%- else -%}
             <div class="media media--overlay hero__media {% if has_mobile_media %} small-hide{% endif %}">
-             {%- liquid
-  assign image = block.settings.image
-  assign link = block.settings.link
--%}
-
-{%- if image != blank -%}
-  {%- if link != blank -%}
-    <a href="{{ link }}">
-  {%- endif -%}
-    {%- render 'image', image: image, width: 2160, alt: image.alt | default: block.settings.heading -%}
-  {%- if link != blank -%}
-    </a>
-  {%- endif -%}
-{%- else -%}
-  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-{%- endif -%}
-
+              {%- if block.settings.image != blank -%}
+                {%- if block_link != blank -%}
+                  <a href="{{ block_link }}">
+                {%- endif -%}
+                  {%- render 'image', image: block.settings.image, width: 2160, alt: block.settings.image.alt | default: block.settings.heading -%}
+                {%- if block_link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
             </div>
           {%- endif -%}
 
@@ -185,22 +183,17 @@
               </div>
             {%- else -%}
               <div class="media media--overlay hero__media small-up-hide">
-               {%- liquid
-  if block.settings.image_mobile != blank
-    if link != blank
-      echo '<a href="' | append: link | append: '">'
-    endif
-
-    render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading
-
-    if link != blank
-      echo '</a>'
-    endif
-  else
-    echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'
-  endif
--%}
-
+                {%- if block.settings.image_mobile != blank -%}
+                  {%- if block_link != blank -%}
+                    <a href="{{ block_link }}">
+                  {%- endif -%}
+                    {%- render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading -%}
+                  {%- if block_link != blank -%}
+                    </a>
+                  {%- endif -%}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
               </div>
             {%- endif -%}
           {%- endif -%}
