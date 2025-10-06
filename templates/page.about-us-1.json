@@ -12,7 +12,7 @@
     "page_banner_6yAtaC": {
       "type": "page-banner",
       "custom_css": [
-        ".h2 {font-family: \"TT Neoris\", sans-serif; font-weight: 700; letter-spacing: 1.2px; font-size: 44px;}"
+        ".h2 {font-family: \"TT Neoris\", sans-serif; font-weight: 700; letter-spacing: 1.2px; font-size: 40px;}"
       ],
       "settings": {
         "heading": "{{ page.title }}",
