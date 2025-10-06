@@ -173,8 +173,12 @@
           return;
         }
 
+        // YouTube requires autoplay to be muted, so if autoplay is enabled, force mute to 1
+        const autoplayValue = this.autoplay ? '1' : '0';
+        const muteValue = this.autoplay ? '1' : (this.mute ? '1' : '0');
+
         // Use the same parameters as the working external-video snippet
-        let params = 'autoplay=1&controls=' + (this.showControls ? '1' : '0') + '&fs=0&loop=' + (this.loop ? '1' : '0') + '&playsinline=1&mute=' + (this.mute ? '1' : '0') + '&iv_load_policy=3&rel=0&enablejsapi=1&disablekb=1&color=white';
+        let params = 'autoplay=' + autoplayValue + '&controls=' + (this.showControls ? '1' : '0') + '&fs=0&loop=' + (this.loop ? '1' : '0') + '&playsinline=1&mute=' + muteValue + '&iv_load_policy=3&rel=0&enablejsapi=1&disablekb=1&color=white';
 
         // Add playlist for loop functionality
         if (this.loop) {
