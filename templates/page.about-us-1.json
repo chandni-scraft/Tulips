@@ -147,6 +147,17 @@
         "spacing_bottom": "2"
       }
     },
+    "custom_liquid_D8DEKt": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "{% style %}\n  @media screen and (min-width: 750px) {\n    #shopify-section-{{ section.id }} {\n      margin-top: 20px;\n    \n    }\n  }\n{% endstyle %}",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "1759730676d6a1d74d": {
       "type": "_blocks",
       "blocks": {
@@ -307,6 +318,7 @@
     "banner_below_img_E9Cpmm",
     "tulips_section_1_eqpKQk",
     "03a45767-3819-40b4-a750-ab1add481edc",
+    "custom_liquid_D8DEKt",
     "1759730676d6a1d74d",
     "custom_liquid_bQWdTY",
     "hero_banner_HRLgTV",
