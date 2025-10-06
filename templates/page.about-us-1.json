@@ -9,38 +9,6 @@
  */
 {
   "sections": {
-    "1759730676d6a1d74d": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_e01f165_VmVTii": {
-          "type": "ai_gen_block_e01f165",
-          "settings": {
-            "youtube_url": "https://youtu.be/N7_kwiZR1BA",
-            "aspect_ratio": "56.25",
-            "max_width": 800,
-            "show_controls": true,
-            "autoplay": true,
-            "mute": false,
-            "loop": false,
-            "heading": "",
-            "description": "",
-            "text_alignment": "center",
-            "background_color": "#ffffff",
-            "text_color": "#111111",
-            "border_radius": 8,
-            "heading_size": 28,
-            "description_size": 16,
-            "heading_spacing": 16,
-            "description_spacing": 16
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_e01f165_VmVTii"
-      ],
-      "settings": {}
-    },
     "page_banner_6yAtaC": {
       "type": "page-banner",
       "custom_css": [
@@ -179,6 +147,38 @@
         "spacing_bottom": "2"
       }
     },
+    "1759730676d6a1d74d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e01f165_VmVTii": {
+          "type": "ai_gen_block_e01f165",
+          "settings": {
+            "youtube_url": "https://youtu.be/N7_kwiZR1BA",
+            "aspect_ratio": "56.25",
+            "max_width": 800,
+            "show_controls": true,
+            "autoplay": true,
+            "mute": false,
+            "loop": false,
+            "heading": "",
+            "description": "",
+            "text_alignment": "center",
+            "background_color": "#ffffff",
+            "text_color": "#111111",
+            "border_radius": 8,
+            "heading_size": 28,
+            "description_size": 16,
+            "heading_spacing": 16,
+            "description_spacing": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e01f165_VmVTii"
+      ],
+      "settings": {}
+    },
     "hero_banner_HRLgTV": {
       "type": "hero-banner",
       "blocks": {
@@ -289,11 +289,11 @@
     }
   },
   "order": [
-    "1759730676d6a1d74d",
     "page_banner_6yAtaC",
     "banner_below_img_E9Cpmm",
     "tulips_section_1_eqpKQk",
     "03a45767-3819-40b4-a750-ab1add481edc",
+    "1759730676d6a1d74d",
     "hero_banner_HRLgTV",
     "brandabout_deiWRi",
     "corevalues_about_TEwaNT"
