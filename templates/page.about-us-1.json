@@ -153,12 +153,12 @@
         "ai_gen_block_e01f165_VmVTii": {
           "type": "ai_gen_block_e01f165",
           "settings": {
-            "youtube_url": "https://youtu.be/N7_kwiZR1BA",
+            "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             "aspect_ratio": "56.25",
             "max_width": 800,
             "show_controls": true,
             "autoplay": true,
-            "mute": false,
+            "mute": true,
             "loop": false,
             "heading": "",
             "description": "",
@@ -170,8 +170,7 @@
             "description_size": 16,
             "heading_spacing": 16,
             "description_spacing": 16
-          },
-          "blocks": {}
+          }
         }
       },
       "block_order": [
