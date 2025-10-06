@@ -176,7 +176,7 @@
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
             "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
+            "show_controls_on_video_mobile": true,
             "enable_media_overlay_mobile": true
           }
         }
