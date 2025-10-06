@@ -148,7 +148,7 @@
       }
     },
     "1759730676d6a1d74d": {
-      "type": "_blocks",
+      "type": "ai-blocks-wrapper",
       "blocks": {
         "ai_gen_block_e01f165_VmVTii": {
           "type": "ai_gen_block_e01f165",
@@ -177,7 +177,12 @@
       "block_order": [
         "ai_gen_block_e01f165_VmVTii"
       ],
-      "settings": {}
+      "settings": {
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
     },
     "hero_banner_HRLgTV": {
       "type": "hero-banner",

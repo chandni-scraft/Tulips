@@ -9,6 +9,8 @@
     width: 100%;
     max-width: {{ block.settings.max_width }}px;
     margin: 0 auto;
+    margin-top: {{ block.settings.margin_top | default: 0 }}px;
+    margin-bottom: {{ block.settings.margin_bottom | default: 0 }}px;
     background-color: {{ block.settings.background_color }};
     border-radius: {{ block.settings.border_radius }}px;
     overflow: hidden;
@@ -404,6 +406,26 @@
       "unit": "px",
       "label": "Description top spacing",
       "default": 16
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin bottom",
+      "default": 0
     }
   ],
   "presets": [
