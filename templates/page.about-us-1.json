@@ -216,6 +216,7 @@
       "block_order": [
         "slide_XjbAhP"
       ],
+      "disabled": true,
       "name": "t:sections.hero-banner.name",
       "settings": {
         "slider_height": 50,
