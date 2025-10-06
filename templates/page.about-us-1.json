@@ -47,6 +47,7 @@
     },
     "tulips_section_1_eqpKQk": {
       "type": "tulips-section-1",
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 768px) {.tulips-grid {display: grid; gap: 15px; grid-template-columns: 1fr; justify-items: center; padding: 10px 0; } .text-container {margin-top: -3%; }}"
       ],
@@ -235,6 +236,7 @@
     },
     "corevalues_about_TEwaNT": {
       "type": "corevalues-about",
+      "disabled": true,
       "custom_css": [
         ".our-core-values-container {margin-bottom: 10%;}",
         "h3 {font-family: \"TheSeasonsLT\", sans-serif;}"
