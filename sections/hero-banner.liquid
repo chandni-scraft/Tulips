@@ -11,6 +11,12 @@
   -%}
 
   {% style %}
+    .hero__media video,
+    .hero__media iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* or "contain" if you want full video visible without cropping */
+    }
     #shopify-section-{{ section.id }} {
       /* --inner-height: {% unless section.index0 == 0 -%}100svh{% else %}calc({{ section.settings.slider_height | default: '100' | append: 'svh' }} - var(--hero-banner-top)){% endunless %}; */
       --slideshow-pagination-progress-time: {{ section.settings.slideshow_autoplay_interval | times: slide_progress_multiplier }}ms;
@@ -44,6 +50,10 @@
     }
 
     @media screen and (min-width: 750px) {
+      .hero__media video,
+  .hero__media iframe {
+    object-fit: contain;
+  }
       .section-hero-banner + .section-marquees {
         position: absolute;
         z-index: 1;
