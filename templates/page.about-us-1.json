@@ -151,7 +151,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
       "settings": {
-        "custom_liquid": "{% style %}\n  @media screen and (min-width: 750px) {\n    #shopify-section-{{ section.id }} {\n      margin-top: 20px;\n    \n    }\n  }\n{% endstyle %}",
+        "custom_liquid": "{% style %}\n  @media screen and (min-width: 750px) {\n    #shopify-section-{{ section.id }} {\n      margin-top: 5px;\n    \n    }\n  }\n{% endstyle %}",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "2",
