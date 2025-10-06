@@ -103,6 +103,17 @@
         width: 100%
       }
     {%- endif -%}
+    /* Mobile fallback video fix */
+    .mobile-fallback-video iframe,
+    .mobile-fallback-video video {
+      position: relative !important;
+      width: 100vw !important;
+      height: auto !important;
+      min-height: 100vh !important;
+      transform: none !important;
+      object-fit: cover !important;
+    }
+
     /* @media screen and (min-width: 750px) {
       #shopify-section-{{ section.id }} .hero__inner,
       #shopify-section-{{ section.id }} .hero__content {
@@ -203,7 +214,7 @@
               </div>
             {%- else -%}
               <!-- ✅ Fallback to desktop video on mobile without fixed aspect ratio -->
-              <div class="media media--overlay hero__media small-up-hide">
+              <div class="media media--overlay hero__media small-up-hide mobile-fallback-video">
                 {%- if block.settings.video_external != blank -%}
                   {% render 'external-video', video: block.settings.video_external, title: block.settings.heading, youtube_container: true, controls: block.settings.show_controls_on_video %}
                 {%- elsif block.settings.video != blank -%}
