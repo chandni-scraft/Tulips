@@ -48,7 +48,7 @@
     "tulips_section_1_eqpKQk": {
       "type": "tulips-section-1",
       "custom_css": [
-        "@media (max-width: 768px) {.tulips-grid {display: grid; gap: 15px; grid-template-columns: 1fr; justify-items: center; padding: 10px 0; } .text-container {margin-top: -3%;}}"
+        "@media (max-width: 768px) {.tulips-grid {display: grid; gap: 15px; grid-template-columns: 1fr; justify-items: center; padding: 10px 0; } .text-container {margin-top: -3%; }}"
       ],
       "settings": {
         "title": "Innovating Hygiene Since 1999",
@@ -169,7 +169,7 @@
             "content_position": "center",
             "content_alignment": "center",
             "link": "",
-            "video_external": "https://youtu.be/6OF5sBFX0YM?si=_4tL5y_QQBnZqjYo",
+            "video_external": "https://youtu.be/N7_kwiZR1BA",
             "show_controls_on_video": false,
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
