@@ -36,13 +36,17 @@
         "color_scheme_for_media": "",
         "image_blur_effect": false,
         "spacing_top": "2",
-        "spacing_bottom": "6"
+        "spacing_bottom": "6",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "banner_below_img_E9Cpmm": {
       "type": "banner-below-img",
       "settings": {
-        "wave_image": "shopify://shop_images/Group_7381_2.png"
+        "wave_image": "shopify://shop_images/Group_7381_2.png",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "tulips_section_1_eqpKQk": {
@@ -63,7 +67,9 @@
         "icon_3": "shopify://shop_images/Vector_8.png",
         "label_3": "Global Reach",
         "para1_3": "<p>Exported to over 15 countries across major hygiene brands.<br/>Recognized for product quality and consistency worldwide.</p>",
-        "para2_3": ""
+        "para2_3": "",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "03a45767-3819-40b4-a750-ab1add481edc": {
@@ -144,7 +150,9 @@
         "color_scheme": "scheme-5",
         "section_width": "max-w-page",
         "spacing_top": "2",
-        "spacing_bottom": "2"
+        "spacing_bottom": "2",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "1759730676d6a1d74d": {
@@ -177,7 +185,10 @@
       "block_order": [
         "ai_gen_block_e01f165_VmVTii"
       ],
-      "settings": {}
+      "settings": {
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
     },
     "hero_banner_HRLgTV": {
       "type": "hero-banner",
@@ -226,7 +237,9 @@
         "color_scheme_arrows": "",
         "show_slideshow_pagination": true,
         "slideshow_pagination_style": "style-1",
-        "floating_bar": false
+        "floating_bar": false,
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "brandabout_deiWRi": {
@@ -260,11 +273,13 @@
       "settings": {
         "brand_image": "shopify://shop_images/Image_Place_Holder_1.png",
         "title": "About Brand Tulips Hygiene",
-        "description": "<p>TULIPS is India’s leading & fastest growing brand for Cotton & Wood based personal hygiene products. It had single handedly, created a mass market segment of Cotton-based products like Cotton swabs, Cotton balls & Cotton pads in India, by its VALUE FOR MONEY approach & making the product available at all formats of retail, in last 10 years.<br/><br/></p>",
+        "description": "<p>TULIPS is India's leading & fastest growing brand for Cotton & Wood based personal hygiene products. It had single handedly, created a mass market segment of Cotton-based products like Cotton swabs, Cotton balls & Cotton pads in India, by its VALUE FOR MONEY approach & making the product available at all formats of retail, in last 10 years.<br/><br/></p>",
         "button_1_text": "Learn More",
         "button_1_link": "",
         "button_2_text": "Contact Us",
-        "button_2_link": ""
+        "button_2_link": "",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "corevalues_about_TEwaNT": {
@@ -285,7 +300,9 @@
         "early_detection_desc": "We believe in carrying out development that is sustainable and creates a lasting impact on our customers as well as our partners in measurable ways. With our rock solid values and supporting team, we aim to hold ourselves to high ethical standards and respect the laws of our country.",
         "immunotherapy_icon": "shopify://shop_images/Vector_9.png",
         "immunotherapy_title": "Contribution",
-        "immunotherapy_desc": "Not measuring our success just by our monetary gains, we make sure that our corporate social responsibility is an important part of our decisions as well as our actions. Our values are an important part of our action plan which are reflected in our guiding principles."
+        "immunotherapy_desc": "Not measuring our success just by our monetary gains, we make sure that our corporate social responsibility is an important part of our decisions as well as our actions. Our values are an important part of our action plan which are reflected in our guiding principles.",
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     }
   },
