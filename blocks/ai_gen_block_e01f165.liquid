@@ -123,13 +123,10 @@
       <iframe
         class="ai-youtube-video-iframe-{{ ai_gen_id }}"
         src=""
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        title="{{ block.settings.heading | default: 'YouTube video player' }}"
+        allow="autoplay; encrypted-media"
         allowfullscreen
         loading="lazy"
-        sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-        referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     {% else %}
       <div class="ai-youtube-video-placeholder-{{ ai_gen_id }}">
@@ -176,26 +173,15 @@
           return;
         }
 
-        // YouTube requires videos to be muted for autoplay to work
-        const autoplayParam = this.autoplay ? '1' : '0';
-        const muteParam = this.autoplay ? '1' : (this.mute ? '1' : '0');
+        // Use the same parameters as the working external-video snippet
+        let params = 'autoplay=1&controls=' + (this.showControls ? '1' : '0') + '&fs=0&loop=' + (this.loop ? '1' : '0') + '&playsinline=1&mute=' + (this.mute ? '1' : '0') + '&iv_load_policy=3&rel=0&enablejsapi=1&disablekb=1&color=white';
 
-        // Build YouTube embed URL parameters
-        const params = new URLSearchParams({
-          rel: '0',
-          modestbranding: '1',
-          controls: this.showControls ? '1' : '0',
-          autoplay: autoplayParam,
-          mute: muteParam,
-          loop: this.loop ? '1' : '0',
-          playlist: this.loop ? videoId : '',
-          playsinline: '1',
-          enablejsapi: '1',
-          origin: window.location.origin,
-          widget_referrer: window.location.href
-        });
+        // Add playlist for loop functionality
+        if (this.loop) {
+          params += '&playlist=' + videoId;
+        }
 
-        const embedUrl = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?${params}`;
         console.log('YouTube embed URL:', embedUrl);
 
         iframe.src = embedUrl;
