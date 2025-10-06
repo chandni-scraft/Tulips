@@ -171,7 +171,7 @@
             "content_alignment": "center",
             "link": "",
             "video_external": "https://youtu.be/N7_kwiZR1BA",
-            "show_controls_on_video": false,
+            "show_controls_on_video": true,
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
