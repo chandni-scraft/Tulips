@@ -114,11 +114,23 @@
         "spacing_top": "2",
         "spacing_bottom": "6"
       }
+    },
+    "custom_liquid_C4rTWe": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "{% if collection.metafields.custom.additional_information %}\n  <div class=\"collection-additional-info\" style=\"text-align: center; max-width: 800px; margin: 0 auto;\">\n    {{ collection.metafields.custom.additional_information | metafield_text }}\n  </div>\n{% endif %}",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
     "page_banner_6kWj4z",
     "banner_below_img_4HEkF3",
-    "main"
+    "main",
+    "custom_liquid_C4rTWe"
   ]
 }
