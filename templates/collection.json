@@ -119,7 +119,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
       "settings": {
-        "custom_liquid": "{% if collection.metafields.custom.additional_information %}\n  <div class=\"collection-additional-info\" style=\"text-align: left; max-width: 800px; padding-bottom: 40px;\">\n    {{ collection.metafields.custom.additional_information | metafield_text }}\n  </div>\n{% endif %}",
+        "custom_liquid": "{% if collection.metafields.custom.additional_information %}\n  <div class=\"collection-additional-info\" style=\"text-align: left; max-width: 1600px; padding-bottom: 40px;\">\n    {{ collection.metafields.custom.additional_information | metafield_text }}\n  </div>\n{% endif %}",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "2",
