@@ -204,8 +204,18 @@
               <div class="media media--16-9 hero__media small-up-hide">
                 {{- block.settings.video_mobile | video_tag: image_size: '720x', loop: true, autoplay: true, muted: true, controls: block.settings.show_controls_on_video_mobile -}}
               </div>
+            {%- elsif block.settings.image_mobile != blank -%}
+              <div class="media media--overlay hero__media small-up-hide">
+                {%- if block_link != blank -%}
+                  <a href="{{ block_link }}">
+                {%- endif -%}
+                  {%- render 'image', image: block.settings.image_mobile, width: 1080, alt: block.settings.image_mobile.alt | default: block.settings.heading, loading: mobile_loading, fetchpriority: mobile_fetchpriority -%}
+                {%- if block_link != blank -%}
+                  </a>
+                {%- endif -%}
+              </div>
             {%- else -%}
-              <!-- ✅ Fallback to desktop video on mobile without fixed aspect ratio -->
+              <!-- Fallback to desktop video on mobile without fixed aspect ratio -->
               <div class="media media--overlay hero__media small-up-hide mobile-fallback-video">
                 {%- if block.settings.video_external != blank -%}
                   {% render 'external-video', video: block.settings.video_external, title: block.settings.heading, youtube_container: true, controls: block.settings.show_controls_on_video %}
@@ -776,3 +786,5 @@
   ]
 }
 {% endschema %}
+
+

@@ -636,38 +636,27 @@ html.no-js .hero__swiper-slide {
 }
 @media (max-width: 768px) {
   .hero__inner.hero-banner--full.small-up-hide-media-overlay {
-    max-width: none !important;
-    width: none!important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
   .swiper-slide[data-index="0"] .hero__content {
-  width: 100%; /* Adjust as needed */
-   /* Set a max-width for better control */
-  
-}
-.swiper-slide[data-index="2"] .hero__content {
- width: 100% /* Adjust as needed */
-  /* Set a max-width for better control */
-  
-}
-/* Adjust hero content width and align it to the right inside the second slide */
-.swiper-slide[data-index="1"] .hero__content {
-  width: 100% /* Adjust width as needed */
-   /* Prevents it from being too wide */
-  
-}
-.swiper-slide[data-index="1"] .hero__content {
-
-  margin-right: auto; /* Moves content to the right */
-  margin-left: 0;
-  text-align: left; /* Ensures text is aligned to the right */
-  /* justify-content: flex-end; */
-  /* align-items: flex-end; */
-  display: flex;
-  flex-direction: column;
-}
-  .hero__button a{
-  font-size: 1rem !important;
-}
-@
+    width: 100%;
+    margin-left: 0;
+  }
+  .swiper-slide[data-index="2"] .hero__content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .swiper-slide[data-index="1"] .hero__content {
+    width: 100%;
+    margin-right: auto;
+    margin-left: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__button a {
+    font-size: 1rem !important;
+  }
 }
 
