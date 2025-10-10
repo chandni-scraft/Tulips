@@ -1172,6 +1172,12 @@ summary::-webkit-details-marker {
 .jdgm-rev-widg .jdgm-star, .jdgm-revs-tab .jdgm-star, .jdgm-all-reviews .jdgm-star, .jdgm-gallery-popup .jdgm-star {
  color: #a4c86e !important;
 }
+.jdgm-write-rev-link.jdgm-write-rev-link {
+    color: var(--jdgm-write-review-text-color, #fff); 
+    background-color: #a4c86e;
+    border: 2px solid #a4c86e;
+    border-color: #a4c86e;
+}
 
 @media screen and (min-width: 750px) {
   .disclosure-has-popup[open] > summary + * {
