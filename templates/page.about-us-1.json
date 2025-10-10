@@ -9,15 +9,6 @@
  */
 {
   "sections": {
-    "image_popup_s4r1m": {
-      "type": "image-popup",
-      "settings": {
-        "image": null,
-        "delay": 8,
-        "show_popup_on_customizer": true,
-        "color_scheme": "scheme-1"
-      }
-    },
     "page_banner_6yAtaC": {
       "type": "page-banner",
       "custom_css": [
@@ -323,7 +314,6 @@
     }
   },
   "order": [
-    "image_popup_s4r1m",
     "page_banner_6yAtaC",
     "banner_below_img_E9Cpmm",
     "tulips_section_1_eqpKQk",
