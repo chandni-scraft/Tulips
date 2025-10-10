@@ -1174,9 +1174,9 @@ summary::-webkit-details-marker {
 }
 .jdgm-write-rev-link.jdgm-write-rev-link {
     color: var(--jdgm-write-review-text-color, #fff); 
-    background-color: #a4c86e;
-    border: 2px solid #a4c86e;
-    border-color: #a4c86e;
+    background-color: #a4c86e !important;
+    border: 2px solid #a4c86e !important;
+    border-color: #a4c86e !important;
 }
 
 @media screen and (min-width: 750px) {
