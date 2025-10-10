@@ -1,4 +1,4 @@
-﻿/* Release Theme - v1.0.8 */
+/* Release Theme - v1.0.8 */
 
 *,
 *::before,
@@ -1168,6 +1168,9 @@ summary::-webkit-details-marker {
 .disclosure-has-popup[open] > summary + * {
   z-index: 100;
   position: relative;
+}
+.jdgm-rev-widg .jdgm-star, .jdgm-revs-tab .jdgm-star, .jdgm-all-reviews .jdgm-star, .jdgm-gallery-popup .jdgm-star {
+ color: #a4c86e !important;
 }
 
 @media screen and (min-width: 750px) {
