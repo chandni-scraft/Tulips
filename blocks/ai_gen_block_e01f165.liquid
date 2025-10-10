@@ -188,7 +188,6 @@
         }
 
         const embedUrl = `https://www.youtube.com/embed/${videoId}?${params}`;
-        console.log('YouTube embed URL:', embedUrl);
 
         iframe.src = embedUrl;
 
@@ -197,10 +196,6 @@
           console.error('Failed to load YouTube video:', embedUrl);
         };
 
-        // Add load confirmation
-        iframe.onload = function() {
-          console.log('YouTube video loaded successfully:', videoId);
-        };
       }
 
       extractVideoId(url) {
@@ -215,7 +210,6 @@
         for (const pattern of patterns) {
           const match = url.match(pattern);
           if (match && match[1]) {
-            console.log('Extracted video ID:', match[1]);
             return match[1];
           }
         }

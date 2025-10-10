@@ -68,9 +68,30 @@ class NewsletterPopup extends ModalDialog {
   }
 
   showPopupWithDelay() {
-    setTimeout(() => {
+    const showWhenIdle = () => {
       if (this.closed !== "true" && this.subscribed !== "true") {
-        this.show();
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(
+            () => this.show(),
+            { timeout: 2000 }
+          );
+        } else {
+          setTimeout(() => this.show(), 0);
+        }
+      }
+    };
+
+    setTimeout(() => {
+      if (document.visibilityState === "hidden") {
+        const handleVisibility = () => {
+          if (document.visibilityState === "visible") {
+            document.removeEventListener("visibilitychange", handleVisibility);
+            showWhenIdle();
+          }
+        };
+        document.addEventListener("visibilitychange", handleVisibility, { once: true });
+      } else {
+        showWhenIdle();
       }
     }, this.delay);
   }
