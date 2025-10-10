@@ -82,6 +82,17 @@
         "color_scheme": "scheme-d817e687-d441-4d0d-9067-97ff6d3fa3e4"
       }
     },
+    "custom_liquid_AGP8qJ": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<div style=\"text-align:center; margin:30px 0;\">\n  <img \n    src=\"{{ 'red-banner-clipart-design-illustration-free-png.png' | file_url }}\" \n    alt=\"Red banner\" \n    loading=\"lazy\" \n    style=\"max-width:100%; height:auto;\"\n  >\n</div>",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "header": {
       "type": "header",
       "custom_css": [
@@ -128,6 +139,7 @@
   },
   "order": [
     "announcement-bar",
+    "custom_liquid_AGP8qJ",
     "header"
   ]
 }
