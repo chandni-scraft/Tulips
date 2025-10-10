@@ -45,7 +45,7 @@
     <!-- Left Side -->
    <div
   class="left-box"
-  style="background-image: url({{ section.settings.left_bg | img_url: 'master' }});"
+  style="background-image: url({{ section.settings.left_bg | image_url: width: 2000 }});"
 >
   <div class="left-overlay"></div>
   <div class="overlay-text">{{ section.settings.left_text }}</div>
@@ -54,13 +54,21 @@
     <!-- Right Side -->
     <div
       class="right-box"
-      style="background-image: url({{ section.settings.right_bg | img_url: 'master' }});"
+      style="background-image: url({{ section.settings.right_bg | image_url: width: 2000 }});"
     >
       <!-- Box 1 -->
       <div class="info-item">
         <div class="text-content">Product Validations <br> (Certificates)</div>
         {% if section.settings.right_box_1_bg_icon %}
-          <img src="{{ section.settings.right_box_1_bg_icon | img_url: 'master' }}" class="visible-icon" alt="Icon 1">
+          <img
+            src="{{ section.settings.right_box_1_bg_icon | image_url: width: 160 }}"
+            class="visible-icon"
+            loading="lazy"
+            decoding="async"
+            alt="Icon 1"
+            width="80"
+            height="80"
+          >
         {% endif %}
       </div>
 
@@ -68,7 +76,15 @@
       <div class="info-item">
         <div class="text-content">Quality Standards</div>
         {% if section.settings.right_box_2_bg_icon %}
-          <img src="{{ section.settings.right_box_2_bg_icon | img_url: 'master' }}" class="visible-icon" alt="Icon 2">
+          <img
+            src="{{ section.settings.right_box_2_bg_icon | image_url: width: 160 }}"
+            class="visible-icon"
+            loading="lazy"
+            decoding="async"
+            alt="Icon 2"
+            width="80"
+            height="80"
+          >
         {% endif %}
       </div>
     </div>

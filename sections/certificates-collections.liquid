@@ -42,7 +42,12 @@
           <div class="certificates-gallery">
             {% for image in selected_collection.metafields.custom.certificates.value %}
               <div class="certificate-item">
-                <img src="{{ image | img_url: 'master' }}" alt="Certificate Image">
+                <img
+                  src="{{ image | image_url: width: 1400 }}"
+                  alt="Certificate Image"
+                  loading="lazy"
+                  decoding="async"
+                >
               </div>
             {% endfor %}
           </div>

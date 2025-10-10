@@ -20,9 +20,11 @@
 <div class="banner-wave-container">
   {% if section.settings.wave_image %}
     <img
-      src="{{ section.settings.wave_image | img_url: 'master' }}"
+      src="{{ section.settings.wave_image | image_url: width: 2000 }}"
       alt="Wavy Design"
       class="banner-wave"
+      loading="lazy"
+      decoding="async"
     >
   {% endif %}
 </div>

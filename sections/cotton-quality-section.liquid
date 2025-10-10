@@ -266,10 +266,10 @@
 <div class="cotton-quality-wrapper">
   <div class="cotton-quality-container">
     <div class="cotton-quality-image">
-      <img src="{{ section.settings.image | img_url: 'master' }}" alt="Cotton Image" />
+      <img src="{{ section.settings.image | image_url: width: 1600 }}" alt="Cotton Image" loading="lazy" decoding="async" />
     </div>
     <div class="cotton-quality-content">
-      <h2 class="main-heading">🧾 {{ section.settings.main_heading }}</h2>
+      <h2 class="main-heading">{{ section.settings.main_heading }}</h2>
       <ul class="main-bullets">
         <li>{{ section.settings.bullet1 }}</li>
         <li>{{ section.settings.bullet2 }}</li>
@@ -308,3 +308,4 @@
     </div>
   </div>
 </div>
+

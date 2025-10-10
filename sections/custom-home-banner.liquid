@@ -48,12 +48,34 @@
       {% assign slide_mobile_key = 'slide_' | append: i | append: '_mobile' %}
       {% assign slide_image = section.settings[slide_key] %}
       {% assign slide_mobile_image = section.settings[slide_mobile_key] %}
+      {% if forloop.first %}
+        {% assign desktop_loading = 'eager' %}
+        {% assign mobile_loading = 'eager' %}
+        {% assign desktop_fetchpriority = 'high' %}
+      {% else %}
+        {% assign desktop_loading = 'lazy' %}
+        {% assign mobile_loading = 'lazy' %}
+        {% assign desktop_fetchpriority = '' %}
+      {% endif %}
 
       {% if slide_image %}
         <div class="slide">
-          <img class="desktop-img" src="{{ slide_image | img_url: '1600x800' }}" alt="Slide {{ i }}">
+          <img
+            class="desktop-img"
+            src="{{ slide_image | image_url: width: 1600 }}"
+            {% if desktop_fetchpriority != blank %}fetchpriority="{{ desktop_fetchpriority }}"{% endif %}
+            loading="{{ desktop_loading }}"
+            decoding="async"
+            alt="Slide {{ i }}"
+          >
           {% if slide_mobile_image %}
-            <img class="mobile-img" src="{{ slide_mobile_image | img_url: '800x1000' }}" alt="Slide {{ i }} Mobile">
+            <img
+              class="mobile-img"
+              src="{{ slide_mobile_image | image_url: width: 900 }}"
+              loading="{{ mobile_loading }}"
+              decoding="async"
+              alt="Slide {{ i }} Mobile"
+            >
           {% endif %}
         </div>
       {% endif %}
@@ -113,6 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let index = 0;
   const slides = document.querySelectorAll(".slide");
   const totalSlides = slides.length;
+
+  if (totalSlides <= 1) {
+    return;
+  }
   
   function showSlide() {
     document.querySelector(".slideshow").style.transform = `translateX(-${index * 100}%)`;

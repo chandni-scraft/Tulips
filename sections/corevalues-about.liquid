@@ -84,9 +84,13 @@
       <div class="our-core-values-header">
         {% if section.settings.precision_medicine_icon != blank %}
           <img
-            src="{{ section.settings.precision_medicine_icon | img_url: 'master' }}"
+            src="{{ section.settings.precision_medicine_icon | image_url: width: 180 }}"
             alt="{{ section.settings.precision_medicine_title }}"
             class="our-core-values-icon"
+            loading="lazy"
+            decoding="async"
+            width="90"
+            height="90"
           >
         {% endif %}
         <h5 class="our-core-values-title title1">{{ section.settings.precision_medicine_title }}</h5>
@@ -98,9 +102,13 @@
       <div class="our-core-values-header">
         {% if section.settings.early_detection_icon != blank %}
           <img
-            src="{{ section.settings.early_detection_icon | img_url: 'master' }}"
+            src="{{ section.settings.early_detection_icon | image_url: width: 180 }}"
             alt="{{ section.settings.early_detection_title }}"
             class="our-core-values-icon"
+            loading="lazy"
+            decoding="async"
+            width="90"
+            height="90"
           >
         {% endif %}
         <h5 class="our-core-values-title title2">{{ section.settings.early_detection_title }}</h5>
@@ -111,9 +119,13 @@
     <div class="our-core-values-card">
       {% if section.settings.immunotherapy_icon != blank %}
         <img
-          src="{{ section.settings.immunotherapy_icon | img_url: 'master' }}"
+          src="{{ section.settings.immunotherapy_icon | image_url: width: 180 }}"
           alt="{{ section.settings.immunotherapy_title }}"
           class="our-core-values-icon"
+          loading="lazy"
+          decoding="async"
+          width="90"
+          height="90"
         >
       {% endif %}
       <h5 class="our-core-values-title title1">{{ section.settings.immunotherapy_title }}</h5>
