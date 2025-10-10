@@ -86,7 +86,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
       "settings": {
-        "custom_liquid": "<div style=\"text-align:center; margin:30px 0;\">\n  <img \n    src=\"{{ 'red-banner-clipart-design-illustration-free-png.png' | file_url }}\" \n    alt=\"Red banner\" \n    loading=\"lazy\" \n    style=\"max-width:100%; height:auto;\"\n  >\n</div>",
+        "custom_liquid": "<div style=\"text-align:center; margin:0px 0;\">\n  <img \n    src=\"{{ 'red-banner-clipart-design-illustration-free-png.webp' | file_url }}\" \n    alt=\"Red banner\" \n    loading=\"lazy\" \n    style=\"max-width:50%; height:20%;\"\n  >\n</div>",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "2",
