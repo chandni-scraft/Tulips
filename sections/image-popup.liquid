@@ -44,14 +44,21 @@
   <div class="image-only-popup__dialog">
     <button type="button" class="image-only-popup__close" aria-label="Close">×</button>
     {%- if section.settings.image != blank -%}
-      {%- render 'image',
-        image: section.settings.image,
-        image_url_width: 1200,
-        alt: section.settings.image.alt | escape,
-        section_index: section.index,
-        loading: 'lazy',
-        fetchpriority: 'low'
-      -%}
+      {%- assign link_url = section.settings.link_url -%}
+      {%- if link_url != blank -%}
+        <a href="{{ link_url }}"{% if section.settings.link_new_tab %} target="_blank" rel="noopener"{% endif %}>
+      {%- endif -%}
+        {%- render 'image',
+          image: section.settings.image,
+          image_url_width: 1200,
+          alt: section.settings.image.alt | escape,
+          section_index: section.index,
+          loading: 'lazy',
+          fetchpriority: 'low'
+        -%}
+      {%- if link_url != blank -%}
+        </a>
+      {%- endif -%}
     {%- endif -%}
   </div>
 </div>
@@ -103,6 +110,17 @@
       "type": "image_picker",
       "id": "image",
       "label": "Popup image"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Image link URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_new_tab",
+      "label": "Open link in a new tab",
+      "default": false
     },
     {
       "type": "range",
