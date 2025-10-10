@@ -12,8 +12,8 @@
     "image_popup_u1": {
       "type": "image-popup",
       "settings": {
-        "image": null,
-        "delay": 8,
+        "image": "shopify://shop_images/testing_popup.png",
+        "delay": 1,
         "show_popup_on_customizer": true,
         "color_scheme": "scheme-1"
       }
