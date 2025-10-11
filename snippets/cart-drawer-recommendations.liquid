@@ -33,11 +33,15 @@
 
 {%- comment -%} Get products from these collections, excluding cart items {%- endcomment -%}
 {%- if cart_collections != blank -%}
+  <!-- DEBUG: Before split, cart_collections = "{{ cart_collections }}" -->
   {%- assign cart_collections_array = cart_collections | split: ',' -%}
+  <!-- DEBUG: After split, array size = {{ cart_collections_array.size }} -->
+  <!-- DEBUG: Array elements: {% for handle in cart_collections_array %}"{{ handle }}"{% unless forloop.last %}, {% endunless %}{% endfor %} -->
   {%- assign recommended_products = '' -%}
   {%- assign product_count = 0 -%}
   
   {%- for collection_handle in cart_collections_array -%}
+    <!-- DEBUG: Loop iteration {{ forloop.index }}, handle = "{{ collection_handle }}" -->
     {%- assign collection = collections[collection_handle] -%}
     {%- if collection != blank -%}
       <!-- DEBUG: Processing collection {{ collection_handle }}, found: true -->
