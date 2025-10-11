@@ -195,18 +195,25 @@
     </script>
   {%- endif -%}
 {%- elsif recommended_products != blank -%}
-  {%- assign recommended_products_array = recommended_products | split: ',' -%}
+  {%- comment -%} Get products directly from collections instead of using IDs {%- endcomment -%}
   {%- assign products_to_show = '' -%}
-  
-  {%- comment -%} Limit to max_products and create product objects {%- endcomment -%}
   {%- assign product_count = 0 -%}
-  {%- for product_id in recommended_products_array -%}
+  
+  {%- for collection_handle in cart_collections_array -%}
     {%- if product_count < max_products -%}
-      {%- assign product = all_products[product_id] -%}
-      {%- if product != blank -%}
-        {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
-        {%- assign product_count = product_count | plus: 1 -%}
-        <!-- DEBUG: Added product {{ product.title }} to products_to_show -->
+      {%- assign collection = collections[collection_handle] -%}
+      {%- if collection != blank -%}
+        {%- for product in collection.products -%}
+          {%- if product_count < max_products -%}
+            {%- unless cart_product_ids contains product.id -%}
+              {%- unless products_to_show contains product.id -%}
+                {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
+                {%- assign product_count = product_count | plus: 1 -%}
+                <!-- DEBUG: Added product {{ product.title }} from {{ collection_handle }} -->
+              {%- endunless -%}
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
       {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
