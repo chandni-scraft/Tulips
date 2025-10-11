@@ -94,7 +94,20 @@
             {%- for product in products_array -%}
               <div class="swiper-slide">
                 <div class="cart-drawer__recommendation-item">
-                  {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                  {%- if product.featured_image != blank -%}
+                    {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                  {%- else -%}
+                    <!-- DEBUG: Product {{ product.title }} has no featured image -->
+                    <div class="card-product-small">
+                      <div class="media card-product-small-media">
+                        <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
+                      </div>
+                      <div class="card-product-small-details">
+                        <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                        <p class="card-product-small-price">{{ product.price_min | money }}</p>
+                      </div>
+                    </div>
+                  {%- endif -%}
                 </div>
               </div>
             {%- endfor -%}
@@ -235,7 +248,20 @@
               {%- if product != blank -%}
                 <div class="swiper-slide">
                   <div class="cart-drawer__recommendation-item">
-                    {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                    {%- if product.featured_image != blank -%}
+                      {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                    {%- else -%}
+                      <!-- DEBUG: Product {{ product.title }} has no featured image -->
+                      <div class="card-product-small">
+                        <div class="media card-product-small-media">
+                          <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
+                        </div>
+                        <div class="card-product-small-details">
+                          <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                          <p class="card-product-small-price">{{ product.price_min | money }}</p>
+                        </div>
+                      </div>
+                    {%- endif -%}
                   </div>
                 </div>
               {%- endif -%}
