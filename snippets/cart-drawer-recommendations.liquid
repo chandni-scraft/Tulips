@@ -94,7 +94,7 @@
             {%- for product in products_array -%}
               <div class="swiper-slide">
                 <div class="cart-drawer__recommendation-item">
-                  <!-- DEBUG: Product {{ product.title }} - featured_image: {{ product.featured_image != blank }}, images: {{ product.images.size }} -->
+                  <!-- DEBUG: Product {{ product.title }} - images: {{ product.images.size }} -->
                   {%- assign product_image = product.featured_image | default: product.images.first -%}
                   {%- if product_image != blank -%}
                     <div class="card-product-small">
@@ -275,7 +275,7 @@
               {%- if product != blank -%}
                 <div class="swiper-slide">
                   <div class="cart-drawer__recommendation-item">
-                    <!-- DEBUG: Product {{ product.title }} - featured_image: {{ product.featured_image != blank }}, images: {{ product.images.size }} -->
+                    <!-- DEBUG: Product {{ product.title }} - images: {{ product.images.size }} -->
                     {%- assign product_image = product.featured_image | default: product.images.first -%}
                     {%- if product_image != blank -%}
                       <div class="card-product-small">
