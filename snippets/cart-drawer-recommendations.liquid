@@ -1,4 +1,4 @@
-{% comment %}
+ï»¿{% comment %}
   Renders "You may also like" recommendations in cart drawer
   Shows products from collections that cart items belong to
   Excludes specified collections: "Our Product", "All Product", "GST purpose collection"
@@ -88,12 +88,12 @@
     <div class="cart-drawer__you-may-also-like">
       <div class="cart-drawer__you-may-also-like-header">
         <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
-        <div class="cart-drawer__you-may-also-like-nav">
-          <button type="button" class="cart-drawer__nav cart-drawer__nav--prev" aria-label="{{ 'general.previous' | t | default: 'Previous' }}">
-            <span aria-hidden="true">‹</span>
+        <div class="swiper-buttons card-slider__buttons no-js-hidden cart-drawer__nav-buttons">
+          <button type="button" class="swiper-button swiper-button--prev cart-drawer__nav--prev" aria-label="{{ 'general.previous' | t | default: 'Previous' }}">
+            {%- render 'icon', icon_name: 'theme-chevron' -%}
           </button>
-          <button type="button" class="cart-drawer__nav cart-drawer__nav--next" aria-label="{{ 'general.next' | t | default: 'Next' }}">
-            <span aria-hidden="true">›</span>
+          <button type="button" class="swiper-button swiper-button--next cart-drawer__nav--next" aria-label="{{ 'general.next' | t | default: 'Next' }}">
+            {%- render 'icon', icon_name: 'theme-chevron' -%}
           </button>
         </div>
       </div>
@@ -176,42 +176,6 @@
     .cart-drawer__you-may-also-like-title {
       margin: 0;
       font-weight: 600;
-    }
-    
-    .cart-drawer__you-may-also-like-nav {
-      display: flex;
-      gap: 0.5rem;
-    }
-    
-    .cart-drawer__nav {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(var(--color-foreground), 0.2);
-      background: rgba(var(--color-foreground), 0.04);
-      color: currentColor;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      line-height: 1;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-    
-    .cart-drawer__nav:hover {
-      background: rgba(var(--color-foreground), 0.1);
-      border-color: rgba(var(--color-foreground), 0.35);
-    }
-    
-    .cart-drawer__nav:focus-visible {
-      outline: 2px solid rgba(var(--color-foreground), 0.4);
-      outline-offset: 2px;
-    }
-    
-    .cart-drawer__nav.swiper-button-disabled {
-      opacity: 0.3;
-      pointer-events: none;
     }
     
     .cart-drawer__you-may-also-like-slider {
@@ -358,3 +322,6 @@
     });
   </script>
 {%- endif -%}
+
+
+
