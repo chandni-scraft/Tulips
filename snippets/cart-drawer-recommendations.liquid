@@ -399,4 +399,164 @@
       });
     </script>
   {%- endif -%}
+{%- elsif recommended_handles != blank -%}
+  {%- assign products_array = recommended_handles | split: ',' -%}
+  <!-- DEBUG: products_array size = {{ products_array.size }} -->
+  
+  <div class="cart-drawer__you-may-also-like">
+    <div class="cart-drawer__you-may-also-like-header">
+      <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
+    </div>
+    
+    <div class="cart-drawer__you-may-also-like-slider">
+      <div class="swiper cart-drawer__swiper-you-may-also-like">
+        <div class="swiper-wrapper">
+          {%- for product_handle in products_array -%}
+            {%- if product_handle != blank -%}
+              {%- assign product = all_products[product_handle] -%}
+              {%- if product != blank -%}
+                <div class="swiper-slide">
+                  <div class="cart-drawer__recommendation-item">
+                    <!-- DEBUG: Product {{ product.title }} - images: {{ product.images.size }} -->
+                    {%- assign product_image = product.featured_image | default: product.images.first -%}
+                    {%- if product_image != blank -%}
+                      <div class="card-product-small">
+                        <a href="{{ product.url }}" class="card-product-small">
+                          <div class="media card-product-small-media">
+                            {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                          </div>
+                          <div class="card-product-small-details">
+                            <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                            <p class="card-product-small-price">
+                              {%- if product.compare_at_price_min > product.price_min -%}
+                                <del>{{ product.compare_at_price_min | money }}</del>
+                                <ins>{{ product.price_min | money }}</ins>
+                              {%- else -%}
+                                {{ product.price_min | money }}
+                              {%- endif -%}
+                            </p>
+                            {%- if settings.product_card_enable_quick_add_to_cart_button -%}
+                              <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
+                                {{ "cart.quick_add" | t }}
+                                <div class="quick-cart-drawer__trigger--loading">
+                                  {%- render 'loading-spinner' -%}
+                                </div>
+                              </button>
+                            {%- endif -%}
+                          </div>
+                        </a>
+                      </div>
+                    {%- else -%}
+                      <!-- DEBUG: Product {{ product.title }} has no images at all -->
+                      <div class="card-product-small">
+                        <div class="media card-product-small-media">
+                          <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
+                        </div>
+                        <div class="card-product-small-details">
+                          <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                          <p class="card-product-small-price">{{ product.price_min | money }}</p>
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .cart-drawer__you-may-also-like {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(var(--color-foreground), 0.1);
+    }
+    
+    .cart-drawer__you-may-also-like-header {
+      margin-bottom: 1rem;
+    }
+    
+    .cart-drawer__you-may-also-like-title {
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .cart-drawer__you-may-also-like-slider {
+      overflow: hidden;
+    }
+    
+    .cart-drawer__swiper-you-may-also-like {
+      overflow: visible;
+    }
+    
+    .cart-drawer__recommendation-item {
+      width: 100%;
+    }
+    
+    .cart-drawer__you-may-also-like .swiper-slide {
+      width: 140px;
+      flex-shrink: 0;
+    }
+    
+    .cart-drawer__you-may-also-like .product-card {
+      border: 1px solid rgba(var(--color-foreground), 0.1);
+      border-radius: 8px;
+      padding: 0.75rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .cart-drawer__you-may-also-like .product-card__media {
+      aspect-ratio: 1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cart-drawer__you-may-also-like .product-card__title {
+      font-size: 0.875rem;
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .cart-drawer__you-may-also-like .product-card__price {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: auto;
+    }
+    
+    .cart-drawer__you-may-also-like .product-card__button {
+      display: none;
+    }
+    
+    @media screen and (max-width: 750px) {
+      .cart-drawer__you-may-also-like .swiper-slide {
+        width: 120px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.cart-drawer__swiper-you-may-also-like', {
+          slidesPerView: 'auto',
+          spaceBetween: 12,
+          freeMode: true,
+          grabCursor: true,
+          breakpoints: {
+            750: {
+              spaceBetween: 16,
+            }
+          }
+        });
+      }
+    });
+  </script>
 {%- endif -%}
