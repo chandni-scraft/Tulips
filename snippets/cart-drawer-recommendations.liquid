@@ -88,6 +88,14 @@
     <div class="cart-drawer__you-may-also-like">
       <div class="cart-drawer__you-may-also-like-header">
         <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
+        <div class="cart-drawer__you-may-also-like-nav">
+          <button type="button" class="cart-drawer__nav cart-drawer__nav--prev" aria-label="{{ 'general.previous' | t | default: 'Previous' }}">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button type="button" class="cart-drawer__nav cart-drawer__nav--next" aria-label="{{ 'general.next' | t | default: 'Next' }}">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
       </div>
       <div class="cart-drawer__you-may-also-like-slider">
         <div class="swiper cart-drawer__swiper-you-may-also-like">
@@ -159,6 +167,10 @@
     
     .cart-drawer__you-may-also-like-header {
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
     
     .cart-drawer__you-may-also-like-title {
@@ -273,19 +285,76 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('.cart-drawer__swiper-you-may-also-like', {
+      if (typeof Swiper === 'undefined') {
+        return;
+      }
+
+      document.querySelectorAll('.cart-drawer__you-may-also-like').forEach(function(container) {
+        var swiperElement = container.querySelector('.cart-drawer__swiper-you-may-also-like');
+        if (!swiperElement) {
+          return;
+        }
+
+        var prevButton = container.querySelector('.cart-drawer__nav--prev');
+        var nextButton = container.querySelector('.cart-drawer__nav--next');
+        var swiperConfig = {
           slidesPerView: 'auto',
           spaceBetween: 12,
           freeMode: true,
           grabCursor: true,
+          watchOverflow: true,
           breakpoints: {
             750: {
               spaceBetween: 16,
             }
           }
-        });
-      }
+        };
+
+        if (prevButton && nextButton) {
+          swiperConfig.navigation = {
+            prevEl: prevButton,
+            nextEl: nextButton
+          };
+        }
+
+        new Swiper(swiperElement, swiperConfig);
+      });
     });
   </script>
 {%- endif -%}
+    .cart-drawer__you-may-also-like-nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .cart-drawer__nav {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--color-foreground), 0.2);
+      background: rgba(var(--color-foreground), 0.04);
+      color: currentColor;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    
+    .cart-drawer__nav:hover {
+      background: rgba(var(--color-foreground), 0.1);
+      border-color: rgba(var(--color-foreground), 0.35);
+    }
+    
+    .cart-drawer__nav:focus-visible {
+      outline: 2px solid rgba(var(--color-foreground), 0.4);
+      outline-offset: 2px;
+    }
+    
+    .cart-drawer__nav.swiper-button-disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
