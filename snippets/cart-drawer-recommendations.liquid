@@ -1,0 +1,178 @@
+{% comment %}
+  Renders "You may also like" recommendations in cart drawer
+  Shows products from collections that cart items belong to
+  Excludes specified collections: "Our Product", "All Product", "GST purpose collection"
+
+  Usage:
+  {%- render 'cart-drawer-recommendations' -%}
+{% endcomment %}
+
+{%- liquid
+  assign excluded_collections = 'all-products,our-products,18-gst-tax-purposes-only,12-gst-collection-tax-purpose,5-gst-tax-purposes-only'
+  assign excluded_collections_array = excluded_collections | split: ','
+  assign max_products = 8
+  assign cart_collections = ''
+  assign recommended_products = ''
+  assign cart_product_ids = cart.items | map: 'product_id'
+-%}
+
+{%- comment -%} Get all collections from cart items {%- endcomment -%}
+{%- for item in cart.items -%}
+  {%- for collection in item.product.collections -%}
+    {%- unless excluded_collections_array contains collection.handle -%}
+      {%- unless cart_collections contains collection.id -%}
+        {%- assign cart_collections = cart_collections | append: collection.id | append: ',' -%}
+      {%- endunless -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%} Get products from these collections, excluding cart items {%- endcomment -%}
+{%- if cart_collections != blank -%}
+  {%- assign cart_collections_array = cart_collections | split: ',' -%}
+  {%- assign recommended_products = '' -%}
+  
+  {%- for collection_id in cart_collections_array -%}
+    {%- assign collection = collections[collection_id] -%}
+    {%- if collection != blank -%}
+      {%- for product in collection.products limit: 20 -%}
+        {%- unless cart_product_ids contains product.id -%}
+          {%- unless recommended_products contains product.id -%}
+            {%- assign recommended_products = recommended_products | append: product.id | append: ',' -%}
+          {%- endunless -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if recommended_products != blank -%}
+  {%- assign recommended_products_array = recommended_products | split: ',' -%}
+  {%- assign products_to_show = '' -%}
+  
+  {%- comment -%} Limit to max_products and create product objects {%- endcomment -%}
+  {%- for product_id in recommended_products_array limit: max_products -%}
+    {%- assign product = all_products[product_id] -%}
+    {%- if product != blank -%}
+      {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
+    {%- endif -%}
+  {%- endfor -%}
+  
+  {%- if products_to_show != blank -%}
+    {%- assign products_array = products_to_show | split: ',' -%}
+    
+    <div class="cart-drawer__you-may-also-like">
+      <div class="cart-drawer__you-may-also-like-header">
+        <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
+      </div>
+      
+      <div class="cart-drawer__you-may-also-like-slider">
+        <div class="swiper cart-drawer__swiper-you-may-also-like">
+          <div class="swiper-wrapper">
+            {%- for product in products_array -%}
+              {%- if product != blank -%}
+                <div class="swiper-slide">
+                  <div class="cart-drawer__recommendation-item">
+                    {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .cart-drawer__you-may-also-like {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(var(--color-foreground), 0.1);
+      }
+      
+      .cart-drawer__you-may-also-like-header {
+        margin-bottom: 1rem;
+      }
+      
+      .cart-drawer__you-may-also-like-title {
+        margin: 0;
+        font-weight: 600;
+      }
+      
+      .cart-drawer__you-may-also-like-slider {
+        overflow: hidden;
+      }
+      
+      .cart-drawer__swiper-you-may-also-like {
+        overflow: visible;
+      }
+      
+      .cart-drawer__recommendation-item {
+        width: 100%;
+      }
+      
+      .cart-drawer__you-may-also-like .swiper-slide {
+        width: 140px;
+        flex-shrink: 0;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card {
+        border: 1px solid rgba(var(--color-foreground), 0.1);
+        border-radius: 8px;
+        padding: 0.75rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__media {
+        aspect-ratio: 1;
+        margin-bottom: 0.5rem;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__title {
+        font-size: 0.875rem;
+        line-height: 1.3;
+        margin-bottom: 0.25rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__price {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-top: auto;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__button {
+        display: none;
+      }
+      
+      @media screen and (max-width: 750px) {
+        .cart-drawer__you-may-also-like .swiper-slide {
+          width: 120px;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Swiper !== 'undefined') {
+          new Swiper('.cart-drawer__swiper-you-may-also-like', {
+            slidesPerView: 'auto',
+            spaceBetween: 12,
+            freeMode: true,
+            grabCursor: true,
+            breakpoints: {
+              750: {
+                spaceBetween: 16,
+              }
+            }
+          });
+        }
+      });
+    </script>
+  {%- endif -%}
+{%- endif -%}

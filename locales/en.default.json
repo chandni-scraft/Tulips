@@ -344,7 +344,8 @@
     "heading_total": "Total",
     "quantity_error_html": "You can only add {{quantity}} of this item to your cart.",
     "free_shipping_text_html": "Spend <span class=\"money\">{{amount}}</span> more for free shipping",
-    "free_shipping_text_success": "Congrats! You're qualified for free shipping!"
+    "free_shipping_text_success": "Congrats! You're qualified for free shipping!",
+    "you_may_also_like": "You may also like"
   },
   "search": {
     "label": "Search",

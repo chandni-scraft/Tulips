@@ -7,11 +7,13 @@
 
 {{- 'component-cart-drawer.css' | asset_url | stylesheet_tag -}}
 {{- 'component-cart.css' | asset_url | stylesheet_tag -}}
+{{- 'component-card-product-slider.css' | asset_url | stylesheet_tag -}}
 
 {% if template.name != 'cart' %}
   <script src="{{- 'cart.js' | asset_url -}}" defer="defer"></script>
 {% endif %}
 <script src="{{- 'cart-info-bar-slider.js' | asset_url -}}" defer="defer"></script>
+<script src="{{- 'card-product-slider.js' | asset_url -}}" defer="defer"></script>
 
 {%- style -%}
   cart-drawer .cart-item .media {
@@ -115,6 +117,9 @@
                 {%- render 'product-recommendations', area: 'cart-drawer', class: 'cart-drawer__recommendations', product_id: cart.items[0].product_id -%}
               {%- endif -%}
             </div>
+
+            {%- comment -%} You may also like recommendations {%- endcomment -%}
+            {%- render 'cart-drawer-recommendations' -%}
 
             <div class="cart-drawer__bottom">
               <div class="cart-drawer__summary">
