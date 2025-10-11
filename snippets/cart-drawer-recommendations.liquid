@@ -12,7 +12,7 @@
   assign excluded_collections_array = excluded_collections | split: ','
   assign max_products = 8
   assign cart_collections = ''
-  assign recommended_products = ''
+  assign recommended_handles = ''
   assign cart_product_ids = cart.items | map: 'product_id'
 -%}
 
@@ -37,7 +37,7 @@
   {%- assign cart_collections_array = cart_collections | split: ',' -%}
   <!-- DEBUG: After split, array size = {{ cart_collections_array.size }} -->
   <!-- DEBUG: Array elements: {% for handle in cart_collections_array %}"{{ handle }}"{% unless forloop.last %}, {% endunless %}{% endfor %} -->
-  {%- assign recommended_products = '' -%}
+  {%- assign recommended_handles = '' -%}
   {%- assign product_count = 0 -%}
   
   {%- for collection_handle in cart_collections_array -%}
@@ -50,8 +50,12 @@
         {%- for product in collection.products -%}
           {%- if product_count < max_products -%}
             {%- unless cart_product_ids contains product.id -%}
-              {%- unless recommended_products contains product.id -%}
-                {%- assign recommended_products = recommended_products | append: product.id | append: ',' -%}
+              {%- assign existing_handles = recommended_handles | split: ',' -%}
+              {%- unless existing_handles contains product.handle -%}
+                {%- if recommended_handles != blank -%}
+                  {%- assign recommended_handles = recommended_handles | append: ',' -%}
+                {%- endif -%}
+                {%- assign recommended_handles = recommended_handles | append: product.handle -%}
                 {%- assign product_count = product_count | plus: 1 -%}
                 <!-- DEBUG: Added product {{ product.title }} ({{ product.id }}) from {{ collection_handle }} -->
               {%- endunless -%}
@@ -71,14 +75,14 @@
   <!-- DEBUG: Excluded collections: {{ excluded_collections }} -->
   <!-- DEBUG: Cart collections found: {{ cart_collections }} -->
   <!-- DEBUG: Cart collections array: {{ cart_collections_array }} -->
-  <!-- DEBUG: Recommended products: {{ recommended_products }} -->
+  <!-- DEBUG: Recommended product handles: {{ recommended_handles }} -->
   {%- for item in cart.items -%}
     <!-- DEBUG: Cart item {{ item.product.title }} collections: {% for collection in item.product.collections %}{{ collection.handle }}{% unless forloop.last %}, {% endunless %}{% endfor %} -->
   {%- endfor -%}
 {%- endif -%}
 
 {%- comment -%} Fallback: If no recommendations found, show some random products {%- endcomment -%}
-{%- if recommended_products == blank and cart.items.size > 0 -%}
+{%- if recommended_handles == blank and cart.items.size > 0 -%}
   {%- assign fallback_products = collections.all.products | where: 'available', true -%}
   {%- assign fallback_products = fallback_products | slice: 0, 4 -%}
   {%- if fallback_products.size > 0 -%}
@@ -234,34 +238,9 @@
       });
     </script>
   {%- endif -%}
-{%- elsif recommended_products != blank -%}
-  {%- comment -%} Get products directly from collections instead of using IDs {%- endcomment -%}
-  {%- assign products_to_show = '' -%}
-  {%- assign product_count = 0 -%}
-  
-  {%- for collection_handle in cart_collections_array -%}
-    {%- if product_count < max_products -%}
-      {%- assign collection = collections[collection_handle] -%}
-      {%- if collection != blank -%}
-        {%- for product in collection.products -%}
-          {%- if product_count < max_products -%}
-            {%- unless cart_product_ids contains product.id -%}
-              {%- unless products_to_show contains product.id -%}
-                {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
-                {%- assign product_count = product_count | plus: 1 -%}
-                <!-- DEBUG: Added product {{ product.title }} from {{ collection_handle }} -->
-              {%- endunless -%}
-            {%- endunless -%}
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endif -%}
-    {%- endif -%}
-  {%- endfor -%}
-  
-  <!-- DEBUG: products_to_show = "{{ products_to_show }}" -->
-  {%- if products_to_show != blank -%}
-    {%- assign products_array = products_to_show | split: ',' -%}
-    <!-- DEBUG: products_array size = {{ products_array.size }} -->
+{%- elsif recommended_handles != blank -%}
+  {%- assign products_array = recommended_handles | split: ',' -%}
+  <!-- DEBUG: products_array size = {{ products_array.size }} -->
     
     <div class="cart-drawer__you-may-also-like">
       <div class="cart-drawer__you-may-also-like-header">
@@ -271,53 +250,56 @@
       <div class="cart-drawer__you-may-also-like-slider">
         <div class="swiper cart-drawer__swiper-you-may-also-like">
           <div class="swiper-wrapper">
-            {%- for product in products_array -%}
-              {%- if product != blank -%}
-                <div class="swiper-slide">
-                  <div class="cart-drawer__recommendation-item">
-                    <!-- DEBUG: Product {{ product.title }} - images: {{ product.images.size }} -->
-                    {%- assign product_image = product.featured_image | default: product.images.first -%}
-                    {%- if product_image != blank -%}
-                      <div class="card-product-small">
-                        <a href="{{ product.url }}" class="card-product-small">
+            {%- for product_handle in products_array -%}
+              {%- if product_handle != blank -%}
+                {%- assign product = all_products[product_handle] -%}
+                {%- if product != blank -%}
+                  <div class="swiper-slide">
+                    <div class="cart-drawer__recommendation-item">
+                      <!-- DEBUG: Product {{ product.title }} - images: {{ product.images.size }} -->
+                      {%- assign product_image = product.featured_image | default: product.images.first -%}
+                      {%- if product_image != blank -%}
+                        <div class="card-product-small">
+                          <a href="{{ product.url }}" class="card-product-small">
+                            <div class="media card-product-small-media">
+                              {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                            </div>
+                            <div class="card-product-small-details">
+                              <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                              <p class="card-product-small-price">
+                                {%- if product.compare_at_price_min > product.price_min -%}
+                                  <del>{{ product.compare_at_price_min | money }}</del>
+                                  <ins>{{ product.price_min | money }}</ins>
+                                {%- else -%}
+                                  {{ product.price_min | money }}
+                                {%- endif -%}
+                              </p>
+                              {%- if settings.product_card_enable_quick_add_to_cart_button -%}
+                                <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
+                                  {{ "cart.quick_add" | t }}
+                                  <div class="quick-cart-drawer__trigger--loading">
+                                    {%- render 'loading-spinner' -%}
+                                  </div>
+                                </button>
+                              {%- endif -%}
+                            </div>
+                          </a>
+                        </div>
+                      {%- else -%}
+                        <!-- DEBUG: Product {{ product.title }} has no images at all -->
+                        <div class="card-product-small">
                           <div class="media card-product-small-media">
-                            {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                            <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
                           </div>
                           <div class="card-product-small-details">
                             <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
-                            <p class="card-product-small-price">
-                              {%- if product.compare_at_price_min > product.price_min -%}
-                                <del>{{ product.compare_at_price_min | money }}</del>
-                                <ins>{{ product.price_min | money }}</ins>
-                              {%- else -%}
-                                {{ product.price_min | money }}
-                              {%- endif -%}
-                            </p>
-                            {%- if settings.product_card_enable_quick_add_to_cart_button -%}
-                              <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
-                                {{ "cart.quick_add" | t }}
-                                <div class="quick-cart-drawer__trigger--loading">
-                                  {%- render 'loading-spinner' -%}
-                                </div>
-                              </button>
-                            {%- endif -%}
+                            <p class="card-product-small-price">{{ product.price_min | money }}</p>
                           </div>
-                        </a>
-                      </div>
-                    {%- else -%}
-                      <!-- DEBUG: Product {{ product.title }} has no images at all -->
-                      <div class="card-product-small">
-                        <div class="media card-product-small-media">
-                          <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
                         </div>
-                        <div class="card-product-small-details">
-                          <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
-                          <p class="card-product-small-price">{{ product.price_min | money }}</p>
-                        </div>
-                      </div>
-                    {%- endif -%}
+                      {%- endif -%}
+                    </div>
                   </div>
-                </div>
+                {%- endif -%}
               {%- endif -%}
             {%- endfor -%}
           </div>
