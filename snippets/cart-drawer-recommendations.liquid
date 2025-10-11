@@ -21,7 +21,11 @@
   {%- for collection in item.product.collections -%}
     {%- unless excluded_collections_array contains collection.handle -%}
       {%- unless cart_collections contains collection.handle -%}
-        {%- assign cart_collections = cart_collections | append: collection.handle | append: ',' -%}
+        {%- if cart_collections != blank -%}
+          {%- assign cart_collections = cart_collections | append: ',' | append: collection.handle -%}
+        {%- else -%}
+          {%- assign cart_collections = collection.handle -%}
+        {%- endif -%}
       {%- endunless -%}
     {%- endunless -%}
   {%- endfor -%}
@@ -35,13 +39,16 @@
   
   {%- for collection_handle in cart_collections_array -%}
     {%- assign collection = collections[collection_handle] -%}
+    <!-- DEBUG: Processing collection {{ collection_handle }}, found: {{ collection != blank }} -->
     {%- if collection != blank and product_count < max_products -%}
+      <!-- DEBUG: Collection {{ collection_handle }} has {{ collection.products.size }} products -->
       {%- for product in collection.products -%}
         {%- if product_count < max_products -%}
           {%- unless cart_product_ids contains product.id -%}
             {%- unless recommended_products contains product.id -%}
               {%- assign recommended_products = recommended_products | append: product.id | append: ',' -%}
               {%- assign product_count = product_count | plus: 1 -%}
+              <!-- DEBUG: Added product {{ product.title }} ({{ product.id }}) from {{ collection_handle }} -->
             {%- endunless -%}
           {%- endunless -%}
         {%- endif -%}
