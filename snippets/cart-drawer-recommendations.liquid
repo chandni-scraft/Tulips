@@ -199,15 +199,22 @@
   {%- assign products_to_show = '' -%}
   
   {%- comment -%} Limit to max_products and create product objects {%- endcomment -%}
-  {%- for product_id in recommended_products_array limit: max_products -%}
-    {%- assign product = all_products[product_id] -%}
-    {%- if product != blank -%}
-      {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
+  {%- assign product_count = 0 -%}
+  {%- for product_id in recommended_products_array -%}
+    {%- if product_count < max_products -%}
+      {%- assign product = all_products[product_id] -%}
+      {%- if product != blank -%}
+        {%- assign products_to_show = products_to_show | append: product | append: ',' -%}
+        {%- assign product_count = product_count | plus: 1 -%}
+        <!-- DEBUG: Added product {{ product.title }} to products_to_show -->
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
   
+  <!-- DEBUG: products_to_show = "{{ products_to_show }}" -->
   {%- if products_to_show != blank -%}
     {%- assign products_array = products_to_show | split: ',' -%}
+    <!-- DEBUG: products_array size = {{ products_array.size }} -->
     
     <div class="cart-drawer__you-may-also-like">
       <div class="cart-drawer__you-may-also-like-header">
