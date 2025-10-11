@@ -46,7 +46,132 @@
   {%- endfor -%}
 {%- endif -%}
 
-{%- if recommended_products != blank -%}
+{%- comment -%} Debug information {%- endcomment -%}
+{%- if cart.items.size > 0 -%}
+  <!-- DEBUG: Cart has {{ cart.items.size }} items -->
+  <!-- DEBUG: Excluded collections: {{ excluded_collections }} -->
+  <!-- DEBUG: Cart collections found: {{ cart_collections }} -->
+  <!-- DEBUG: Recommended products: {{ recommended_products }} -->
+{%- endif -%}
+
+{%- comment -%} Fallback: If no recommendations found, show some random products {%- endcomment -%}
+{%- if recommended_products == blank and cart.items.size > 0 -%}
+  {%- assign fallback_products = collections.all.products | where: 'available', true -%}
+  {%- assign fallback_products = fallback_products | slice: 0, 4 -%}
+  {%- if fallback_products.size > 0 -%}
+    {%- assign products_array = fallback_products -%}
+    <div class="cart-drawer__you-may-also-like">
+      <div class="cart-drawer__you-may-also-like-header">
+        <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
+      </div>
+      
+      <div class="cart-drawer__you-may-also-like-slider">
+        <div class="swiper cart-drawer__swiper-you-may-also-like">
+          <div class="swiper-wrapper">
+            {%- for product in products_array -%}
+              <div class="swiper-slide">
+                <div class="cart-drawer__recommendation-item">
+                  {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .cart-drawer__you-may-also-like {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(var(--color-foreground), 0.1);
+      }
+      
+      .cart-drawer__you-may-also-like-header {
+        margin-bottom: 1rem;
+      }
+      
+      .cart-drawer__you-may-also-like-title {
+        margin: 0;
+        font-weight: 600;
+      }
+      
+      .cart-drawer__you-may-also-like-slider {
+        overflow: hidden;
+      }
+      
+      .cart-drawer__swiper-you-may-also-like {
+        overflow: visible;
+      }
+      
+      .cart-drawer__recommendation-item {
+        width: 100%;
+      }
+      
+      .cart-drawer__you-may-also-like .swiper-slide {
+        width: 140px;
+        flex-shrink: 0;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card {
+        border: 1px solid rgba(var(--color-foreground), 0.1);
+        border-radius: 8px;
+        padding: 0.75rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__media {
+        aspect-ratio: 1;
+        margin-bottom: 0.5rem;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__title {
+        font-size: 0.875rem;
+        line-height: 1.3;
+        margin-bottom: 0.25rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__price {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-top: auto;
+      }
+      
+      .cart-drawer__you-may-also-like .product-card__button {
+        display: none;
+      }
+      
+      @media screen and (max-width: 750px) {
+        .cart-drawer__you-may-also-like .swiper-slide {
+          width: 120px;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Swiper !== 'undefined') {
+          new Swiper('.cart-drawer__swiper-you-may-also-like', {
+            slidesPerView: 'auto',
+            spaceBetween: 12,
+            freeMode: true,
+            grabCursor: true,
+            breakpoints: {
+              750: {
+                spaceBetween: 16,
+              }
+            }
+          });
+        }
+      });
+    </script>
+  {%- endif -%}
+{%- elsif recommended_products != blank -%}
   {%- assign recommended_products_array = recommended_products | split: ',' -%}
   {%- assign products_to_show = '' -%}
   
