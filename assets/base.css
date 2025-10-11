@@ -1181,6 +1181,9 @@ summary::-webkit-details-marker {
 .jdgm-preview-badge .jdgm-star {
     color: #a4c86e !important;
 }
+.jdgm-histogram__bar-content {
+    background-color: #a4c86e !important;
+}
 
 @media screen and (min-width: 750px) {
   .disclosure-has-popup[open] > summary + * {
