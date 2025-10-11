@@ -14,7 +14,7 @@
   assign cart_collections = ''
   assign recommended_handles = ''
   assign cart_product_ids = cart.items | map: 'product_id'
-  assign show_recommendations = false
+  assign show_slider = false
 -%}
 
 {%- comment -%} Get all collections from cart items {%- endcomment -%}
@@ -75,7 +75,7 @@
 {%- assign handles_to_render = recommended_handles -%}
 {%- if cart.items.size > 0 and handles_to_render == blank -%}
   {%- assign fallback_products = collections.all.products | where: 'available', true -%}
-  {%- assign fallback_products = fallback_products | slice: 0, 4 -%}
+  {%- assign fallback_products = fallback_products | slice: 0, 8 -%}
   {%- if fallback_products.size > 0 -%}
     {%- assign handles_to_render = fallback_products | map: 'handle' | join: ',' -%}
   {%- endif -%}
@@ -84,66 +84,72 @@
 {%- if cart.items.size > 0 and handles_to_render != blank -%}
   {%- assign products_array = handles_to_render | split: ',' -%}
   {%- assign rendered_products = 0 -%}
-  {%- capture recommendations_markup -%}
+  {%- capture slider_markup -%}
     <div class="cart-drawer__you-may-also-like">
       <div class="cart-drawer__you-may-also-like-header">
         <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
       </div>
-      <div class="cart-drawer__you-may-also-like-list">
-        {%- for product_handle in products_array -%}
-          {%- if rendered_products >= max_products -%}{%- break -%}{%- endif -%}
-          {%- if product_handle != blank -%}
-            {%- assign product = all_products[product_handle] -%}
-            {%- if product != blank -%}
-              {%- unless cart_product_ids contains product.id -%}
-                {%- assign rendered_products = rendered_products | plus: 1 -%}
-                {%- assign product_image = product.featured_image | default: product.images.first -%}
-                <div class="cart-drawer__you-may-also-like-item">
-                  <div class="card-product-small">
-                    <a href="{{ product.url }}" class="card-product-small-media">
-                      {%- if product_image != blank -%}
-                        {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
-                      {%- else -%}
-                        <div class="card-product-small-placeholder">No Image</div>
-                      {%- endif -%}
-                    </a>
-                    <div class="card-product-small-details">
-                      <a href="{{ product.url }}" class="card-product-small-title-link">
-                        <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
-                      </a>
-                      <p class="card-product-small-price">
-                        {%- if product.compare_at_price_min > product.price_min -%}
-                          <del>{{ product.compare_at_price_min | money }}</del>
-                          <ins>{{ product.price_min | money }}</ins>
-                        {%- else -%}
-                          {{ product.price_min | money }}
-                        {%- endif -%}
-                      </p>
-                      {%- if settings.product_card_enable_quick_add_to_cart_button -%}
-                        <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
-                          {{ "cart.quick_add" | t }}
-                          <div class="quick-cart-drawer__trigger--loading">
-                            {%- render 'loading-spinner' -%}
+      <div class="cart-drawer__you-may-also-like-slider">
+        <div class="swiper cart-drawer__swiper-you-may-also-like">
+          <div class="swiper-wrapper">
+            {%- for product_handle in products_array -%}
+              {%- if rendered_products >= max_products -%}{%- break -%}{%- endif -%}
+              {%- if product_handle != blank -%}
+                {%- assign product = all_products[product_handle] -%}
+                {%- if product != blank -%}
+                  {%- unless cart_product_ids contains product.id -%}
+                    {%- assign rendered_products = rendered_products | plus: 1 -%}
+                    {%- assign product_image = product.featured_image | default: product.images.first -%}
+                    <div class="swiper-slide">
+                      <div class="cart-drawer__recommendation-item">
+                        <div class="card-product-small">
+                          <a href="{{ product.url }}" class="card-product-small-media">
+                            {%- if product_image != blank -%}
+                              {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                            {%- else -%}
+                              <div class="card-product-small-placeholder">No Image</div>
+                            {%- endif -%}
+                          </a>
+                          <div class="card-product-small-details">
+                            <a href="{{ product.url }}" class="card-product-small-title-link">
+                              <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                            </a>
+                            <p class="card-product-small-price">
+                              {%- if product.compare_at_price_min > product.price_min -%}
+                                <del>{{ product.compare_at_price_min | money }}</del>
+                                <ins>{{ product.price_min | money }}</ins>
+                              {%- else -%}
+                                {{ product.price_min | money }}
+                              {%- endif -%}
+                            </p>
+                            {%- if settings.product_card_enable_quick_add_to_cart_button -%}
+                              <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
+                                {{ "cart.quick_add" | t }}
+                                <div class="quick-cart-drawer__trigger--loading">
+                                  {%- render 'loading-spinner' -%}
+                                </div>
+                              </button>
+                            {%- endif -%}
                           </div>
-                        </button>
-                      {%- endif -%}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              {%- endunless -%}
-            {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
+                  {%- endunless -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
       </div>
     </div>
   {%- endcapture -%}
   {%- if rendered_products > 0 -%}
-    {%- assign show_recommendations = true -%}
-    {{ recommendations_markup }}
+    {%- assign show_slider = true -%}
+    {{ slider_markup }}
   {%- endif -%}
 {%- endif -%}
 
-{%- if show_recommendations -%}
+{%- if show_slider -%}
   <style>
     .cart-drawer__you-may-also-like {
       margin-top: 1.5rem;
@@ -160,33 +166,45 @@
       font-weight: 600;
     }
     
-    .cart-drawer__you-may-also-like-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .cart-drawer__you-may-also-like-slider {
+      overflow: hidden;
     }
     
-    .cart-drawer__you-may-also-like-item {
-      width: 100%;
+    .cart-drawer__swiper-you-may-also-like {
+      overflow: visible;
+    }
+    
+    .cart-drawer__swiper-you-may-also-like .swiper-wrapper {
+      align-items: stretch;
+    }
+    
+    .cart-drawer__you-may-also-like .swiper-slide {
+      width: 160px;
+      flex-shrink: 0;
+    }
+    
+    .cart-drawer__recommendation-item {
+      border: 1px solid rgba(var(--color-foreground), 0.1);
+      border-radius: 8px;
+      padding: 0.75rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     
     .card-product-small {
       display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      width: 100%;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: 100%;
     }
     
     .card-product-small-media {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
+      display: block;
+      border-radius: 6px;
       overflow: hidden;
+      aspect-ratio: 1;
       background: rgba(var(--color-foreground), 0.05);
-      text-decoration: none;
     }
     
     .card-product-small-media img {
@@ -196,18 +214,20 @@
     }
     
     .card-product-small-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 0.75rem;
       color: rgba(var(--color-foreground), 0.6);
-      text-align: center;
-      line-height: 1.2;
-      padding: 0.35rem;
     }
     
     .card-product-small-details {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.4rem;
+      flex: 1;
     }
     
     .card-product-small-title-link {
@@ -217,20 +237,16 @@
     
     .card-product-small-title {
       margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.35;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.9rem;
+      line-height: 1.3;
     }
     
     .card-product-small-price {
       margin: 0;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
       display: flex;
-      gap: 0.35rem;
+      gap: 0.3rem;
       align-items: baseline;
     }
     
@@ -245,22 +261,31 @@
     
     .quick-cart-drawer__trigger--recommendations {
       align-self: flex-start;
-      margin-top: 0.25rem;
+      margin-top: auto;
     }
     
     @media screen and (max-width: 750px) {
-      .cart-drawer__you-may-also-like-list {
-        gap: 0.75rem;
-      }
-      
-      .card-product-small {
-        gap: 0.6rem;
-      }
-      
-      .card-product-small-media {
-        width: 64px;
-        height: 64px;
+      .cart-drawer__you-may-also-like .swiper-slide {
+        width: 140px;
       }
     }
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.cart-drawer__swiper-you-may-also-like', {
+          slidesPerView: 'auto',
+          spaceBetween: 12,
+          freeMode: true,
+          grabCursor: true,
+          breakpoints: {
+            750: {
+              spaceBetween: 16,
+            }
+          }
+        });
+      }
+    });
+  </script>
 {%- endif -%}
