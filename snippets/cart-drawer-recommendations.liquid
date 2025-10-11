@@ -94,10 +94,37 @@
             {%- for product in products_array -%}
               <div class="swiper-slide">
                 <div class="cart-drawer__recommendation-item">
-                  {%- if product.featured_image != blank -%}
-                    {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                  <!-- DEBUG: Product {{ product.title }} - featured_image: {{ product.featured_image != blank }}, images: {{ product.images.size }} -->
+                  {%- assign product_image = product.featured_image | default: product.images.first -%}
+                  {%- if product_image != blank -%}
+                    <div class="card-product-small">
+                      <a href="{{ product.url }}" class="card-product-small">
+                        <div class="media card-product-small-media">
+                          {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                        </div>
+                        <div class="card-product-small-details">
+                          <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                          <p class="card-product-small-price">
+                            {%- if product.compare_at_price_min > product.price_min -%}
+                              <del>{{ product.compare_at_price_min | money }}</del>
+                              <ins>{{ product.price_min | money }}</ins>
+                            {%- else -%}
+                              {{ product.price_min | money }}
+                            {%- endif -%}
+                          </p>
+                          {%- if settings.product_card_enable_quick_add_to_cart_button -%}
+                            <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
+                              {{ "cart.quick_add" | t }}
+                              <div class="quick-cart-drawer__trigger--loading">
+                                {%- render 'loading-spinner' -%}
+                              </div>
+                            </button>
+                          {%- endif -%}
+                        </div>
+                      </a>
+                    </div>
                   {%- else -%}
-                    <!-- DEBUG: Product {{ product.title }} has no featured image -->
+                    <!-- DEBUG: Product {{ product.title }} has no images at all -->
                     <div class="card-product-small">
                       <div class="media card-product-small-media">
                         <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
@@ -248,10 +275,37 @@
               {%- if product != blank -%}
                 <div class="swiper-slide">
                   <div class="cart-drawer__recommendation-item">
-                    {%- if product.featured_image != blank -%}
-                      {%- render 'card-product-small', product_ref: product, section_id: 'cart-drawer-recommendations' -%}
+                    <!-- DEBUG: Product {{ product.title }} - featured_image: {{ product.featured_image != blank }}, images: {{ product.images.size }} -->
+                    {%- assign product_image = product.featured_image | default: product.images.first -%}
+                    {%- if product_image != blank -%}
+                      <div class="card-product-small">
+                        <a href="{{ product.url }}" class="card-product-small">
+                          <div class="media card-product-small-media">
+                            {%- render 'image', image: product_image, alt: product_image.alt | escape -%}
+                          </div>
+                          <div class="card-product-small-details">
+                            <h6 class="card-product-small-title">{{ product.title | escape }}</h6>
+                            <p class="card-product-small-price">
+                              {%- if product.compare_at_price_min > product.price_min -%}
+                                <del>{{ product.compare_at_price_min | money }}</del>
+                                <ins>{{ product.price_min | money }}</ins>
+                              {%- else -%}
+                                {{ product.price_min | money }}
+                              {%- endif -%}
+                            </p>
+                            {%- if settings.product_card_enable_quick_add_to_cart_button -%}
+                              <button type="button" class="quick-cart-drawer__trigger quick-cart-drawer__trigger--recommendations button button--filled" aria-expanded="false" onclick="preventDefault(event)" aria-controls="quick-cart-drawer" data-product-url="{{ product.handle | prepend: '/products/' }}">
+                                {{ "cart.quick_add" | t }}
+                                <div class="quick-cart-drawer__trigger--loading">
+                                  {%- render 'loading-spinner' -%}
+                                </div>
+                              </button>
+                            {%- endif -%}
+                          </div>
+                        </a>
+                      </div>
                     {%- else -%}
-                      <!-- DEBUG: Product {{ product.title }} has no featured image -->
+                      <!-- DEBUG: Product {{ product.title }} has no images at all -->
                       <div class="card-product-small">
                         <div class="media card-product-small-media">
                           <div class="placeholder-image" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; border-radius: 4px;">No Image</div>
