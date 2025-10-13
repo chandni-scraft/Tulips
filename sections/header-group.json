@@ -93,6 +93,16 @@
         "spacing_bottom": "0"
       }
     },
+    "image_banner_bFC3JK": {
+      "type": "image-banner",
+      "name": "Image Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/sale_banner.jpg",
+        "image_width": 1200,
+        "image_height": 40,
+        "object_fit": "contain"
+      }
+    },
     "header": {
       "type": "header",
       "custom_css": [
@@ -140,6 +150,7 @@
   "order": [
     "announcement-bar",
     "custom_liquid_AGP8qJ",
+    "image_banner_bFC3JK",
     "header"
   ]
 }
