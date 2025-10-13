@@ -84,6 +84,7 @@
     },
     "custom_liquid_bknpmg": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.name",
       "settings": {
         "custom_liquid": "<div style=\"width: 100%; background-color: #fff; text-align: center; padding: 0px 0;\">\n    <img      src=\"https://cdn.shopify.com/s/files/1/0679/3822/2261/files/sale_banner.jpg?v=1760361966\"\n      alt=\"Announcement strip\"\n      loading=\"lazy\"\n      height=\"37\"\n      style=\"display: inline-block; vertical-align: middle; object-fit: contain;\"/>\n  </div>",
