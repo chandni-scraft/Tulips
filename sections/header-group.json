@@ -86,8 +86,8 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
       "settings": {
-        "custom_liquid": "<img \n    src=\"{{ 'HOL25_8565_LP_EarlyHoliday_Reciprocal-Banner_Holiday-Shop_DT_2560x110_e456ed62-c7c2-4aa1-ae35-5b47751805af.jpg' | file_url }}\" \n    alt=\"Offer banner\"\n    loading=\"lazy\"\n    style=\"\n      height: 25px; /* adjust as needed */\n      object-fit: contain;\n      object-position: center;\n      display: flex;\n      vertical-align: middle;\n      max-width: 100%;\n    \">",
-        "section_width": "max-w-page",
+        "custom_liquid": "<img \n    src=\"{{ 'HOL25_8565_LP_EarlyHoliday_Reciprocal-Banner_Holiday-Shop_DT_2560x110_e456ed62-c7c2-4aa1-ae35-5b47751805af.jpg' | file_url }}\" \n    alt=\"Offer banner\"\n    loading=\"lazy\" height=\"37px\"\n    >",
+        "section_width": "max-w-fluid",
         "color_scheme": "",
         "spacing_top": "0",
         "spacing_bottom": "0"
