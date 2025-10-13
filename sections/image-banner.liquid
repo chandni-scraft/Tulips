@@ -9,16 +9,7 @@
   }
 {%- endstyle -%}
 <div style="width: 100%; background-color: #fff; text-align: center; margin: 0; padding: 0;">
-  {% if section.settings.image_url != blank %}
-    <img
-      src="{{ section.settings.image_url }}"
-      alt="{{ section.settings.alt_text | escape }}"
-      loading="lazy"
-      width="{{ section.settings.image_width }}"
-      height="{{ section.settings.image_height }}"
-      style="display: inline-block; vertical-align: middle; object-fit: {{ section.settings.object_fit }}; max-width: 100%; height: auto; margin: 0; padding: 0;"
-    />
-  {% elsif section.settings.banner_image != blank %}
+  {% if section.settings.banner_image != blank %}
     <img
       src="{{ section.settings.banner_image | image_url: width: 2560 }}"
       srcset="
