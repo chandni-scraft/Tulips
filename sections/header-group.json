@@ -96,6 +96,7 @@
     },
     "image_banner_bFC3JK": {
       "type": "image-banner",
+      "disabled": true,
       "name": "Image Banner",
       "settings": {
         "banner_image": "shopify://shop_images/sale_banner.jpg",
