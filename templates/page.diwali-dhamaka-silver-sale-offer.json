@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "slider_height": 100,
+        "slideshow_autoplay_interval": 6,
+        "show_slideshow_navigation": true,
+        "slideshow_navigation_position": "hero__swiper-buttons--center",
+        "color_scheme_arrows": "scheme-1",
+        "show_slideshow_pagination": true,
+        "slideshow_pagination_style": "style-1",
+        "floating_bar": false
+      },
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-1",
+            "header_menu_text_color": "#ffffff",
+            "heading": "<p>Diwali Dhamaka Silver Sale</p>",
+            "subheading": "Exclusive Silver Collection",
+            "text": "<p>Discover our stunning collection of silver jewelry and accessories at unbeatable prices. Limited time offer!</p>",
+            "button_link_1": "/collections/silver",
+            "button_link_1_type": "button",
+            "button_label_1": "Shop Now",
+            "button_style_1": "button--filled",
+            "button_link_2": "/collections/silver-rings",
+            "button_label_2": "View Rings",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "enable_media_overlay_desktop": true,
+            "enable_media_overlay_mobile": true
+          }
+        }
+      ]
+    }
+  },
+  "order": [
+    "hero_banner"
+  ]
+}
