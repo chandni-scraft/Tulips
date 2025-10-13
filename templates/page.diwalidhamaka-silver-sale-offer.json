@@ -319,6 +319,17 @@
         "spacing_top": "2",
         "spacing_bottom": "2"
       }
+    },
+    "custom_liquid_RHpiCy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "{% style %}\n  @media screen and (min-width: 750px) {\n    #shopify-section-{{ section.id }} {\n      margin-top: 30px;\n    \n    }\n  }\n{% endstyle %}",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
@@ -329,6 +340,7 @@
     "legal_restrictions",
     "legal_review",
     "conclusion",
-    "accordions_CtJaPY"
+    "accordions_CtJaPY",
+    "custom_liquid_RHpiCy"
   ]
 }
