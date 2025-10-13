@@ -94,6 +94,16 @@
         "spacing_bottom": "0"
       }
     },
+    "image_banner_GFD8Xz": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "Image Banner",
+      "settings": {
+        "image_width": 1200,
+        "image_height": 40,
+        "object_fit": "contain"
+      }
+    },
     "header": {
       "type": "header",
       "custom_css": [
@@ -141,6 +151,7 @@
   "order": [
     "announcement-bar",
     "custom_liquid_bknpmg",
+    "image_banner_GFD8Xz",
     "header"
   ]
 }
