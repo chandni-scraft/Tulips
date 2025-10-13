@@ -12,6 +12,39 @@
     "1658995208ad05f95f": {
       "type": "hero-banner",
       "blocks": {
+        "slide_78fFiC": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
+            "header_menu_text_color": "#ffffff",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/Tulips_Desktop_banner_18.png",
+            "link": "https://tulipshygiene.store/pages/diwali-dhamaka-silver-sale-offer",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": true,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/Tulips_Mobile_banner_2_1.png",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        },
         "8d591e0b-d408-44f1-8bd2-9b71f529aa90": {
           "type": "slide",
           "settings": {
@@ -139,47 +172,14 @@
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
           }
-        },
-        "slide_78fFiC": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "banner_layout": "hero-banner--full",
-            "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
-            "header_menu_text_color": "#ffffff",
-            "heading": "",
-            "subheading": "",
-            "subheading_link": "",
-            "text": "",
-            "button_link_1": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--filled",
-            "button_link_2": "/",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "content_position": "center",
-            "content_alignment": "center",
-            "image": "shopify://shop_images/Tulips_Desktop_banner_18.png",
-            "link": "https://tulipshygiene.store/pages/diwali-dhamaka-silver-sale-offer",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "enable_media_overlay_desktop": true,
-            "content_position_mobile": "center",
-            "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Tulips_Mobile_banner_2_1.png",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "enable_media_overlay_mobile": true
-          }
         }
       },
       "block_order": [
+        "slide_78fFiC",
         "8d591e0b-d408-44f1-8bd2-9b71f529aa90",
         "slide_cbJr6p",
         "slide_xFPCzN",
-        "slide_XVAdBC",
-        "slide_78fFiC"
+        "slide_XVAdBC"
       ],
       "custom_css": [],
       "settings": {
