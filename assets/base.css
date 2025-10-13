@@ -4932,7 +4932,68 @@ back-to-top.hide {
 /* Responsive Design */
 
 /* .product-card__actions .custom_styled_button{
-  display: none !important; */
+  
+}
+
+/* Diwali Campaign Styles - Shopify Best Practices */
+.section-diwali-campaign {
+  padding-block-start: calc(var(--section-spacing-unit-size) * var(--spacing-top, 2));
+  padding-block-end: calc(var(--section-spacing-unit-size) * var(--spacing-bottom, 2));
+}
+
+/* Enhanced styling for legal sections */
+.section-seo-content .rte ul {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-2);
+  margin: var(--spacing-4) 0;
+}
+
+.section-seo-content .rte ul li {
+  background: var(--color-warning-light, #fff3cd);
+  padding: var(--spacing-2);
+  border-radius: var(--border-radius);
+  text-align: center;
+  border: 1px solid var(--color-warning, #ffeaa7);
+  transition: transform 0.2s ease;
+  margin: 0;
+}
+
+.section-seo-content .rte ul li:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced styling for conclusion section */
+.section-seo-content .rte h3 {
+  color: var(--color-primary, #667eea);
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--spacing-4);
+}
+
+.section-seo-content .rte p:last-child {
+  background: linear-gradient(135deg, var(--color-primary, #667eea) 0%, var(--color-secondary, #764ba2) 100%);
+  color: white;
+  padding: var(--spacing-4);
+  border-radius: var(--card-corner-radius);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  margin-top: var(--spacing-4);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 750px) {
+  .section-seo-content .rte ul {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-1);
+  }
+  
+  .section-seo-content .rte ul li {
+    padding: var(--spacing-1);
+    font-size: var(--font-size-small);
+  }
+}
 
 /* 
 @media screen and (max-width: 768px) {
