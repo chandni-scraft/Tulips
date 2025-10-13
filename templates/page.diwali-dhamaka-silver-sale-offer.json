@@ -12,8 +12,8 @@
         "slideshow_pagination_style": "style-1",
         "floating_bar": false
       },
-      "blocks": [
-        {
+      "blocks": {
+        "slide_1": {
           "type": "slide",
           "settings": {
             "banner_layout": "hero-banner--full",
@@ -37,7 +37,7 @@
             "enable_media_overlay_mobile": true
           }
         }
-      ]
+      }
     },
     "trust_indicators": {
       "type": "trust-indicators",
@@ -53,40 +53,40 @@
         "spacing_top": "2",
         "spacing_bottom": "2"
       },
-      "blocks": [
-        {
+      "blocks": {
+        "indicator_1": {
           "type": "indicator",
           "settings": {
             "title": "🎁 10 Lucky Winners",
             "subheading": "Win 10-gram Silver Coins",
-            "icon": "theme-gift"
+            "icon": "theme-box"
           }
         },
-        {
+        "indicator_2": {
           "type": "indicator",
           "settings": {
             "title": "💰 No Minimum Purchase",
             "subheading": "All purchases eligible",
-            "icon": "theme-check"
+            "icon": "theme-checkmark"
           }
         },
-        {
+        "indicator_3": {
           "type": "indicator",
           "settings": {
             "title": "🎲 Random Selection",
             "subheading": "Fair & transparent process",
-            "icon": "theme-shuffle"
+            "icon": "theme-refresh"
           }
         },
-        {
+        "indicator_4": {
           "type": "indicator",
           "settings": {
             "title": "📅 Oct 13-20, 2025",
             "subheading": "Limited time offer",
-            "icon": "theme-calendar"
+            "icon": "theme-clock"
           }
         }
-      ]
+      }
     },
     "campaign_overview": {
       "type": "seo-content",
@@ -113,8 +113,8 @@
         "spacing_top": "2",
         "spacing_bottom": "2"
       },
-      "blocks": [
-        {
+      "blocks": {
+        "topic_1": {
           "type": "topic",
           "settings": {
             "is_open": true,
@@ -122,21 +122,21 @@
             "text": "<p>• Offer applicable on all purchases made from Tulips official website during the campaign.<br>• No minimum purchase value required for eligibility.<br>• Winners will be selected randomly and informed through official communication. (Website Page/Social Media)</p>"
           }
         },
-        {
+        "topic_2": {
           "type": "topic",
           "settings": {
             "title": "🎁 Prize Details",
             "text": "<p>• The Silver Coin prize cannot be exchanged for cash or other products.<br>• 10 lucky winners will each receive a 10-gram Silver Coin.<br>• Winners will be notified after the campaign ends.</p>"
           }
         },
-        {
+        "topic_3": {
           "type": "topic",
           "settings": {
             "title": "⚖️ Terms & Restrictions",
             "text": "<p>• Tulips reserves the right to alter or withdraw the campaign without notice.<br>• Employees, vendors, and affiliates of Tulips are not eligible.<br>• Participation implies acceptance of all campaign terms and conditions.</p>"
           }
         }
-      ]
+      }
     },
     "legal_restrictions": {
       "type": "seo-content",
@@ -144,7 +144,7 @@
         "section_layout": "boxed",
         "heading": "⚖️ Legal Restrictions & State Exclusions",
         "heading_size": "h2",
-        "text": "<div style='background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #dc3545;'><p><strong>⚠️ Important Legal Notice:</strong></p><p>Under the <strong>Prize Competitions Act, 1955</strong> and relevant promotional laws, \"purchase and win\" campaigns are generally allowed when no entry fee or purchase condition is mandatory.</p></div><br><p><strong>🚫 Restricted States:</strong></p><p>However, specific states may restrict such campaigns or require additional approvals. These include:</p><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;'><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Assam</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Nagaland</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Sikkim</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Tamil Nadu</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Andhra Pradesh</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Telangana</strong></div><div style='background: #fff3cd; padding: 10px; border-radius: 5px; text-align: center; border: 1px solid #ffeaa7;'><strong>Odisha</strong></div></div><p><strong>💡 Recommendation:</strong> It is recommended to either exclude residents from these states or obtain prior legal clearance.</p>",
+        "text": "<p><strong>⚠️ Important Legal Notice:</strong></p><p>Under the <strong>Prize Competitions Act, 1955</strong> and relevant promotional laws, \"purchase and win\" campaigns are generally allowed when no entry fee or purchase condition is mandatory.</p><p><strong>🚫 Restricted States:</strong></p><p>However, specific states may restrict such campaigns or require additional approvals. These include:</p><ul><li><strong>Assam</strong></li><li><strong>Nagaland</strong></li><li><strong>Sikkim</strong></li><li><strong>Tamil Nadu</strong></li><li><strong>Andhra Pradesh</strong></li><li><strong>Telangana</strong></li><li><strong>Odisha</strong></li></ul><p><strong>💡 Recommendation:</strong> It is recommended to either exclude residents from these states or obtain prior legal clearance.</p>",
         "content_alignment": "start",
         "section_width": "max-w-narrower",
         "color_scheme": "scheme-1",
@@ -159,7 +159,7 @@
         "section_layout": "boxed",
         "heading": "📋 Legal Review Recommendations",
         "heading_size": "h2",
-        "text": "<div style='background: #e8f5e8; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;'><p><strong>✅ Compliance Checklist:</strong></p></div><br><div style='display: grid; gap: 15px;'>🔍 <strong>Transparency Requirements:</strong><ul style='margin: 10px 0; padding-left: 20px;'><li>Clearly mention that the offer is not linked to any purchase value threshold.</li><li>Ensure a fair and transparent process for random winner selection. (<em>random.org or wheelofnames.com can be used for winner selection</em>)</li><li>Record the entire process via screen recording (for audit transparency).</li></ul><br>📢 <strong>Communication Guidelines:</strong><ul style='margin: 10px 0; padding-left: 20px;'><li>Add disclaimers on marketing materials regarding ineligible states.</li><li>Ensure communication transparency for winner announcements.</li></ul><br>⚖️ <strong>Legal Compliance:</strong><ul style='margin: 10px 0; padding-left: 20px;'><li>Conduct legal vetting under the <strong>Consumer Protection Act, 2019</strong> and <strong>ASCI guidelines</strong> (Advertising Standards Council of India).</li><li>Retain all campaign data and selection records for at least 90 days post-event.</li></ul></div>",
+        "text": "<p><strong>✅ Compliance Checklist:</strong></p><p><strong>🔍 Transparency Requirements:</strong></p><ul><li>Clearly mention that the offer is not linked to any purchase value threshold.</li><li>Ensure a fair and transparent process for random winner selection. (<em>random.org or wheelofnames.com can be used for winner selection</em>)</li><li>Record the entire process via screen recording (for audit transparency).</li></ul><p><strong>📢 Communication Guidelines:</strong></p><ul><li>Add disclaimers on marketing materials regarding ineligible states.</li><li>Ensure communication transparency for winner announcements.</li></ul><p><strong>⚖️ Legal Compliance:</strong></p><ul><li>Conduct legal vetting under the <strong>Consumer Protection Act, 2019</strong> and <strong>ASCI guidelines</strong> (Advertising Standards Council of India).</li><li>Retain all campaign data and selection records for at least 90 days post-event.</li></ul>",
         "content_alignment": "start",
         "section_width": "max-w-narrower",
         "color_scheme": "scheme-1",
@@ -174,7 +174,7 @@
         "section_layout": "boxed",
         "heading": "🎯 Conclusion",
         "heading_size": "h2",
-        "text": "<div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);'><h3 style='color: white; margin: 0 0 20px 0; font-size: 1.5em;'>🌟 Campaign Vision</h3><p style='color: white; font-size: 1.1em; line-height: 1.6; margin: 0;'>The <strong>\"Tulips Silver Sale\"</strong> initiative is crafted to enhance consumer engagement, celebrate the festive season, and strengthen brand loyalty. With proper compliance and transparency, this campaign can establish a strong precedent for future Tulips promotions.</p><div style='margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;'><p style='margin: 0; color: #f8f9fa;'><strong>🎉 Happy Diwali from Team Tulips!</strong></p></div></div>",
+        "text": "<h3>🌟 Campaign Vision</h3><p>The <strong>\"Tulips Silver Sale\"</strong> initiative is crafted to enhance consumer engagement, celebrate the festive season, and strengthen brand loyalty. With proper compliance and transparency, this campaign can establish a strong precedent for future Tulips promotions.</p><p><strong>🎉 Happy Diwali from Team Tulips!</strong></p>",
         "content_alignment": "center",
         "section_width": "max-w-narrower",
         "color_scheme": "scheme-1",
