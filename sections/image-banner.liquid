@@ -9,6 +9,9 @@
   }
 {%- endstyle -%}
 <div style="width: 100%; background-color: #fff; text-align: center; margin: 0; padding: 0;">
+      {% if section.settings.link_url != blank %}
+    <a href="{{ section.settings.link_url }}" {% if section.settings.open_in_new_tab %}target="_blank"{% endif %} style="display: inline-block; text-decoration: none; margin: 0; padding: 0;">
+  {% endif %}
   {% if section.settings.banner_image != blank %}
     <img
       src="{{ section.settings.banner_image | image_url: width: 2560 }}"
