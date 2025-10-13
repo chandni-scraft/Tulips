@@ -5,10 +5,14 @@
       padding-block-start: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_top }});
       padding-block-end: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_bottom }});
     }
+    #shopify-section-{{ section.id }} .banner-container {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
   {%- endstyle -%}
 
   <div class="color-{{ section.settings.color_scheme }} gradient">
-    <div class="container {{ section.settings.section_width }} js-animation-fade-in">
+    <div class="container banner-container js-animation-fade-in">
       {{- section.settings.custom_liquid -}}
     </div>
   </div>
