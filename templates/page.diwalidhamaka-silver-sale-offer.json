@@ -89,6 +89,21 @@
         "spacing_bottom": "2"
       }
     },
+    "seo_content_cXwGrB": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "Key Terms & Conditions",
+        "heading_size": "h2",
+        "text": "<p>• Offer applicable on all purchases<br/>made from Tulips official website during the campaign. </p><p>• No minimum purchase value<br/>required for eligibility.</p><p>• Winners will be selected randomly<br/>and informed through official communication. (Website Page/Social<br/>Media)</p><p>• The Silver Coin prize cannot be<br/>exchanged for cash or other products. </p><p>• Tulips reserves the right toalter or withdraw the campaign without notice. </p><p>• Employees, vendors, and<br/>affiliates of Tulips are not eligible. </p><p>• Participation implies acceptance<br/>of all campaign terms and conditions.</p>",
+        "content_alignment": "start",
+        "section_width": "max-w-narrower",
+        "color_scheme": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
     "terms_accordion": {
       "type": "accordions",
       "settings": {
@@ -337,6 +352,7 @@
     "hero_banner",
     "trust_indicators",
     "campaign_overview",
+    "seo_content_cXwGrB",
     "terms_accordion",
     "legal_restrictions",
     "legal_review",
