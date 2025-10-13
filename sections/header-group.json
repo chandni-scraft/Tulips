@@ -84,10 +84,9 @@
     },
     "custom_liquid_AGP8qJ": {
       "type": "custom-liquid",
-      "disabled": true,
       "name": "t:sections.custom-liquid.name",
       "settings": {
-        "custom_liquid": "<div style=\"\n  width: 100%;\n  background-color: #ffe6e6; /* change this color if needed */\n  text-align: center;\n  padding: 0;\n\">\n  <img \n    src=\"{{ 'red-banner-clipart-design-illustration-free-png.webp' | file_url }}\" \n    alt=\"Offer banner\"\n    loading=\"lazy\"\n    style=\"\n      height: 35px; /* adjust as needed */\n      object-fit: contain;\n      object-position: center;\n      display: inline-block;\n      vertical-align: middle;\n      max-width: 100%;\n    \">\n</div>",
+        "custom_liquid": "<div style=\"\n  width: 100%;\nheight:20%;\n  background-color: #ffe6e6; /* change this color if needed */\n  text-align: center;\n  padding: 0;\n\">\n  <img \n    src=\"{{ 'red-banner-clipart-design-illustration-free-png.webp' | file_url }}\" \n    alt=\"Offer banner\"\n    loading=\"lazy\"\n    style=\"\n      height: 35px; /* adjust as needed */\n      object-fit: contain;\n      object-position: center;\n      display: inline-block;\n      vertical-align: middle;\n      max-width: 100%;\n    \">\n</div>",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "2",
