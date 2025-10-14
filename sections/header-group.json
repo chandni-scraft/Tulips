@@ -47,11 +47,12 @@
         },
         "timer_UXXqcR": {
           "type": "timer",
+          "disabled": true,
           "settings": {
             "show_on": "desktop",
-            "timer_year": 2024,
-            "timer_month": "08",
-            "timer_day": 1,
+            "timer_year": 2025,
+            "timer_month": "10",
+            "timer_day": 30,
             "timer_hour": 0,
             "timer_minute": 0,
             "timer_end_message": "Sale has ended",
@@ -87,6 +88,8 @@
       "disabled": true,
       "name": "Image Banner",
       "settings": {
+        "link_url": "",
+        "open_in_new_tab": false,
         "image_width": 1200,
         "image_height": 40,
         "object_fit": "contain"
