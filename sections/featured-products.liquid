@@ -155,33 +155,7 @@
           {%- endfor -%}
 
           <div>
-           <card-product-slider
-  class="swiper card-product-slider {% if section.settings.enable_slideshow_overflow %}overflow-unset{% endif %}"
-  data-section-id="{{- section.id -}}"
-  data-swiper-options='{
-    "sectionName": "featured-products",
-    "sectionId": "{{ section.id }}",
-    "spaceBetweenDesktop": {{ settings.spacing_desktop | times: 10 | round: 0 }},
-    "spaceBetweenMobile": {{ settings.spacing_mobile | times: 10 | round: 0 }},
-    "loop": true,
-
-    /* ✅ Swipe skips 4 products each time */
-    "slidesPerGroup": 4,
-    "loopAdditionalSlides": 4,
-
-    {% if section.settings.show_navigation_arrows %} 
-      "navigation": {
-        "prevEl": ".swiper-button--prev-{{ section.id }}",
-        "nextEl": ".swiper-button--next-{{ section.id }}"
-      }
-    {% endif %}
-    {% if section.settings.slideshow_autoplay_interval > 0 %},
-      "autoplay": { "delay": {{ section.settings.slideshow_autoplay_interval | times: 1000 }} }
-    {% elsif section.settings.slideshow_autoplay_interval == 0 %},
-      "autoplay": false
-    {% endif %}
-  }'
->
+          <card-product-slider class="swiper card-product-slider {% if section.settings.enable_slideshow_overflow %}overflow-unset{% endif %}" data-section-id="{{- section.id -}}" data-swiper-options=' { "sectionName": "featured-products", "sectionId": "{{ section.id }}", "spaceBetweenDesktop": {{ settings.spacing_desktop | times: 10 | round: 0 }}, "spaceBetweenMobile": {{ settings.spacing_mobile | times: 10 | round: 0 }}, "loop": true {% if section.settings.show_navigation_arrows %}, "navigation": { "prevEl": ".swiper-button--prev-{{ section.id }}", "nextEl": ".swiper-button--next-{{ section.id }}" } {% endif %} {% if section.settings.slideshow_autoplay_interval > 0 %}, "autoplay": { "delay": {{ section.settings.slideshow_autoplay_interval | times: 1000 }} } {% elsif section.settings.slideshow_autoplay_interval == 0 %} , "autoplay": false {% endif %} } ' >
               <div class="swiper-wrapper card-product-slider__wrapper">
                 {%- if all_products != blank -%}
                   {%- assign count = 0 -%}
