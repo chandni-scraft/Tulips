@@ -163,7 +163,7 @@
           "type": "topic",
           "settings": {
             "is_open": false,
-            "title": "Do I need to make a minimum purchase toparticipate?",
+            "title": "Do I need to make a minimum purchase to participate?",
             "text": "<p>No minimum purchase value is required.<br/><br/>Every order placed on the official Tulips website during the campaign dates automatically qualifies for the lucky draw.</p>",
             "page": ""
           }
@@ -199,7 +199,7 @@
           "type": "topic",
           "settings": {
             "is_open": false,
-            "title": "How will the winners receive their silvercoins?",
+            "title": "How will the winners receive their silver coins?",
             "text": "<p>Silver coins will be securely packed in <strong>Tulips-branded festive boxes</strong> and<br/>dispatched via <strong>insured courier service</strong>.<br/><br/>Winners will receive the <strong>tracking number</strong> once their package has been<br/>shipped.</p>",
             "page": ""
           }
@@ -208,7 +208,7 @@
           "type": "topic",
           "settings": {
             "is_open": false,
-            "title": "Can I exchange my silver coin for cash oranother product?",
+            "title": "Can I exchange my silver coin for cash or another product?",
             "text": "<p>No. The silver coin reward cannot be exchanged for cash, discounts, or any other products or services.</p>",
             "page": ""
           }
@@ -226,7 +226,7 @@
           "type": "topic",
           "settings": {
             "is_open": false,
-            "title": "Are there any state restrictions for thiscampaign?",
+            "title": "Are there any state restrictions for this campaign?",
             "text": "<p>Yes.Due to local prize promotion laws, this campaign is <strong>not valid</strong> for residents of the following states:<br/><br/><strong>Assam, Nagaland, Sikkim, Tamil Nadu, Andhra Pradesh, Telangana, and Odisha.</strong></p>",
             "page": ""
           }
@@ -262,7 +262,7 @@
           "type": "topic",
           "settings": {
             "is_open": false,
-            "title": "How does Tulips ensure fairness andtransparency?",
+            "title": "How does Tulips ensure fairness and transparency?",
             "text": "<p>Tulips follows a <strong>transparent winner selection process</strong>:</p><ul><li>All eligible orders are compiled and verified.</li><li>Winners are chosen randomly via a fair online tool.</li><li>The process is screen recorded and retained for <strong>90 days post-campaign</strong>.</li><li>Results are announced publicly on official Tulips platforms.</li></ul>",
             "page": ""
           }
