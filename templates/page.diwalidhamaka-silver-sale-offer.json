@@ -89,21 +89,6 @@
         "spacing_bottom": "2"
       }
     },
-    "seo_content_cXwGrB": {
-      "type": "seo-content",
-      "settings": {
-        "section_layout": "normal",
-        "heading": "<strong>Key Terms & Conditions</strong>",
-        "heading_size": "h3",
-        "text": "<p>• Offer applicable on all purchases made from Tulips official website during the campaign. </p><p>• No minimum purchase value required for eligibility.</p><p>• Winners will be selected randomly and informed through official communication. (Website Page/Social<br/>Media)</p><p>• The Silver Coin prize cannot be exchanged for cash or other products. </p><p>• Tulips reserves the right toalter or withdraw the campaign without notice. </p><p>• Employees, vendors, and affiliates of Tulips are not eligible. </p><p>• Participation implies acceptance of all campaign terms and conditions.</p>",
-        "content_alignment": "start",
-        "section_width": "max-w-narrower",
-        "color_scheme": "scheme-1",
-        "spacing_inner": "2",
-        "spacing_top": "4",
-        "spacing_bottom": "2"
-      }
-    },
     "terms_accordion": {
       "type": "accordions",
       "settings": {
@@ -121,7 +106,7 @@
         "section_layout": "boxed",
         "heading": "<strong>Legal Restrictions & State Exclusions</strong>",
         "heading_size": "h3",
-        "text": "<p>Under the <strong>Prize Competitions Act, 1955</strong> and relevant promotional laws, \"purchase and win\" campaigns are generally allowed when no entry fee or purchase condition is mandatory.</p><p><strong>🚫 Restricted States:</strong></p><p>However, specific states may restrict such campaigns or require additional approvals. These include:</p><ul><li><strong>Assam</strong></li><li><strong>Nagaland</strong></li><li><strong>Sikkim</strong></li><li><strong>Tamil Nadu</strong></li><li><strong>Andhra Pradesh</strong></li><li><strong>Telangana</strong></li><li><strong>Odisha</strong></li></ul><p><strong>💡 Recommendation:</strong> It is recommended to either exclude residents from these states or obtain prior legal clearance.</p>",
+        "text": "<p>People (Residents) from below mentioned states are restricted from taking part in this campaigns or require additional approvals. These include:</p><ul><li><strong>Assam</strong></li><li><strong>Nagaland</strong></li><li><strong>Sikkim</strong></li><li><strong>Tamil Nadu</strong></li><li><strong>Andhra Pradesh</strong></li><li><strong>Telangana</strong></li><li><strong>Odisha</strong></li></ul><p></p>",
         "content_alignment": "start",
         "section_width": "max-w-narrower",
         "color_scheme": "scheme-1",
@@ -147,6 +132,7 @@
     },
     "conclusion": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "boxed",
         "heading": "<strong>Conclusion</strong>",
@@ -336,6 +322,21 @@
         "spacing_bottom": "2"
       }
     },
+    "seo_content_cXwGrB": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "<strong>Key Terms & Conditions</strong>",
+        "heading_size": "h3",
+        "text": "<p>• Offer applicable on all purchases made from Tulips official website during the campaign. </p><p>• No minimum purchase value required for eligibility.</p><p>• Winners will be selected randomly and informed through official communication. (Website Page/Social<br/>Media)</p><p>• The Silver Coin prize cannot be exchanged for cash or other products. </p><p>• Tulips reserves the right toalter or withdraw the campaign without notice. </p><p>• Employees, vendors, and affiliates of Tulips are not eligible. </p><p>• Participation implies acceptance of all campaign terms and conditions.</p>",
+        "content_alignment": "start",
+        "section_width": "max-w-narrower",
+        "color_scheme": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
     "custom_liquid_RHpiCy": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
@@ -352,12 +353,12 @@
     "hero_banner",
     "trust_indicators",
     "campaign_overview",
-    "seo_content_cXwGrB",
     "terms_accordion",
     "legal_restrictions",
     "legal_review",
     "conclusion",
     "accordions_CtJaPY",
+    "seo_content_cXwGrB",
     "custom_liquid_RHpiCy"
   ]
 }
