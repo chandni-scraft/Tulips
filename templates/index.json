@@ -552,6 +552,7 @@
         },
         "collection_EzpkMw": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "title": "",
             "collection": "wooden-skewers",
