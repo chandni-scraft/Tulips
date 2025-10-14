@@ -3,39 +3,10 @@
     padding-block-start: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_top }});
     padding-block-end: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_bottom }});
   }
-  /* Hide bottom navigation arrows (center variant) */
+  /* Hide bottom navigation arrows */
   .swiper-buttons--center-{{ section.id }} {
     display: none !important;
   }
-
-  /* ---------- NEW: Background styling for arrow buttons ---------- */
-  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button {
-    background: rgba(0,0,0,0.5);          /* subtle dark bg */
-    backdrop-filter: saturate(120%) blur(2px);
-    width: 42px;
-    height: 42px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.35);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform .15s ease, background .15s ease, border-color .15s ease;
-  }
-  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button svg {
-    width: 18px;
-    height: 18px;
-  }
-  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button:hover {
-    background: rgba(0,0,0,0.65);
-    border-color: rgba(255,255,255,0.6);
-    transform: translateY(-1px);
-  }
-  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
-  }
-  /* -------------------------------------------------------------- */
-
   /* Fixed width for Buy Now button in featured products */
   #shopify-section-{{ section.id }} .shopify-payment-button__button {
     width: 152.45px !important;
@@ -44,33 +15,37 @@
     text-align: center;
   }
   
-  @media screen and (max-width: 750px) {
+   @media screen and (max-width: 750px) {
     #shopify-section-{{ section.id }} .shopify-payment-button__button {
-      width: 148.45px !important;
+    width: 148.45px !important;
     }
   }
-
   /* Custom Button Colors for Section {{ section.id }} */
   {% if section.settings.button_color_scheme == 'custom' %}
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button {
       color: {{ section.settings.custom_add_to_cart_text }} !important;
       border-color: {{ section.settings.custom_add_to_cart_outline }} !important;
     }
+    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button:hover {
       background: {{ section.settings.custom_add_to_cart_outline }} !important;
       color: #ffffff !important;
     }
+    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button svg path {
       stroke: {{ section.settings.custom_add_to_cart_outline }} !important;
     }
+    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button:hover svg path {
       stroke: #ffffff !important;
     }
+    
     #shopify-section-{{ section.id }} .collection-buttons-custom .shopify-payment-button__button {
       background: {{ section.settings.custom_buy_now_bg }} !important;
       color: {{ section.settings.custom_buy_now_text }} !important;
       border: 2px solid {{ section.settings.custom_buy_now_outline }} !important;
     }
+    
     #shopify-section-{{ section.id }} .collection-buttons-custom .shopify-payment-button__button:hover {
       background: transparent !important;
       color: #a4c86e !important;
@@ -170,22 +145,13 @@
                   "sectionId": "{{ section.id }}",
                   "spaceBetweenDesktop": {{ settings.spacing_desktop | times: 10 | round: 0 }},
                   "spaceBetweenMobile": {{ settings.spacing_mobile | times: 10 | round: 0 }},
-                  "loop": true,
-
-                  /* --------- UPDATED: swipe/jump 4 products per swipe --------- */
-                  "slidesPerGroup": 4,
-                  "speed": 500,
-                  "breakpoints": {
-                    "0":   { "slidesPerGroup": 1 },
-                    "750": { "slidesPerGroup": 2 },
-                    "990": { "slidesPerGroup": 4 }
-                  },
-                  /* ---------------------------------------------------------------- */
-
-                  {% if section.settings.show_navigation_arrows %} "navigation": {
-                    "prevEl": ".swiper-button--prev-{{ section.id }}",
-                    "nextEl": ".swiper-button--next-{{ section.id }}"
-                  }{% endif %}
+                  "loop": true
+                  {% if section.settings.show_navigation_arrows %},
+                    "navigation": {
+                      "prevEl": ".swiper-button--prev-{{ section.id }}",
+                      "nextEl": ".swiper-button--next-{{ section.id }}"
+                    }
+                  {% endif %}
                   {% if section.settings.slideshow_autoplay_interval > 0 %},
                     "autoplay": {
                       "delay": {{ section.settings.slideshow_autoplay_interval | times: 1000 }}
@@ -228,49 +194,39 @@
           </div>
         </div>
 
-        <div class="section__foot">
-          <div class="section__head--buttons">
-            {{ section_button | replace_first: 'custom_class' }}
-            {% if section.settings.show_navigation_arrows %}
-              {% if section.settings.layout == 'layout-2' %}
-                {%- assign icon_arrow = 'theme-arrow' -%}
-              {% else %}
-                {%- assign icon_arrow = 'theme-chevron' -%}
+      
+          <div class="section__foot">
+            <div class="section__head--buttons">
+              {{ section_button | replace_first: 'custom_class' }}
+              {% if section.settings.show_navigation_arrows %}
+                {% if section.settings.layout == 'layout-2' %}
+                  {%- assign icon_arrow = 'theme-arrow' -%}
+                {% else %}
+                  {%- assign icon_arrow = 'theme-chevron' -%}
+                {% endif %}
+
+                <div class="swiper-buttons small-hide card-slider__buttons no-js-hidden">
+                  <button
+                    class="swiper-button {% if arrow_type == 'plain' %}swiper-button--plain{% endif %} swiper-button--prev-{{ section.id }}"
+                    aria-label="{{- 'theme.actions.previous' | t -}}"
+                  >
+                    {%- render 'icon', icon_name: icon_arrow -%}
+                  </button>
+                  <button
+                    class="swiper-button {% if arrow_type == 'plain' %}swiper-button--plain{% endif %} swiper-button--next-{{ section.id }}"
+                    aria-label="{{- 'theme.actions.next' | t -}}"
+                  >
+                    {%- render 'icon', icon_name: icon_arrow -%}
+                  </button>
+                </div>
               {% endif %}
-
-              <div class="swiper-buttons small-hide card-slider__buttons no-js-hidden">
-                <button
-                  class="swiper-button {% if arrow_type == 'plain' %}swiper-button--plain{% endif %} swiper-button--prev-{{ section.id }}"
-                  aria-label="{{- 'theme.actions.previous' | t -}}"
-                >
-                  {%- render 'icon', icon_name: icon_arrow -%}
-                </button>
-                <button
-                  class="swiper-button {% if arrow_type == 'plain' %}swiper-button--plain{% endif %} swiper-button--next-{{ section.id }}"
-                  aria-label="{{- 'theme.actions.next' | t -}}"
-                >
-                  {%- render 'icon', icon_name: icon_arrow -%}
-                </button>
-              </div>
-            {% endif %}
+            </div>
           </div>
-        </div>
-
+     
       </div>
     </div>
   </div>
 {%- endif -%}
-
-
-{% comment %} <style>
-  .containernew {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 15px;
-    padding-bottom: 0px;
-  }
-</style> {% endcomment %}
-
 
 {% schema %}
 {
