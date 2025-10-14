@@ -117,6 +117,7 @@
     },
     "legal_review": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "boxed",
         "heading": "<strong>Legal Review Recommendations</strong>",
