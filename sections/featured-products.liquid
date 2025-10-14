@@ -221,7 +221,44 @@
     </div>
   </div>
 {%- endif -%}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var sid = '{{ section.id }}';
+  var root = document.querySelector('#shopify-section-' + sid);
+  if (!root) return;
 
+  var container = root.querySelector('.card-product-slider.swiper');
+  var prevBtn  = root.querySelector('.swiper-button--prev-{{ section.id }}');
+  var nextBtn  = root.querySelector('.swiper-button--next-{{ section.id }}');
+  var JUMP = 4;     // change to 3/5/etc if you ever want different
+
+  function bindWhenReady() {
+    var sw = container && container.swiper;
+    if (!sw) { requestAnimationFrame(bindWhenReady); return; }
+
+    function jump(delta) {
+      // Use realIndex to ignore duplicated loop slides
+      var target = sw.realIndex + delta;
+      sw.slideToLoop(target, 500); // 500ms animation
+    }
+
+    // Capture phase so we override Swiper's built-in nav (prevents 1-by-1)
+    nextBtn && nextBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      jump(JUMP);
+    }, { capture: true });
+
+    prevBtn && prevBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      jump(-JUMP);
+    }, { capture: true });
+  }
+
+  bindWhenReady();
+});
+</script>
 {% schema %}
 {
   "name": "t:sections.featured-products.name",
