@@ -3,49 +3,68 @@
     padding-block-start: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_top }});
     padding-block-end: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_bottom }});
   }
+
   /* Hide bottom navigation arrows */
   .swiper-buttons--center-{{ section.id }} {
     display: none !important;
   }
-  /* Fixed width for Buy Now button in featured products */
+
+  /* ✅ Background around navigation arrows (without changing layout) */
+  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button {
+    position: relative;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px) saturate(120%);
+    border: 1px solid rgba(255,255,255,0.35);
+    pointer-events: none;
+    z-index: -1;
+    transition: background 0.2s ease;
+  }
+  #shopify-section-{{ section.id }} .swiper-buttons .swiper-button:hover::before {
+    background: rgba(0,0,0,0.7);
+  }
+
+  /* Fixed width for Buy Now button */
   #shopify-section-{{ section.id }} .shopify-payment-button__button {
     width: 152.45px !important;
     flex: 0 0 152.45px !important;
     display: inline-block;
     text-align: center;
   }
-  
-   @media screen and (max-width: 750px) {
+
+  @media screen and (max-width: 750px) {
     #shopify-section-{{ section.id }} .shopify-payment-button__button {
-    width: 148.45px !important;
+      width: 148.45px !important;
     }
   }
+
   /* Custom Button Colors for Section {{ section.id }} */
   {% if section.settings.button_color_scheme == 'custom' %}
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button {
       color: {{ section.settings.custom_add_to_cart_text }} !important;
       border-color: {{ section.settings.custom_add_to_cart_outline }} !important;
     }
-    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button:hover {
       background: {{ section.settings.custom_add_to_cart_outline }} !important;
       color: #ffffff !important;
     }
-    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button svg path {
       stroke: {{ section.settings.custom_add_to_cart_outline }} !important;
     }
-    
     #shopify-section-{{ section.id }} .collection-buttons-custom .custom_styled_button:hover svg path {
       stroke: #ffffff !important;
     }
-    
     #shopify-section-{{ section.id }} .collection-buttons-custom .shopify-payment-button__button {
       background: {{ section.settings.custom_buy_now_bg }} !important;
       color: {{ section.settings.custom_buy_now_text }} !important;
       border: 2px solid {{ section.settings.custom_buy_now_outline }} !important;
     }
-    
     #shopify-section-{{ section.id }} .collection-buttons-custom .shopify-payment-button__button:hover {
       background: transparent !important;
       color: #a4c86e !important;
@@ -136,32 +155,33 @@
           {%- endfor -%}
 
           <div>
-            <card-product-slider
-              class="swiper card-product-slider {% if section.settings.enable_slideshow_overflow %}overflow-unset{% endif %}"
-              data-section-id="{{- section.id -}}"
-              data-swiper-options='
-                {
-                  "sectionName": "featured-products",
-                  "sectionId": "{{ section.id }}",
-                  "spaceBetweenDesktop": {{ settings.spacing_desktop | times: 10 | round: 0 }},
-                  "spaceBetweenMobile": {{ settings.spacing_mobile | times: 10 | round: 0 }},
-                  "loop": true
-                  {% if section.settings.show_navigation_arrows %},
-                    "navigation": {
-                      "prevEl": ".swiper-button--prev-{{ section.id }}",
-                      "nextEl": ".swiper-button--next-{{ section.id }}"
-                    }
-                  {% endif %}
-                  {% if section.settings.slideshow_autoplay_interval > 0 %},
-                    "autoplay": {
-                      "delay": {{ section.settings.slideshow_autoplay_interval | times: 1000 }}
-                    }
-                  {% elsif section.settings.slideshow_autoplay_interval == 0 %}
-                    , "autoplay": false
-                  {% endif %}
-                }
-              '
-            >
+           <card-product-slider
+  class="swiper card-product-slider {% if section.settings.enable_slideshow_overflow %}overflow-unset{% endif %}"
+  data-section-id="{{- section.id -}}"
+  data-swiper-options='{
+    "sectionName": "featured-products",
+    "sectionId": "{{ section.id }}",
+    "spaceBetweenDesktop": {{ settings.spacing_desktop | times: 10 | round: 0 }},
+    "spaceBetweenMobile": {{ settings.spacing_mobile | times: 10 | round: 0 }},
+    "loop": true,
+
+    /* ✅ Swipe skips 4 products each time */
+    "slidesPerGroup": 4,
+    "loopAdditionalSlides": 4,
+
+    {% if section.settings.show_navigation_arrows %} 
+      "navigation": {
+        "prevEl": ".swiper-button--prev-{{ section.id }}",
+        "nextEl": ".swiper-button--next-{{ section.id }}"
+      }
+    {% endif %}
+    {% if section.settings.slideshow_autoplay_interval > 0 %},
+      "autoplay": { "delay": {{ section.settings.slideshow_autoplay_interval | times: 1000 }} }
+    {% elsif section.settings.slideshow_autoplay_interval == 0 %},
+      "autoplay": false
+    {% endif %}
+  }'
+>
               <div class="swiper-wrapper card-product-slider__wrapper">
                 {%- if all_products != blank -%}
                   {%- assign count = 0 -%}
