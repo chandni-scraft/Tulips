@@ -328,7 +328,7 @@
       ],
       "name": "t:sections.accordions.name",
       "settings": {
-        "heading": "<strong>Frequently asked questions</strong>",
+        "heading": "<strong>FREQUENTLY ASKED QUESTIONS</strong>",
         "heading_size": "h3",
         "section_width": "max-w-narrower",
         "color_scheme": "",
