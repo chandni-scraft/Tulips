@@ -329,7 +329,7 @@
       "name": "t:sections.accordions.name",
       "settings": {
         "heading": "<strong>FREQUENTLY ASKED QUESTIONS</strong>",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "section_width": "max-w-narrower",
         "color_scheme": "",
         "spacing_top": "2",
