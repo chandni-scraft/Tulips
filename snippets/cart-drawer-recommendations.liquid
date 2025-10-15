@@ -168,8 +168,9 @@
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      justify-content: flex-start; /* keep buttons right next to title */
+      gap: 10px;
+      flex-wrap: nowrap;
     }
     /* Keep navigation inline within header instead of overlaying slider */
     .cart-drawer__you-may-also-like .swiper-buttons {
@@ -177,12 +178,10 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-left: auto;
     }
     .cart-drawer__you-may-also-like .swiper-button {
       position: static;
       inset: auto;
-      transform: none;
       width: 32px;
       height: 32px;
       display: inline-flex;
@@ -192,6 +191,10 @@
       border-radius: 50%;
       background: transparent;
       margin: 0;
+    }
+    /* Make the previous button point left using the same chevron icon */
+    .cart-drawer__you-may-also-like .cart-drawer__nav--prev svg {
+      transform: rotate(180deg);
     }
     
     .cart-drawer__you-may-also-like-title {
