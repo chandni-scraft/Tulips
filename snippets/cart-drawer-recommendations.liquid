@@ -90,7 +90,7 @@
         <h3 class="cart-drawer__you-may-also-like-title h5">{{ 'cart.you_may_also_like' | t | default: 'You may also like' }}</h3>
         <div class="swiper-buttons card-slider__buttons no-js-hidden cart-drawer__nav-buttons">
           <button type="button" class="swiper-button swiper-button--prev cart-drawer__nav--prev" aria-label="{{ 'general.previous' | t | default: 'Previous' }}">
-            {%- render 'icon', icon_name: 'theme-chevron' -%}
+            {%- render 'icon', icon_name: 'theme-chevron', class: 'icon--rotate-180' -%}
           </button>
           <button type="button" class="swiper-button swiper-button--next cart-drawer__nav--next" aria-label="{{ 'general.next' | t | default: 'Next' }}">
             {%- render 'icon', icon_name: 'theme-chevron' -%}
@@ -168,7 +168,7 @@
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* keep buttons right next to title */
+      justify-content: space-between; /* title left, arrows right */
       gap: 10px;
       flex-wrap: nowrap;
     }
@@ -178,6 +178,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      margin-left: auto;
+      padding-top: 2px; /* align vertically with title */
     }
     .cart-drawer__you-may-also-like .swiper-button {
       position: static;
@@ -192,10 +194,7 @@
       background: transparent;
       margin: 0;
     }
-    /* Make the previous button point left using the same chevron icon */
-    .cart-drawer__you-may-also-like .cart-drawer__nav--prev svg {
-      transform: rotate(180deg);
-    }
+    /* No transform needed; prev uses icon--rotate-180 class */
     
     .cart-drawer__you-may-also-like-title {
       margin: 0;
