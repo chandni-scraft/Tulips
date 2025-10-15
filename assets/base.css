@@ -190,7 +190,8 @@ form[action*="/cart/add"] .button:hover {
 a.custom-header-text.header__nav-link[href*="combo"],
 a.custom-header-text.header__nav-link[href*="multipack"],
 a.custom-header-text.header__nav-link[href*="Combo"],
-a.custom-header-text.header__nav-link[href*="Multipack"] {
+a.custom-header-text.header__nav-link[href*="Multipack"]
+a.custom-header-text.header__nav-link[href*="diwali-silver-sparkle"]  {
   background-color: #A4C86E !important;
   color: white !important;
   border: 2px solid #A4C86E !important;
