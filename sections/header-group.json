@@ -82,6 +82,31 @@
         "color_scheme": "scheme-d817e687-d441-4d0d-9067-97ff6d3fa3e4"
       }
     },
+    "full_width_banner_qQAEDE": {
+      "type": "full-width-banner",
+      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "media_position": "top",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Untitled_design_9.png",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "color_scheme_for_content": "",
+        "spacing_inner": "4",
+        "spacing_top": "0",
+        "spacing_bottom": "1"
+      }
+    },
     "custom_liquid_AGP8qJ": {
       "type": "custom-liquid",
       "disabled": true,
@@ -151,6 +176,7 @@
   },
   "order": [
     "announcement-bar",
+    "full_width_banner_qQAEDE",
     "custom_liquid_AGP8qJ",
     "image_banner_bFC3JK",
     "header"
