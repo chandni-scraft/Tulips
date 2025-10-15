@@ -216,12 +216,13 @@ a[title="Diwali Silver Sparkle T&C"] {
   display: inline-block;
   background-color: #A4C86E;
   color: white;
-  padding: 5px 18px; /* Padding for button shape */
+  padding: 4px 18px; /* Padding for button shape */
   border-radius: 28px; /* Rounded corners */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
   transition: background-color 0.3s ease; /* Smooth hover effect */
   margin-top:-2%;
+  height: 27.5px;
 }
 
 a[title="Diwali Silver Sparkle T&C"]:hover {
