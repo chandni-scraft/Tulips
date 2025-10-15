@@ -211,6 +211,22 @@ a.custom-header-text.header__nav-link[href*="Multipack"]:focus {
   color: white !important;
   border-color: #A4C86E !important;
 }
+/* Direct targeting for Diwali Silver Sparkle T&C button */
+a[title="Diwali Silver Sparkle T&C"] {
+  background-color: #A4C86E !important;
+  color: white !important;
+  border: 2px solid #A4C86E !important;
+  padding: 5px 18px !important;
+  border-radius: 28px !important;
+  font-weight: bold !important;
+  transition: background-color 0.3s ease !important;
+  margin-top: -2% !important;
+}
+
+a[title="Diwali Silver Sparkle T&C"]:hover {
+  background-color: #C76132 !important;
+  border-color: #C76132 !important;
+}
 
 /* Featured Products section on home page */
 .featured-products .custom_styled_button,
