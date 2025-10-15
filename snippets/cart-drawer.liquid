@@ -110,6 +110,8 @@
                         {%- render 'line-item', line_item: line_item -%}
                       {%- endfor -%}
                     </div>
+                    {%- comment -%} You may also like recommendations placed directly after product list {%- endcomment -%}
+                    {%- render 'cart-drawer-recommendations' -%}
                   </div>
                 </form>
               </cart-drawer-items>
@@ -117,10 +119,6 @@
                 {%- render 'product-recommendations', area: 'cart-drawer', class: 'cart-drawer__recommendations', product_id: cart.items[0].product_id -%}
               {%- endif -%}
             </div>
-
-            {%- comment -%} You may also like recommendations {%- endcomment -%}
-            {%- render 'cart-drawer-recommendations' -%}
-
             <div class="cart-drawer__bottom">
               <div class="cart-drawer__summary">
                 <form
