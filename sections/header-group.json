@@ -126,7 +126,7 @@
         "deal_offer_button_text": "#ffffff",
         "deal_offer_button_hover_bg": "#a4c86e",
         "menu": "new-menu",
-        "menu_mobile": "",
+        "menu_mobile": "mobile-menu",
         "submenu": "",
         "menu_mobile_card_column_count": "2",
         "spacing_between_cards": "2",
