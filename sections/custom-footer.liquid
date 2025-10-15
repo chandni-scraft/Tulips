@@ -126,7 +126,12 @@
           <span class="toggle-icon">+</span>
         </h5>
         <div class="footer-desc" >
-          <p>{{ section.settings.footer_description }}</p>
+          {% liquid
+            assign desc_html = section.settings.footer_description
+            assign desc_html = desc_html | replace: 'wecare@tulipshygiene.com', '<a href="mailto:wecare@tulipshygiene.com">wecare@tulipshygiene.com</a>'
+            assign desc_html = desc_html | replace: '+91-9555745745', '<a href="tel:+919555745745">+91-9555745745</a>'
+          %}
+          <p>{{ desc_html }}</p>
         </div>
       </div>
 
