@@ -1105,6 +1105,7 @@ html.js .drawer--search>.drawer__container[open]>.drawer__content.drawer__conten
     overflow-x: hidden;
     overflow-y: auto;
     margin-block-start: -0.1rem;
+    margin-top:6%;
   }
 }
 
