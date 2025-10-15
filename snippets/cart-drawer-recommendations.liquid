@@ -171,6 +171,28 @@
       justify-content: space-between;
       gap: 1rem;
     }
+    /* Keep navigation inline within header instead of overlaying slider */
+    .cart-drawer__you-may-also-like .swiper-buttons {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .cart-drawer__you-may-also-like .swiper-button {
+      position: static;
+      inset: auto;
+      transform: none;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(var(--color-foreground), 0.15);
+      border-radius: 50%;
+      background: transparent;
+      margin: 0;
+    }
     
     .cart-drawer__you-may-also-like-title {
       margin: 0;
