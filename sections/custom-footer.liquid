@@ -128,8 +128,13 @@
         <div class="footer-desc" >
           {% liquid
             assign desc_html = section.settings.footer_description
-            assign desc_html = desc_html | replace: 'wecare@tulipshygiene.com', '<a href="mailto:wecare@tulipshygiene.com">wecare@tulipshygiene.com</a>'
-            assign desc_html = desc_html | replace: '+91-9555745745', '<a href="tel:+919555745745">+91-9555745745</a>'
+            unless desc_html contains 'mailto:'
+              assign desc_html = desc_html | replace: 'wecare@tulipshygiene.com', '<a href="mailto:wecare@tulipshygiene.com">wecare@tulipshygiene.com</a>'
+            endunless
+            unless desc_html contains 'tel:'
+              assign desc_html = desc_html | replace: '+91-9555745745', '<a href="tel:+919555745745">+91-9555745745</a>'
+              assign desc_html = desc_html | replace: '+91 - 9555745745', '<a href="tel:+919555745745">+91-9555745745</a>'
+            endunless
           %}
           <p>{{ desc_html }}</p>
         </div>
