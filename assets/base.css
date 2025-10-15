@@ -213,17 +213,16 @@ a.custom-header-text.header__nav-link[href*="Multipack"]:focus {
 }
 /* Direct targeting for Diwali Silver Sparkle T&C button */
 a[title="Diwali Silver Sparkle T&C"] {
-  display: inline-block !important;
-  background-color: #A4C86E !important;
-  color: white !important;
-  
-  padding: 5px 18px !important;
-  border-radius: 28px !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  transition: background-color 0.3s ease !important;
-  margin-top: -2% !important;
-}
+  display: inline-block;
+  background-color: #F0652F;
+ /* Button background color */
+  color: white; /* Text color */
+  padding: 5px 18px; /* Padding for button shape */
+  border-radius: 28px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make text bold */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-top:-2%;
 
 a[title="Diwali Silver Sparkle T&C"]:hover {
   background-color: #8FA85A !important;
