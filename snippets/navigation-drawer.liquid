@@ -30,10 +30,14 @@
           <div class="primary-menu-panel" data-menu="{{ link_handle }}">
             <ul>
               {% for link in menu.links %}
-                {% liquid
+              {% liquid
                   assign link_handle = link.title | handleize
                   assign count_of_cards = 0
                   assign count_of_items = 0
+                assign is_diwali_tnc = false
+                if link_handle == 'diwali-silver-sparkel-t-c' or link_handle == 'diwalisilver-sparkel-t-c' or link_handle == 'diwali-silver-sparkle-t-c'
+                  assign is_diwali_tnc = true
+                endif
 
                   for block in section.blocks
                     assign block_link_handle = block.settings.menu_link_title | handleize
@@ -51,7 +55,7 @@
                 %}
                 <li>
                   {%- if count_of_items > 0 -%}
-                    <button type="button" class="menu-link h4" data-ref="{{ link_handle }}">
+                    <button type="button" class="menu-link h4{% if is_diwali_tnc %} diwali-tnc{% endif %}" data-ref="{{ link_handle }}">
                       {{ link.title }}
                       {% render 'icon', icon_name: 'theme-chevron', class: 'icon' %}
                     </button>
@@ -59,7 +63,7 @@
                   {%- else -%}
                     <a
                       href="{{ link.url }}"
-                      class="h4"
+                      class="h4{% if is_diwali_tnc %} diwali-tnc{% endif %}"
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
@@ -213,6 +217,30 @@
           {% endfor %}
         </div>
       </nav>
+
+      <style>
+        .header__drawer.mobile-drawer .diwali-tnc {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+          width: 100%;
+          background-color: #a4c86e;
+          color: #fff;
+          border-radius: 28px;
+          text-decoration: none;
+          font-weight: 700;
+          transition: background-color .3s ease;
+          margin-top: -2%;
+          height: 27.5px;
+          letter-spacing: 0.3rem;
+        }
+        .header__drawer.mobile-drawer .diwali-tnc:hover {
+          background-color: #98bb55;
+          color: #fff;
+          text-decoration: none;
+        }
+      </style>
 
       {%- if submenu != blank -%}
         <div class="drawer__row">
