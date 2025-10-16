@@ -33,6 +33,14 @@
     }
   }
 
+  /* Enable Add to Cart button for this block - similar to best-seller-collection */
+  #shopify-section-{{ section.id }} .product-card__add-to-cart--button,
+  #shopify-section-{{ section.id }} .product-card__add-to-cart--button:hover {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
   /* Custom header styling for this block */
   .ai-collection-header-{{ block.id }} {
     text-align: {{ block.settings.heading_alignment | default: 'center' }};
@@ -99,7 +107,7 @@
             </h3>
           {% else %}
             {% for product_ref in collection.products limit: products_to_show %}
-              {% render 'card-product', product_ref: product_ref, section_id: section.id, product_index: forloop.index, section: section %}
+              {% render 'card-product', product_ref: product_ref, section_id: block.id, product_index: forloop.index %}
             {% endfor %}
           {% endif %}
         </div>
@@ -118,7 +126,6 @@
 
 <script>
   (function() {
-    var sectionId = '{{ block.id }}';
     var gridContainer = document.getElementById('ProductGridContainer-{{ block.id }}');
 
     function addNotifyButtons(root) {
