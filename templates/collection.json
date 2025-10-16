@@ -46,6 +46,15 @@
         "wave_image": "shopify://shop_images/Group_7381_9689a597-ce59-494d-8a4d-1615b0011373.svg"
       }
     },
+    "custom_home_banner_gm8F4w": {
+      "type": "custom-home-banner",
+      "disabled": true,
+      "name": "Hero Banner",
+      "settings": {
+        "slide_1": "shopify://shop_images/diwali-silver-sparkle-sale-d.webp",
+        "slide_1_mobile": "shopify://shop_images/diwali-silver-sparkle-sale-m.webp"
+      }
+    },
     "main": {
       "type": "main-collection",
       "blocks": {
@@ -130,6 +139,7 @@
   "order": [
     "page_banner_6kWj4z",
     "banner_below_img_4HEkF3",
+    "custom_home_banner_gm8F4w",
     "main",
     "custom_liquid_C4rTWe"
   ]
