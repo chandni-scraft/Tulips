@@ -61,6 +61,7 @@
     },
     "trust_indicators": {
       "type": "trust-indicators",
+      "disabled": true,
       "settings": {
         "swipe_on_mobile": false,
         "slideshow_autoplay_interval": 0,
@@ -72,54 +73,20 @@
         "color_scheme": "scheme-1",
         "spacing_top": "2",
         "spacing_bottom": "2"
-      },
-      "blocks": {
-        "indicator_1": {
-          "type": "indicator",
-          "settings": {
-            "title": "🎁 10 Lucky Winners",
-            "subheading": "Win 10-gram Silver Coins",
-            "icon": "theme-box"
-          }
-        },
-        "indicator_2": {
-          "type": "indicator",
-          "settings": {
-            "title": "💰 No Minimum Purchase",
-            "subheading": "All purchases eligible",
-            "icon": "theme-checkmark"
-          }
-        },
-        "indicator_3": {
-          "type": "indicator",
-          "settings": {
-            "title": "🎲 Random Selection",
-            "subheading": "Fair & transparent process",
-            "icon": "theme-refresh"
-          }
-        },
-        "indicator_4": {
-          "type": "indicator",
-          "settings": {
-            "title": "📅 Oct 13-20, 2025",
-            "subheading": "Limited time offer",
-            "icon": "theme-clock"
-          }
-        }
       }
     },
     "best_sellers": {
       "type": "best-seller-collection",
+      "disabled": true,
       "settings": {
         "title": "Best Sellers",
         "subtitle": "A GENTLE TOUCH FOR EVERYDAY COMFORT.",
-        "color_scheme": "scheme-2",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
+        "color_scheme": "scheme-2"
       }
     },
     "campaign_overview": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "normal",
         "heading": "Campaign Overview",
@@ -135,6 +102,7 @@
     },
     "terms_accordion": {
       "type": "accordions",
+      "disabled": true,
       "settings": {
         "heading": "Key Terms & Conditions",
         "heading_size": "h2",
@@ -142,34 +110,11 @@
         "color_scheme": "scheme-1",
         "spacing_top": "2",
         "spacing_bottom": "2"
-      },
-      "blocks": {
-        "topic_1": {
-          "type": "topic",
-          "settings": {
-            "is_open": true,
-            "title": "📋 Campaign Eligibility",
-            "text": "<p>• Offer applicable on all purchases made from Tulips official website during the campaign.<br>• No minimum purchase value required for eligibility.<br>• Winners will be selected randomly and informed through official communication. (Website Page/Social Media)</p>"
-          }
-        },
-        "topic_2": {
-          "type": "topic",
-          "settings": {
-            "title": "🎁 Prize Details",
-            "text": "<p>• The Silver Coin prize cannot be exchanged for cash or other products.<br>• 10 lucky winners will each receive a 10-gram Silver Coin.<br>• Winners will be notified after the campaign ends.</p>"
-          }
-        },
-        "topic_3": {
-          "type": "topic",
-          "settings": {
-            "title": "⚖️ Terms & Restrictions",
-            "text": "<p>• Tulips reserves the right to alter or withdraw the campaign without notice.<br>• Employees, vendors, and affiliates of Tulips are not eligible.<br>• Participation implies acceptance of all campaign terms and conditions.</p>"
-          }
-        }
       }
     },
     "legal_restrictions": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "boxed",
         "heading": "⚖️ Legal Restrictions & State Exclusions",
@@ -185,6 +130,7 @@
     },
     "legal_review": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "boxed",
         "heading": "📋 Legal Review Recommendations",
@@ -200,6 +146,7 @@
     },
     "conclusion": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "boxed",
         "heading": "🎯 Conclusion",
