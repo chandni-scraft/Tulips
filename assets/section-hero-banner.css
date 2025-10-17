@@ -402,7 +402,7 @@ html.no-js .hero__swiper-slide {
     text-align: center;
     align-items: flex-end;
     justify-content: center;
-    min-height: var(--inner-height, 100vh);
+  
   }
 }
 
