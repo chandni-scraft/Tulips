@@ -134,7 +134,7 @@
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Soaps_Banner_Mobile_4_1.webp",
+            "image_mobile": "shopify://shop_images/Soaps_Banner_Mobile_1c65fc80-a997-45dc-9e1e-964f66f35942.png",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -166,7 +166,7 @@
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Micellar_Water_Banner_Mobile_5.webp",
+            "image_mobile": "shopify://shop_images/Micellar_Water_Banner_Mobile_ef78d203-16aa-4013-88b2-1d61f55c1b67.png",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
