@@ -102,7 +102,7 @@
             "enable_media_overlay_desktop": false,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Baby_Wipes_Banner_Mobile_6.webp",
+            "image_mobile": "shopify://shop_images/1.png",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -134,7 +134,7 @@
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Soaps_Banner_Mobile_4_1.webp",
+            "image_mobile": "shopify://shop_images/2_b25fcc65-29b5-4664-a03e-6e069b7fd51b.png",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -166,7 +166,7 @@
             "enable_media_overlay_desktop": true,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Micellar_Water_Banner_Mobile_5.webp",
+            "image_mobile": "shopify://shop_images/3_2517bc78-08f3-46a8-99bb-82833fa610f0.png",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
