@@ -11,7 +11,6 @@
   "sections": {
     "image_popup_pP4UMd": {
       "type": "image-popup",
-      "disabled": true,
       "name": "Image popup (simple)",
       "settings": {
         "image": "shopify://shop_images/tulips-adult-diaper-pants_935ce689-7e0e-4b32-aa9f-6867cd34eb95.jpg",
