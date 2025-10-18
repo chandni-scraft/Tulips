@@ -21,6 +21,14 @@
     max-width: min(30vw, 900px);
     max-height: 30vh;
   }
+   /* Mobile responsive sizing */
+  @media screen and (max-width: 768px) {
+    .image-only-popup__dialog {
+      max-width: 90vw;
+      max-height: 80vh;
+      margin: 20px;
+    }
+  }
   .image-only-popup__dialog img { width: 100%; height: auto; display: block; }
   .image-only-popup__close {
     position: absolute;
