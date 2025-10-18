@@ -11,8 +11,11 @@
   "sections": {
     "image_popup_u1": {
       "type": "image-popup",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/testing_popup.png",
+        "link_url": "",
+        "link_new_tab": false,
         "delay": 1,
         "show_popup_on_customizer": true,
         "color_scheme": "scheme-1"

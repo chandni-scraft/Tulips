@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "image_popup_pP4UMd": {
+      "type": "image-popup",
+      "name": "Image popup (simple)",
+      "settings": {
+        "image": "shopify://shop_images/tulips-adult-diaper-pants_935ce689-7e0e-4b32-aa9f-6867cd34eb95.jpg",
+        "link_url": "https://tulipshygiene.store/pages/celebrity-endorsement-boman-ad",
+        "link_new_tab": true,
+        "delay": 8,
+        "show_popup_on_customizer": true,
+        "color_scheme": ""
+      }
+    },
     "1658995208ad05f95f": {
       "type": "hero-banner",
       "blocks": {
@@ -987,6 +999,7 @@
     }
   },
   "order": [
+    "image_popup_pP4UMd",
     "1658995208ad05f95f",
     "banner_below_img_bQbKAV",
     "best_seller_collection_dxdHtJ",
