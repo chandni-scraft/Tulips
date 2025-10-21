@@ -229,6 +229,29 @@ a[title="Diwali Silver Sparkle Sale T&C"]:hover {
   background-color: #8FA85A; /* Darker shade on hover */
 }
 
+/* Mobile menu Diwali T&C styling - same as desktop but mobile-specific */
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.menu-link.diwali-tnc,
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li a.diwali-tnc {
+  display: inline-block !important;
+  background-color: #A4C86E !important;
+  color: white !important;
+  padding: 4px 18px !important; /* Padding for button shape */
+  border-radius: 28px !important; /* Rounded corners */
+  text-decoration: none !important; /* Remove underline */
+  font-weight: bold !important; /* Make text bold */
+  transition: background-color 0.3s ease !important; /* Smooth hover effect */
+  margin-top: -2% !important;
+  height: 27.5px !important;
+  width: auto !important;
+}
+
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.menu-link.diwali-tnc:hover,
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li a.diwali-tnc:hover {
+  background-color: #8FA85A !important; /* Darker shade on hover */
+  color: white !important;
+  text-decoration: none !important;
+}
+
 /* Featured Products section on home page */
 .featured-products .custom_styled_button,
 .featured-products .product-card__add-to-cart--button,
