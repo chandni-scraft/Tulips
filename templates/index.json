@@ -27,6 +27,7 @@
       "blocks": {
         "slide_78fFiC": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "banner_layout": "hero-banner--full",
             "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
