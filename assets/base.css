@@ -192,7 +192,7 @@ a.custom-header-text.header__nav-link[href*="multipack"],
 a.custom-header-text.header__nav-link[href*="Combo"],
 a.custom-header-text.header__nav-link[href*="Multipack"]
 a.custom-header-text.header__nav-link[href*="diwali-silver-sparkle"],
-a.custom-header-text.header__nav-link[title*="Diwali Silver Sparkle T&C"] 
+a.custom-header-text.header__nav-link[title*="Diwali Silver Sparkle Sale T&C"] 
   {
   background-color: #A4C86E !important;
   color: white !important;
@@ -212,7 +212,7 @@ a.custom-header-text.header__nav-link[href*="Multipack"]:focus {
   border-color: #A4C86E !important;
 }
 /* Diwali Silver Sparkle T&C button - same styling as deals-offers */
-a[title="Diwali Silver Sparkle T&C"] {
+a[title="Diwali Silver Sparkle Sale T&C] {
   display: inline-block;
   background-color: #A4C86E;
   color: white;
