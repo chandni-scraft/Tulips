@@ -35,7 +35,7 @@
                   assign count_of_cards = 0
                   assign count_of_items = 0
                 assign is_diwali_tnc = false
-                if link_handle == 'diwali-silver-sparkel-t-c' or link_handle == 'diwalisilver-sparkel-t-c' or link_handle == 'diwali-silver-sparkle-t-c'
+                if link_handle == 'diwali-silver-sparkel-t-c' or link_handle == 'diwalisilver-sparkel-t-c' or link_handle == 'diwali-silver-sparkle-t-c' or link_handle contains 'diwali' and link_handle contains 'tnc' or link_handle contains 'diwali' and link_handle contains 't-c'
                   assign is_diwali_tnc = true
                 endif
 
@@ -218,32 +218,7 @@
         </div>
       </nav>
 
-      <style>
-        nav.slide-out-menu div.menu-panels ul li .diwali-tnc,
-        nav.slide-out-menu div.menu-panels button.diwali-tnc {
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 2rem !important;
-          width: 100% !important;
-          background-color: #a4c86e !important;
-          color: #fff !important;
-          border-radius: 28px !important;
-          text-decoration: none !important;
-          font-weight: 700 !important;
-          transition: background-color .3s ease !important;
-          margin-top: -2% !important;
-          height: 27.5px !important;
-          letter-spacing: 0.3rem !important;
-        }
-        nav.slide-out-menu div.menu-panels ul li .diwali-tnc:hover,
-        nav.slide-out-menu div.menu-panels button.diwali-tnc:hover {
-          background-color: #98bb55 !important;
-          color: #fff !important;
-          text-decoration: none !important;
-        }
-      </style>
-
+    
       {%- if submenu != blank -%}
         <div class="drawer__row">
           <nav class="drawer__subnav">
