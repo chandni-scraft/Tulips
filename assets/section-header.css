@@ -1424,7 +1424,7 @@ nav.slide-out-menu div.menu-panels button.diwali-tnc {
   transition: background-color .3s ease !important;
   margin-top: -2% !important;
   height: 27.5px !important;
-  letter-spacing: 0.3rem !important;
+  letter-spacing: 1px !important;
 }
 
 .header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .diwali-tnc:hover,
