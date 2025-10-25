@@ -1,6 +1,7 @@
 <section class="banner-badges-section">
   <div class="section-box-wrapper">
-    {% assign banner = product.metafields.scraft.product_page_banners.value %}
+    {% comment %} Metafield references removed {% endcomment %}
+    {% assign banner = null %}
 
     {% if banner %}
       {% if banner.banner_1 %}

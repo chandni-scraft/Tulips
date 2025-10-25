@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Scraft Base",
-    "theme_version": "1",
-    "theme_author": "Scraft Studio",
-    "theme_documentation_url": "https://www.scraft.studio",
-    "theme_support_url": "https://www.scraft.studio"
+    "theme_name": "Tulips Theme",
+    "theme_version": "1.0.8",
+    "theme_author": "Tulips Hygiene",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
   },
   {
     "name": "t:settings_schema.typography.name",

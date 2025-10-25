@@ -28,9 +28,8 @@
     {%- assign product_block_class = 'product__block product__block--gap-' | append: product_block_spacing -%}
     {%- case block.type -%}
       {% when 'marketplace-accordion' %}
-        {% if block.settings.enable_marketplace_section %}
-          {% assign marketplaces = product.metafields.scraft.buy_more_marketplace.value %}
-          {% assign more_marketplaces = product.metafields.scraft.find_more_places.value %}
+        {% comment %} Marketplace section disabled {% endcomment %}
+          {% comment %} Metafield references removed {% endcomment %}
           {% assign has_logo = false %}
 
           {%- for m in marketplaces %}
