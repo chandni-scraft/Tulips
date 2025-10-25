@@ -277,9 +277,41 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_slide_1": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>Free Delivery on orders above ₹399</p>",
+            "icon": "truck"
+          }
+        },
+        "text_slide_2": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>India's Most Loved Hygiene Brand Since 1999</p>",
+            "icon": "box"
+          }
+        }
+      },
+      "block_order": [
+        "text_slide_1",
+        "text_slide_2"
+      ],
+      "settings": {
+        "text_block_behaviour": "slider",
+        "slider_autoplay_interval": 4,
+        "font_weight": "500",
+        "section_offset": 0,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-2"
+      }
     }
   },
   "order": [
+    "announcement_bar",
     "hero_jVaWmY",
     "product_list_fa6P9H"
   ]
