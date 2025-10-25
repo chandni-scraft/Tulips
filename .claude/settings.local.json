@@ -7,7 +7,8 @@
       "Bash(netstat:*)",
       "Bash(findstr:*)",
       "Bash(cmd:*)",
-      "Bash(shopify theme dev:*)"
+      "Bash(shopify theme dev:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }

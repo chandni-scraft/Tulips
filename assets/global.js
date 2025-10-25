@@ -1,4 +1,4 @@
-/* Release Theme - v1.0.8 */
+/* Tulips Theme - v1.0.8 */
 
 /* Define Breakpoints -- START */
 const mobileWidth = 750;
