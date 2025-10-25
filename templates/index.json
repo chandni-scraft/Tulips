@@ -6,936 +6,281 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
+ */{
   "sections": {
-    "1658995208ad05f95f": {
-      "type": "hero-banner",
+    "hero_jVaWmY": {
+      "type": "hero",
       "blocks": {
-        "8d591e0b-d408-44f1-8bd2-9b71f529aa90": {
-          "type": "slide",
+        "text_YLPk4p": {
+          "type": "text",
+          "name": "t:names.heading",
           "settings": {
-            "banner_layout": "hero-banner--full",
-            "color_scheme": "scheme-aa211da1-afa4-43f4-a90f-9e0b85e85751",
-            "header_menu_text_color": "#589f69",
-            "heading": "",
-            "subheading": "",
-            "subheading_link": "",
-            "text": "",
-            "button_link_1": "shopify://collections/baby-wet-wipes",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--filled",
-            "button_link_2": "",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "content_position": "center",
-            "content_alignment": "center",
-            "image": "shopify://shop_images/Baby_Wipes_Banner_Web_6.png",
-            "link": "shopify://collections/baby-wet-wipes",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "enable_media_overlay_desktop": false,
-            "content_position_mobile": "center",
-            "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Baby_Wipes_Banner_Mobile_6.png",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "enable_media_overlay_mobile": true
-          }
+            "text": "<p>Browse our latest products</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "slide_xFPCzN": {
-          "type": "slide",
+        "button_H9gpTf": {
+          "type": "button",
+          "name": "t:names.button",
           "settings": {
-            "banner_layout": "hero-banner--full",
-            "color_scheme": "scheme-631d1265-b6bd-4f65-a3bb-72aab9e9d046",
-            "header_menu_text_color": "#ffffff",
-            "heading": "",
-            "subheading": "",
-            "subheading_link": "",
-            "text": "",
-            "button_link_1": "shopify://collections/handmade-soaps",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--filled",
-            "button_link_2": "/",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "content_position": "center",
-            "content_alignment": "center",
-            "image": "shopify://shop_images/Soaps_Banner_Web_7.png",
-            "link": "shopify://collections/handmade-soaps",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "enable_media_overlay_desktop": true,
-            "content_position_mobile": "center",
-            "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Soaps_Banner_Mobile_4.png",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "enable_media_overlay_mobile": true
-          }
-        },
-        "slide_XVAdBC": {
-          "type": "slide",
-          "settings": {
-            "banner_layout": "hero-banner--full",
-            "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
-            "header_menu_text_color": "#ffffff",
-            "heading": "",
-            "subheading": "",
-            "subheading_link": "",
-            "text": "",
-            "button_link_1": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--filled",
-            "button_link_2": "/",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "content_position": "center",
-            "content_alignment": "center",
-            "image": "shopify://shop_images/Micellar_Water_Banner_Web_6.png",
-            "link": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "enable_media_overlay_desktop": true,
-            "content_position_mobile": "center",
-            "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/Micellar_Water_Banner_Mobile_5.png",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "enable_media_overlay_mobile": true
-          }
+            "label": "Shop all",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "8d591e0b-d408-44f1-8bd2-9b71f529aa90",
-        "slide_xFPCzN",
-        "slide_XVAdBC"
+        "text_YLPk4p",
+        "button_H9gpTf"
       ],
-      "custom_css": [],
+      "name": "t:names.hero",
       "settings": {
-        "slider_height": 100,
-        "slideshow_autoplay_interval": 3,
-        "show_slideshow_navigation": true,
-        "slideshow_navigation_position": "hero__swiper-buttons--sides",
-        "color_scheme_arrows": "scheme-6",
-        "show_slideshow_pagination": false,
-        "slideshow_pagination_style": "style-2",
-        "floating_bar": false
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#12121266",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 100,
+        "padding-block-end": 72
       }
     },
-    "banner_below_img_bQbKAV": {
-      "type": "banner-below-img",
-      "settings": {
-        "wave_image": "shopify://shop_images/Group_7381_2.png"
-      }
-    },
-    "best_seller_collection_dxdHtJ": {
-      "type": "best-seller-collection",
-      "disabled": true,
-      "custom_css": [
-        "h2 {font-family: \"TheSeasonsLT\", sans-serif;}"
-      ],
-      "settings": {
-        "title": "Best Sellers",
-        "subtitle": "A GENTLE TOUCH FOR EVERYDAY COMFORT",
-        "color_scheme": "scheme-1"
-      }
-    },
-    "featured_products_bQBzhX": {
-      "type": "featured-products",
+    "product_list_fa6P9H": {
+      "type": "product-list",
       "blocks": {
-        "collection_n9grP8": {
-          "type": "collection",
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
           "settings": {
-            "title": "",
-            "collection": "cotton-buds",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
         },
-        "collection_yreyNV": {
-          "type": "collection",
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
           "settings": {
-            "title": "",
-            "collection": "cotton-ball",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_dXCqHG": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "cotton-pad",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_t8WpUE": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "cotton-rolls",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_qRYDQz": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "cosmetic-tips",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
         }
       },
-      "block_order": [
-        "collection_n9grP8",
-        "collection_yreyNV",
-        "collection_dXCqHG",
-        "collection_t8WpUE",
-        "collection_qRYDQz"
-      ],
-      "custom_css": [
-        ".product-card__title {font-size: 14px;}",
-        ".products-feed__tab button:not(.button--text) {font-size: 14px;}"
-      ],
+      "name": "Featured collection",
       "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#ffffff",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Cottons",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-5",
-        "spacing_top": "4",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_MLXqyY": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_Q8N7q3": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "refreshing-wet-wipes",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_qCMeCm": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "facial-tissues",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_9EBVDb": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "title": "",
-            "collection": "nail-polish-remover-wipes",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_Q8N7q3",
-        "collection_qCMeCm",
-        "collection_9EBVDb"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Wet Wipes & Dry Tissues",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_cYzx3M": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_cjfkf3": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "handmade-soaps",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_nbHpVx": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "shower-gel",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_cjfkf3",
-        "collection_nbHpVx"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Bathing Range",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "4",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_xNExge": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_EBYDkF": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "baby-wet-wipes",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_YDWUgx": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "safety-swabs",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_EBYDkF",
-        "collection_YDWUgx"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ebebeb",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Baby Range",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_Farfkt": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_tjJWfN": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "adult-diaper-pants",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_tjJWfN"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Adult Diaper",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_pk4h7A": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_MmdPQ4": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "toothpicks",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_EzpkMw": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "wooden-skewers",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_MmdPQ4",
-        "collection_EzpkMw"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ebebeb",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Wooden Sticks",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_wRkqw7": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_qwbcNf": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "nail-polish-remover-wipes",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_NLehtR": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "makeup-remover-wipes",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        },
-        "collection_VJVt9c": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "micellar-cleansing-water",
-            "products": [],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_qwbcNf",
-        "collection_NLehtR",
-        "collection_VJVt9c"
-      ],
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Makeup & Nail Paint Removal",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-page",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "featured_products_WN6nNK": {
-      "type": "featured-products",
-      "blocks": {
-        "collection_CKXcAe": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "",
-            "products": [
-              "dual-colour-soap-combo",
-              "eco-friendly-cotton-buds-swabs-100-sticks-in-a-jar-1",
-              "special-combo-shower-gel-275-ml-refreshing-wet-wipes-30-n"
-            ],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": false
-          }
-        }
-      },
-      "block_order": [
-        "collection_CKXcAe"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "layout-2",
-        "enable_new_styles": true,
-        "button_color_scheme": "custom",
-        "custom_add_to_cart_bg": "#a4c86e",
-        "custom_add_to_cart_text": "#a4c86e",
-        "custom_add_to_cart_outline": "#a4c86e",
-        "custom_buy_now_bg": "#a4c86e",
-        "custom_buy_now_text": "#ffffff",
-        "custom_buy_now_outline": "#a4c86e",
-        "product_filter": "all",
-        "heading": "Bundles & Combos",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "button--filled",
-        "max_products": 99,
-        "show_navigation_arrows": true,
-        "slideshow_autoplay_interval": 4,
-        "tab_button_style": "button--filled",
-        "section_width": "max-w-page",
-        "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0",
-        "spacing_top": "2",
-        "spacing_bottom": "6"
-      }
-    },
-    "16e24524-2040-41a4-b5ca-3a425d62879b": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_slide_E9tUik": {
-          "type": "collection-slide",
-          "settings": {
-            "collection": "baby-range",
-            "image": "shopify://shop_images/IMG-20250520-WA0019.jpg",
-            "heading": "",
-            "heading_size": "h5",
-            "subheading": ""
-          }
-        },
-        "collection_slide_RnfaVr": {
-          "type": "collection-slide",
-          "settings": {
-            "collection": "cotton",
-            "image": "shopify://shop_images/IMG-20250520-WA0020.jpg",
-            "heading": "",
-            "heading_size": "h5",
-            "subheading": ""
-          }
-        },
-        "collection_slide_7qKnzD": {
-          "type": "collection-slide",
-          "settings": {
-            "collection": "wipes-tissues",
-            "image": "shopify://shop_images/IMG-20250520-WA0018.jpg",
-            "heading": "",
-            "heading_size": "h5",
-            "subheading": ""
-          }
-        },
-        "collection_slide_8UbcnL": {
-          "type": "collection-slide",
-          "settings": {
-            "collection": "bathing-range",
-            "image": "shopify://shop_images/ChatGPT_Image_May_21_2025_05_16_21_PM.png",
-            "heading": "",
-            "heading_size": "h5",
-            "subheading": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_slide_E9tUik",
-        "collection_slide_RnfaVr",
-        "collection_slide_7qKnzD",
-        "collection_slide_8UbcnL"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "layout-2",
-        "heading": "Our Collection",
-        "heading_size": "h3",
-        "subheading": "",
-        "content_padding": "0",
-        "button_label": "Explore all",
-        "button_link": "shopify://collections",
-        "button_style": "button--text",
-        "card_layout": "collection",
-        "card_style": "normal",
-        "image_aspect_ratio": "3 / 4",
-        "card_content_alignment": "start",
-        "card_title_style": "card-single-text",
-        "collection_product_count": "show",
-        "slides_per_view": 4,
-        "slides_per_view_mobile": 1,
-        "show_carousel_arrows": true,
-        "slideshow_alignment_center": false,
-        "enable_slideshow_overflow": false,
-        "slideshow_border": "none",
-        "section_width": "max-w-fluid",
+        "collection": "all",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
         "color_scheme": "scheme-1",
-        "color_scheme_for_cards": "",
-        "spacing_top": "0",
-        "spacing_bottom": "4"
-      }
-    },
-    "testimonials_CMyt3F": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_qXzkny": {
-          "type": "testimonial",
-          "settings": {
-            "author": "Isha Keskar",
-            "quote": "<p><strong>Tulips Cotton Pad</strong></p><p>Undoubtedly one of the best. Been using for years and ordering multiple times. Will definitely recommend.<br/><br/></p>",
-            "rating_score": 5,
-            "color_scheme": "scheme-1"
-          }
-        },
-        "testimonial_NUmDwd": {
-          "type": "testimonial",
-          "settings": {
-            "author": "Sonali Umare",
-            "quote": "<p><strong>Wow! Amazing product ,like no one in the market</strong></p><p>Amazing cotton pads—truly the best in the market! Double-sided, high-quality, and perfect for sensitive skin. I use them with micellar water every night, and they visibly remove dirt. Great packaging, multipurpose, and budget-friendly. Highly recommended!\"</p>",
-            "rating_score": 4,
-            "color_scheme": "scheme-1"
-          }
-        },
-        "testimonial_KRiPJ3": {
-          "type": "testimonial",
-          "settings": {
-            "author": "Jyotsassy Arya",
-            "quote": "<p><strong>Affordable and best </strong></p><p>Go for it without any second thoughts. It is very nice soft and thick cotton pad. Can easily remove makeup. Is gentle on your skin and Very affordable. Go for it at this price you won't get 50 pads in other brands.</p>",
-            "rating_score": 5,
-            "color_scheme": "scheme-1"
-          }
-        },
-        "testimonial_jbrGqN": {
-          "type": "testimonial",
-          "settings": {
-            "author": "Vaidehee",
-            "quote": "<p><strong>Good product to remove make up</strong></p><p>Tulips has good quality products! I used their cotton pad to wipe off my sister's make up. Cotton pad has different textures on both sides. One sides has soft and other has long ridges. It's easy to use and removes smudge proof and water proof make up easily. Moves softly on skin. Good quality and bought it at cheap price.</p>",
-            "rating_score": 5,
-            "color_scheme": "scheme-1"
-          }
-        },
-        "testimonial_7Myfw8": {
-          "type": "testimonial",
-          "settings": {
-            "author": "Sneha Singh",
-            "quote": "<p><strong>The best in the market</strong></p><p>It comes in a neat zip lock packet which is so convenient. It doesn’t leave fibers on you while you rub your face with it.</p>",
-            "rating_score": 5,
-            "color_scheme": "scheme-1"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_qXzkny",
-        "testimonial_NUmDwd",
-        "testimonial_KRiPJ3",
-        "testimonial_jbrGqN",
-        "testimonial_7Myfw8"
-      ],
-      "custom_css": [
-        "h2 {font-family: \"TheSeasonsLT\", sans-serif;}"
-      ],
-      "settings": {
-        "heading": "From Our Happy Customers",
-        "heading_size": "h3",
-        "subheading": "Our promise of purity, proven by the people who use Our Products daily",
-        "rating_icon": "star",
-        "layout": "carousel-none-media",
-        "slider_autoplay": 4,
-        "image": "shopify://shop_images/istockphoto-813464504-612x612.jpg",
-        "image_position": "image-end",
-        "image_aspect_ratio": "4/3",
-        "media_show_on": "desktop",
-        "spacing_inner": "2",
-        "section_width": "max-w-page",
-        "color_scheme": "scheme-5",
-        "spacing_top": "1",
-        "spacing_bottom": "1"
-      }
-    },
-    "tulips_section_1_3p6rNL": {
-      "type": "tulips-section-1",
-      "custom_css": [],
-      "settings": {
-        "title": "Premium quality Personal Hygiene products.",
-        "description": "TULIPS is one of the largest & the most qualitative manufacturer / exporter of Personal Hygiene products in Asia.",
-        "icon_1": "shopify://shop_images/Vector_1.png",
-        "label_1": "Microbiologically Tested",
-        "para1_1": "",
-        "icon_2": "shopify://shop_images/Vector_2.png",
-        "label_2": "GMP Certified",
-        "para1_2": "",
-        "icon_3": "shopify://shop_images/Vector_3.png",
-        "label_3": "Dermatologically Tested",
-        "para1_3": "",
-        "para2_3": ""
-      }
-    },
-    "blog_articles_ThCgzt": {
-      "type": "blog-articles",
-      "blocks": {
-        "article_hBazez": {
-          "type": "article",
-          "settings": {
-            "article": "news/refreshing-wet-wipes-your-on-the-go-skincare-companion"
-          }
-        },
-        "article_RgPDPL": {
-          "type": "article",
-          "settings": {
-            "article": "news/beauty-routines-boost-your-skincare"
-          }
-        },
-        "article_e3EQqz": {
-          "type": "article",
-          "settings": {
-            "article": "news/baby-wet-wipes-parenting-made-convenient"
-          }
-        },
-        "article_3YFqPb": {
-          "type": "article",
-          "settings": {
-            "article": "news/biodegradable-cotton-earbuds-for-a-sustainable-world"
-          }
-        }
-      },
-      "block_order": [
-        "article_hBazez",
-        "article_RgPDPL",
-        "article_e3EQqz",
-        "article_3YFqPb"
-      ],
-      "custom_css": [
-        ".section__head--in {display: flex: align-items: center; justify-content: center;}",
-        "h2 {font-family: \"TheSeasonsLT\", sans-serif;}"
-      ],
-      "settings": {
-        "heading": "Blogs",
-        "heading_size": "h3",
-        "blog": "news",
-        "button_text": "Visit Blog",
-        "layout": "layout-2",
-        "card_media_aspect_ratio": "4/3",
-        "show_excerpt": true,
-        "show_date": true,
-        "show_author": true,
-        "show_read_more": true,
-        "content_alignment": "text-start",
-        "button_style": "button--text",
-        "section_width": "max-w-page",
-        "color_scheme": "scheme-1",
-        "spacing_grid": "4",
-        "spacing_top": "1",
-        "spacing_bottom": "6"
-      }
-    },
-    "17430765476f4f3328": {
-      "type": "apps",
-      "blocks": {
-        "instafeed_app_block_tQLbPJ": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
-          "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
-            "instafeed_margin_top": 0,
-            "instafeed_margin_bottom": 0,
-            "instafeed_margin_sides": 0,
-            "show_instagram_link": false,
-            "link_alignment": "center",
-            "link_color": "#000000",
-            "background_color": "#ffffff",
-            "feed_id": "",
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "instafeed_app_block_tQLbPJ"
-      ],
-      "custom_css": [
-        "@media (min-width: 767px) {.instafeed-new-layout-container .instafeed-new-arrow {display: none; }}"
-      ],
-      "settings": {}
-    },
-    "custom_liquid_tH34UH": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "",
-        "section_width": "max-w-page",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     }
   },
   "order": [
-    "1658995208ad05f95f",
-    "banner_below_img_bQbKAV",
-    "best_seller_collection_dxdHtJ",
-    "featured_products_bQBzhX",
-    "featured_products_MLXqyY",
-    "featured_products_cYzx3M",
-    "featured_products_xNExge",
-    "featured_products_Farfkt",
-    "featured_products_pk4h7A",
-    "featured_products_wRkqw7",
-    "featured_products_WN6nNK",
-    "16e24524-2040-41a4-b5ca-3a425d62879b",
-    "testimonials_CMyt3F",
-    "tulips_section_1_3p6rNL",
-    "blog_articles_ThCgzt",
-    "17430765476f4f3328",
-    "custom_liquid_tH34UH"
+    "hero_jVaWmY",
+    "product_list_fa6P9H"
   ]
 }

@@ -1,66 +1,53 @@
-{%- assign clear_button_visible = clear_button_visible | default: false -%}
+{%- doc -%}
+  Renders the search action button.
 
-<predictive-search class="search">
-  <form action="{{- routes.search_url -}}">
-    <div class="search__head">
-      <div class="search__controls">
-        {%- if settings.enable_predictive_search -%}
-          {%- capture attr -%}
-            role="combobox"
-            aria-expanded="false"
-            aria-owns="predictive-search-results-list"
-            aria-controls="predictive-search-results-list"
-            aria-haspopup="listbox"
-            aria-autocomplete="list"
-            autocorrect="off"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-          {%- endcapture -%}
-        {%- endif -%}
+  @param {string} [style] - The style of the search action.
+  @param {string} [class] - Additional classes for the search action.
 
-        <button type="submit" class="search__button search__button--submit button-reset js-btn-submit"
-          aria-label="{{- 'search.submit' | t -}}"
-        >
-          {%- render 'icon', icon_name: 'theme-search' -%}
-        </button>
+  @example
+  {% render 'search', style: 'default', class: 'custom-class' %}
+{%- enddoc -%}
 
-        {%- liquid
-          assign label = 'search.heading' | t
-          assign placeholder = 'search.placeholder' | t
-          assign id = 'search-' | append: input_id
-          render 'text-input', type: 'search', label: label, placeholder: placeholder, id: id, name: 'q', hide_label: true, class: 'field--search', attr: attr, input_class: input_class, value: value
-          assign label = nil
-          assign placeholder = nil
-          assign id = nil
-          assign attr = nil
-        -%}
+{% unless style == 'none' %}
+  <search-button class="search-action{% if class != blank %} {{ class | strip }}{% endif %}">
+    <button
+      on:click="#search-modal/showDialog"
+      class="button button-unstyled search-modal__button header-actions__action"
+      aria-label="{{ 'content.search_input_label' | t }}"
+      aria-haspopup="dialog"
+    >
+      <span
+        aria-hidden="true"
+        class="svg-wrapper"
+      >
+        {{ 'icon-search.svg' | inline_asset_content }}
+      </span>
+    </button>
+  </search-button>
+{% endunless %}
 
-        <button type="button" class="search__button search__button--clear button-reset js-btn-clear-text"
-          aria-label="{{- 'search.clear' | t -}}"
-          {%- if clear_button_visible != true -%}disabled{%- endif -%}
-        >
-          {{- 'search.clear' | t -}}
-        </button>
+{% stylesheet %}
+  .search-action {
+    --search-border-radius: var(--style-border-radius-inputs);
+    --search-border-width: var(--style-border-width-inputs);
 
-        <button
-          class="drawer__button-close button-reset no-js-hidden js-btn-close-drawer"
-          aria-label="{{- 'theme.actions.close' | t -}}"
-          aria-controls="Search-menu-drawer-{{- append_id -}}"
-          aria-expanded="false"
-        >
-          {%- render 'icon', icon_name: 'theme-close-small' -%}
-        </button>
-      </div>
-    </div>
+    display: flex;
+  }
 
-    {%- if settings.enable_predictive_search -%}
-      <div class="search__message hidden js-message-error" {%- if request.locale.iso_code == 'ar' or request.locale.iso_code == 'he' -%} style="display: none"{%- endif -%}>
-        <p data-text>
-          {{- 'search.error' | t -}}
-        </p>
-      </div>
-      <div class="search__body hidden js-results-container"></div>
-    {%- endif -%}
-  </form>
-</predictive-search>
+  .header__column--center .search-action {
+    width: auto;
+    flex-grow: 1;
+  }
+
+  :is(.header__column--left, .header__column--center) .search-action {
+    @media screen and (min-width: 750px) {
+      margin-inline: calc(var(--padding-lg) * -1);
+    }
+  }
+
+  .header__column--right .search-action {
+    @media screen and (min-width: 750px) {
+      margin-inline: calc(var(--gap-md) * -1) calc(var(--gap-xs) * -1);
+    }
+  }
+{% endstylesheet %}

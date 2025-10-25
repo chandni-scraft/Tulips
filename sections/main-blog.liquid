@@ -1,351 +1,205 @@
-{%- render 'css', css: 'section-blog.css' -%}
-{%- render 'css', css: 'component-card-article.css' -%}
-{%- render 'css', css: 'component-card-text.css' -%}
 
-{%- style -%}
-  #shopify-section-{{ section.id }} > div {
-    padding-block-start: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_top }});
-    padding-block-end: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_bottom }});
-    --blog-grid-spacing: calc(var(--grid-spacing) * {{ section.settings.spacing_grid }});
-    --card-article-media-aspect-ratio: {{ section.settings.card_media_aspect_ratio }};
-    --h6-multiplier: 2.1rem;
-  }
-{%- endstyle -%}
 
-{%- if section.settings.pagination_style == 'load_more' -%}
-  <script src="{{- 'collection-load-more.js' | asset_url -}}" defer="defer"></script>
-  <script src="{{- 'collection-load-previous.js' | asset_url -}}" defer="defer"></script>
-  {%- if section.settings.enable_infinity_scroll -%}
-    <script src="{{- 'collection-infinity-scroll.js' | asset_url -}}" defer="defer"></script>
-  {%- endif -%}
-{%- endif -%}
+<script
+  src="{{ 'blog-posts-list.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
 
-{%- paginate blog.articles by section.settings.articles_per_page -%}
-  <div class="color-{{ section.settings.color_scheme }} gradient">
-    <div class="blog">
-      {%- if blog.articles.size > 0 and section.settings.enable_filtering_by_tags -%}
-        <div class="blog__head no-scrollbar">
-          <div class="blog__filters">
-            <ul class="blog__filters-items list-unstyled h3">
+<blog-posts-list section-id="{{ section.id }}">
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div
+    class="
+      section
+      color-{{ section.settings.color_scheme }}
+      blog-posts
+      spacing-style
+      size-style
+    "
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    {% content_for 'blocks' %}
 
-              {%- liquid
-                assign all_tags_visible = true
-                if current_tags or current_tags.size > 0
-                  assign all_tags_visible = false
-                endif
-              -%}
-
-              <li class="blog__filters-item {% if all_tags_visible -%}is-active{%- endif -%}">
-                {%- if all_tags_visible -%}
-                  <span>
-                    {{- 'blog.show_all' | t -}}
-                  </span>
-                {%- else -%}
-                  <a href="{{- blog.url -}}">
-                    {{- 'blog.show_all' | t -}}
-                  </a>
-                {%- endif -%}
-              </li>
-
-              {%- for tag in blog.all_tags -%}
-                {%- liquid
-                  assign tags_counter = 0
-                  assign tags_counter = tags_counter | plus: 1
-                -%}
-
-                {%- if current_tags contains tag -%}
-                  <li class='blog__filters-item is-active'>
-                    <span>{{- tag -}}</span>
-                  </li>
-                {%- else -%}
-                  <li class='blog__filters-item'>
-                    {{- tag | link_to_tag: tag -}}
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
+    {%- paginate blog.articles by 12 -%}
+      <span ref="viewMorePrevious"></span>
+      <div
+        ref="grid"
+        class="blog-posts-container"
+        data-last-page="{{ paginate.pages }}"
+      >
+        {% for article in blog.articles %}
+          <div
+            class="blog-post-item"
+            ref="cards[]"
+            data-page="{{ paginate.current_page }}"
+          >
+            {% content_for 'block', id: 'static-blog-post-card', type: '_blog-post-card', article: article %}
           </div>
-        </div>
-      {%- endif -%}
-      <div class="container {{ section.settings.section_width }}">
-
-        <div class="blog__articles" id="ProductGridContainer">
-          {%- if blog.articles.size == 0 -%}
-            <div class="blog__articles-empty text-center">
-              <p>{{- 'blog.no_posts' | t -}}</p>
-            </div>
-          {%- else -%}
-            {% if section.settings.pagination_style == 'load_more' and paginate.previous and paginate.pages > 1 and paginate.current_page <= paginate.pages %}
-              <collection-load-previous class="text-center no-js-hidden color-{{ section.settings.color_scheme }}" data-current-page="{{- paginate.current_page -}}">
-                {%- liquid
-                  assign load_more_button_data_href = 'data-href="' | append: paginate.previous.url | append: '"'
-                  assign load_previous_value = 'theme.actions.load_previous' | t
-                  render 'button', class: 'button js-btn-load-previous', button_style: 'button--outlined', attr: load_more_button_data_href, value: load_previous_value, loading_spinner: true
-                -%}
-              </collection-load-previous>
-            {% endif %}
-            <div class="blog__articles-grid text-center{% if section.settings.pagination_style == 'load_more' and section.settings.enable_infinity_scroll %} infinity-scroll-active{% endif %}" id="product-grid">
-              {%- liquid
-                for article in blog.articles
-                  render 'card-article', article: article, class: 'blog__card-article', show_tags: section.settings.show_tags, show_date: section.settings.show_date, show_author: section.settings.show_author, show_excerpt: section.settings.show_excerpt, tags_count: section.settings.tags_count, content_alignment: section.settings.content_alignment
-                endfor
-              -%}
-            </div>
-          {%- endif -%}
-
-          {%- if paginate.pages > 1 -%}
-            {% if section.settings.pagination_style == 'load_more' %}
-              <collection-load-more class="text-center no-js-hidden{% unless paginate.next %} hidden{% endunless %} color-{{ section.settings.color_scheme }}" data-current-page="{{- paginate.current_page -}}">
-                {%- liquid
-                  assign load_more_button_data_href = 'data-href="' | append: paginate.next.url | append: '"'
-                  assign load_more_value = 'theme.actions.load_more' | t
-
-                  render 'button', class: 'button js-btn-load-more', button_style: 'button--outlined', attr: load_more_button_data_href, value: load_more_value, loading_spinner: true
-                -%}
-              </collection-load-more>
-            {% else %}
-              <div class="blog__actions">
-                {%- render 'pagination', paginate: paginate, anchor: '' -%}
-              </div>
-            {% endif %}
-          {%- endif -%}
-        </div>
+        {% endfor %}
       </div>
-    </div>
+      <span ref="viewMoreNext"></span>
+    {%- endpaginate -%}
   </div>
-{%- endpaginate -%}
+</blog-posts-list>
+
+{% stylesheet %}
+  /**
+   * Blog posts page layout
+   */
+  .blog-posts {
+    --page-content-width: var(--narrow-page-width);
+    --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+    --columns-gap: 36px;
+    --rows-gap: 36px;
+  }
+
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    width: 100%;
+    column-gap: var(--columns-gap);
+    row-gap: var(--rows-gap);
+  }
+
+  /**
+   * Apart from the first and second rows in the grid, all remaining blog posts
+   * are arranged in a three-column layout:
+   * +------------+------------+-------------+
+   * |            |            |             |
+   * |  (span 2)  |  (span 2)  |  (span 2)   |
+   * |            |            |             |
+   * +------------+------------+-------------+
+   */
+  .blog-post-item {
+    --blog-post-card-scale: 0.6;
+
+    grid-column: span 2;
+
+    @media screen and (max-width: 749px) {
+      --blog-post-card-scale: 0.5;
+
+      grid-column: span 6;
+    }
+  }
+
+  /**
+   * The second row of blog posts has two columns:
+   * +-------------------+-------------------+
+   * |                   |                   |
+   * |  (column span 3)  |  (column span 3)  |
+   * |                   |                   |
+   * +-------------------+-------------------+
+   */
+  .blog-post-item:nth-child(2),
+  .blog-post-item:nth-child(3) {
+    --blog-post-card-scale: 0.8;
+
+    grid-column: span 3;
+
+    @media screen and (max-width: 749px) {
+      --blog-post-card-scale: 0.5;
+
+      grid-column: span 6;
+    }
+  }
+
+  /**
+   * The first row of blog posts has only one column:
+   * +---------------------------------------+
+   * |                                       |
+   * |           (1 column span 6)           |
+   * |                                       |
+   * +---------------------------------------+
+   */
+  .blog-post-item:first-child {
+    --blog-post-card-scale: 1;
+
+    grid-column: span 6;
+  }
+
+  /**
+   * When there's no image, the blog post item has a border.
+   */
+  .blog-post-item {
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-20));
+    padding: 0 1rem 1rem;
+  }
+
+  .blog-post-item:has(.blog-post-card__image-container) {
+    border: none;
+    padding: 0;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
-  "name": "t:sections.main-blog.name",
-  "tag": "section",
+  "name": "t:names.blog_posts",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
   "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.global.header.general.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_filtering_by_tags",
-      "default": true,
-      "label": "t:sections.main-blog.settings.enable_filtering_by_tags.label"
-    },
-    {
-      "type": "range",
-      "id": "articles_per_page",
-      "label": "t:sections.main-blog.settings.articles_per_page.label",
-      "min": 3,
-      "max": 50,
-      "step": 1,
-      "default": 20
-    },
-    {
-      "type": "select",
-      "id": "pagination_style",
-      "label": "t:sections.global.pagination.style.label",
-      "options": [
-        {
-          "value": "default",
-          "label": "t:sections.global.pagination.style.options.default.label"
-        },
-        {
-          "value": "load_more",
-          "label": "t:sections.global.pagination.style.options.load_more.label"
-        }
-      ],
-      "default": "load_more"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_infinity_scroll",
-      "label": "t:sections.global.pagination.enable_infinity_scroll.label",
-      "info": "t:sections.global.pagination.enable_infinity_scroll.info",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "t:sections.global.header.card_article.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_excerpt",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_excerpt.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "t:sections.global.content.alignment.label",
-      "options": [
-        {
-          "value": "text-start",
-          "label": "t:sections.global.content.alignment.options.start.label"
-        },
-        {
-          "value": "text-center",
-          "label": "t:sections.global.content.alignment.options.center.label"
-        },
-        {
-          "value": "text-end",
-          "label": "t:sections.global.content.alignment.options.end.label"
-        }
-      ],
-      "default": "text-center"
-    },
-    {
-      "type": "select",
-      "id": "card_media_aspect_ratio",
-      "label": "t:settings_schema.cards.settings.card_media_aspect_ratio.label",
-      "options": [
-        {
-          "value": "auto",
-          "label": "t:sections.global.aspect_ratio.options.auto.label"
-        },
-        {
-          "value": "1/1",
-          "label": "1:1"
-        },
-        {
-          "value": "3/4",
-          "label": "3:4"
-        },
-        {
-          "value": "4/3",
-          "label": "4:3"
-        },
-        {
-          "value": "16/9",
-          "label": "16:9"
-        }
-      ],
-      "default": "3/4"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.global.header.settings.content",
-      "info": "t:sections.global.header.settings.info"
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "options": [
-        {
-          "value": "max-w-page",
-          "label": "t:sections.global.settings.section_width.options__1.label"
-        },
-        {
-          "value": "max-w-narrow",
-          "label": "t:sections.global.settings.section_width.options__4.label"
-        },
-        {
-          "value": "max-w-fluid",
-          "label": "t:sections.global.settings.section_width.options__2.label"
-        }
-      ],
-      "default": "max-w-narrow",
-      "label": "t:sections.global.settings.section_width.label"
-    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "default": "scheme-1",
-      "label": "t:sections.global.color_scheme.label"
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
     },
     {
-      "type": "select",
-      "id": "spacing_grid",
-      "label": "t:sections.global.settings.spacing.settings.spacing_grid.label",
-      "options": [
-        {
-          "value": "0",
-          "label": "No"
-        },
-        {
-          "value": "1",
-          "label": "S"
-        },
-        {
-          "value": "2",
-          "label": "M"
-        },
-        {
-          "value": "4",
-          "label": "L"
-        },
-        {
-          "value": "6",
-          "label": "XL"
-        }
-      ],
-      "default": "2"
+      "type": "header",
+      "content": "t:content.padding"
     },
     {
-      "type": "select",
-      "id": "spacing_top",
-      "label": "t:sections.global.settings.spacing.settings.spacing_top.label",
-      "options": [
-        {
-          "value": "0",
-          "label": "No"
-        },
-        {
-          "value": "1",
-          "label": "S"
-        },
-        {
-          "value": "2",
-          "label": "M"
-        },
-        {
-          "value": "4",
-          "label": "L"
-        },
-        {
-          "value": "6",
-          "label": "XL"
-        }
-      ],
-      "default": "2"
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     },
     {
-      "type": "select",
-      "id": "spacing_bottom",
-      "label": "t:sections.global.settings.spacing.settings.spacing_bottom.label",
-      "options": [
-        {
-          "value": "0",
-          "label": "No"
-        },
-        {
-          "value": "1",
-          "label": "S"
-        },
-        {
-          "value": "2",
-          "label": "M"
-        },
-        {
-          "value": "4",
-          "label": "L"
-        },
-        {
-          "value": "6",
-          "label": "XL"
-        }
-      ],
-      "default": "2"
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     }
   ]
 }
