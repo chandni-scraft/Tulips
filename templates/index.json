@@ -6,8 +6,40 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_slide_1": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>Free Delivery on orders above ₹399</p>",
+            "icon": "truck"
+          }
+        },
+        "text_slide_2": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>India's Most Loved Hygiene Brand Since 1999</p>",
+            "icon": "box"
+          }
+        }
+      },
+      "block_order": [
+        "text_slide_1",
+        "text_slide_2"
+      ],
+      "settings": {
+        "text_block_behaviour": "slider",
+        "slider_autoplay_interval": 4,
+        "font_weight": "500",
+        "section_offset": 0,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-2"
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -61,6 +93,7 @@
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -278,41 +311,47 @@
         "padding-block-end": 48
       }
     },
-    "announcement_bar": {
+    "announcement_bar_L8nwtC": {
       "type": "announcement-bar",
       "blocks": {
-        "text_slide_1": {
+        "text_slide_rXRhkj": {
           "type": "text-slide",
           "settings": {
             "content": "<p>Free Delivery on orders above ₹399</p>",
-            "icon": "truck"
+            "icon": "theme-box"
           }
         },
-        "text_slide_2": {
+        "text_slide_mmJg9p": {
           "type": "text-slide",
           "settings": {
-            "content": "<p>India's Most Loved Hygiene Brand Since 1999</p>",
-            "icon": "box"
+            "content": "<p>India’s Most Loved Hygiene Brand Since 1999</p>",
+            "icon": "theme-box"
           }
         }
       },
       "block_order": [
-        "text_slide_1",
-        "text_slide_2"
+        "text_slide_rXRhkj",
+        "text_slide_mmJg9p"
       ],
+      "custom_css": [
+        "announcement-bar__link {display: flex; align-items: center; gap: 0.6rem; white-space: nowrap; background: white; color: black;}",
+        ".announcement-bar {padding-top: 0; padding-bottom: 0.5rem; }"
+      ],
+      "name": "t:sections.announcement-bar.name",
       "settings": {
         "text_block_behaviour": "slider",
-        "slider_autoplay_interval": 4,
-        "font_weight": "500",
+        "slider_autoplay_interval": 3,
+        "font_weight": "700",
         "section_offset": 0,
         "section_width": "max-w-fluid",
-        "color_scheme": "scheme-2"
+        "color_scheme": "scheme-d817e687-d441-4d0d-9067-97ff6d3fa3e4"
       }
     }
   },
   "order": [
     "announcement_bar",
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "announcement_bar_L8nwtC"
   ]
 }
