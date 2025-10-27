@@ -268,7 +268,6 @@
         </span>
       {%- endif -%}
       <ul class="product-card__variants--list product-card__variants--list--{{ settings.product_card_product_options_position }}">
-        {%- comment -%}digifist-note -- this part is a need max variant setting{%- endcomment -%}
         {%- for opts in (1..3) -%}
           {%- assign options = blank -%}
           {%- if opts == 1 -%}

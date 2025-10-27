@@ -1354,7 +1354,7 @@
         },
         "icon": {
           "label": "Icon",
-          "info": "Leave blank to hide the icon. You can find the list of available icons [here](https://www.digifist.com/en/help-center/documentation/theme/release/icons).",
+          "info": "Leave blank to hide the icon. Refer to your theme documentation for the available icon list.",
           "icon_size": {
             "label": "Icon size",
             "options__1": {
@@ -3981,7 +3981,7 @@
             },
             "source_of_slideshow": {
               "label": "Source of slideshow",
-              "info": "If you define a metaobject as a source, the slideshow will be populated with the media from the metaobject. You can find setup instructions on [here](https://www.digifist.com/en/help-center/documentation/theme/release/multitile).",
+              "info": "If you define a metaobject as a source, the slideshow will be populated with the media from the metaobject. Refer to your theme documentation for setup guidance.",
               "options": {
                 "manual": {
                   "label": "Manual"
