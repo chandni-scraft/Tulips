@@ -319,5 +319,249 @@
       "sold_out": "Sold out",
       "unavailable": "Unavailable"
     }
+  },
+  "global": {
+    "settings": {
+      "show_on": {
+        "label": "Show on",
+        "options": {
+          "desktop": {
+            "label": "Desktop"
+          },
+          "mobile": {
+            "label": "Mobile"
+          },
+          "both": {
+            "label": "Both"
+          }
+        }
+      },
+      "timer": {
+        "settings": {
+          "timer_year": {
+            "label": "Year"
+          },
+          "timer_month": {
+            "label": "Month",
+            "options": {
+              "options__1": "January",
+              "options__2": "February",
+              "options__3": "March",
+              "options__4": "April",
+              "options__5": "May",
+              "options__6": "June",
+              "options__7": "July",
+              "options__8": "August",
+              "options__9": "September",
+              "options__10": "October",
+              "options__11": "November",
+              "options__12": "December"
+            }
+          },
+          "timer_day": {
+            "label": "Day"
+          },
+          "timer_hour": {
+            "label": "Hour"
+          },
+          "timer_minute": {
+            "label": "Minute"
+          },
+          "show_timer_days": {
+            "label": "Show days"
+          },
+          "show_timer_hours": {
+            "label": "Show hours"
+          },
+          "show_timer_minutes": {
+            "label": "Show minutes"
+          },
+          "show_timer_seconds": {
+            "label": "Show seconds"
+          }
+        }
+      },
+      "localization": {
+        "name": "Localization"
+      }
+    },
+    "element": {
+      "font": {
+        "weight": {
+          "label": "Font weight",
+          "options": {
+            "normal": {
+              "label": "Normal"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "bold": {
+              "label": "Bold"
+            }
+          }
+        }
+      },
+      "icon": {
+        "label": "Icon",
+        "info": "Enter icon name from [icon list](https://icons-docs.icons.merchantos.net/)",
+        "custom_icon": {
+          "label": "Custom icon",
+          "info": "Upload your custom icon"
+        }
+      },
+      "link_label": {
+        "label": "Link label"
+      },
+      "link": {
+        "label": "Link"
+      },
+      "vendor": {
+        "label": "Vendor"
+      },
+      "heading": {
+        "label": "Heading"
+      },
+      "heading_size": {
+        "label": "Heading size"
+      },
+      "subheading": {
+        "label": "Subheading"
+      },
+      "button": {
+        "label": "Button",
+        "style": {
+          "label": "Button style",
+          "options": {
+            "filled": {
+              "label": "Filled"
+            },
+            "outlined": {
+              "label": "Outlined"
+            },
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "link": {
+          "label": "Button link"
+        }
+      },
+      "button_label": {
+        "label": "Button label",
+        "info": "Set the button's label and link"
+      }
+    },
+    "header": {
+      "fine_tuning": {
+        "content": "Fine tuning",
+        "info": "Fine-tune the section appearance"
+      },
+      "settings": {
+        "content": "Section settings",
+        "info": "Configure the section settings"
+      },
+      "slideshow": {
+        "content": "Slideshow"
+      },
+      "tabs": {
+        "content": "Tabs"
+      },
+      "parts_display_settings": {
+        "content": "Parts display settings"
+      }
+    },
+    "section": {
+      "width": {
+        "label": "Section width",
+        "options": {
+          "page": {
+            "label": "Page"
+          },
+          "fluid": {
+            "label": "Fluid"
+          },
+          "full": {
+            "label": "Full"
+          }
+        }
+      },
+      "layout": {
+        "label": "Layout",
+        "options": {
+          "layout__1": {
+            "label": "Layout 1"
+          },
+          "layout__2": {
+            "label": "Layout 2"
+          }
+        }
+      },
+      "offset": {
+        "label": "Section offset",
+        "info": "Offset the section vertically"
+      }
+    },
+    "slideshow": {
+      "show_navigation_arrows": {
+        "label": "Show navigation arrows"
+      },
+      "autoplay_interval": {
+        "label": "Autoplay interval",
+        "info": "Time in seconds between slide changes"
+      }
+    },
+    "spacing": {
+      "spacing_top": {
+        "label": "Spacing top"
+      },
+      "spacing_bottom": {
+        "label": "Spacing bottom"
+      }
+    },
+    "color_scheme": {
+      "label": "Color scheme"
+    }
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "Announcement bar",
+      "settings": {
+        "text_block_behaviour": {
+          "label": "Text block behavior",
+          "options": {
+            "options__1": {
+              "label": "Static"
+            },
+            "options__2": {
+              "label": "Marquee"
+            },
+            "options__3": {
+              "label": "Slider"
+            }
+          }
+        },
+        "slider_autoplay_interval": {
+          "label": "Change slides every"
+        }
+      },
+      "blocks": {
+        "link": {
+          "name": "Link"
+        },
+        "timer": {
+          "name": "Timer"
+        },
+        "text-slide": {
+          "name": "Text slide",
+          "settings": {
+            "content": {
+              "label": "Content"
+            }
+          }
+        }
+      }
+    }
   }
 }
