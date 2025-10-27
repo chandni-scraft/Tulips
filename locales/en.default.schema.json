@@ -19,6 +19,9 @@
         }
       }
     },
+    "general": {
+      "header": "Header"
+    },
     "typography": {
       "name": "Typography",
       "settings": {
