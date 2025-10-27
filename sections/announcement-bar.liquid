@@ -37,27 +37,14 @@
 
 {%- if section.settings.text_block_behaviour != 'marquee' -%}
   <script src="{{- 'announcement-bar-slider.js' | asset_url -}}" defer="defer"></script>
-  {% capture data_swiper_options %}
-    data-swiper-options = '{
-      {%- if section.settings.text_block_behaviour == 'static' -%}
-        "slidesPerView": 1,
-        "slidesPerViewDesktop": {{ text_slide_blocks.size }},
-        "loop": false,
-        "autoplay": {
-          "delay": {{ section.settings.slider_autoplay_interval | times: 1000 }}
-        }
-      {%- elsif section.settings.text_block_behaviour == 'slider' -%}
-        "slidesPerViewDesktop": 1,
-        "loop": true,
-        "autoplay": {
-          "delay": {{ section.settings.slider_autoplay_interval | times: 1000 }}
-        }
-      {%- else -%}
-        "loop": false,
-        "autoplay": false
-      {%- endif -%}
-    }'
-  {% endcapture %}
+  {%- assign swiper_options = '{}' -%}
+  {%- if section.settings.text_block_behaviour == 'static' -%}
+    {%- assign swiper_options = '{"slidesPerView":1,"slidesPerViewDesktop":' | append: text_slide_blocks.size | append: ',"loop":false,"autoplay":{"delay":' | append: section.settings.slider_autoplay_interval | append: '000"}}' -%}
+  {%- elsif section.settings.text_block_behaviour == 'slider' -%}
+    {%- assign swiper_options = '{"slidesPerViewDesktop":1,"loop":true,"autoplay":{"delay":' | append: section.settings.slider_autoplay_interval | append: '000"}}' -%}
+  {%- else -%}
+    {%- assign swiper_options = '{"loop":false,"autoplay":false}' -%}
+  {%- endif -%}
 {% endif %}
 
 {%- capture announcement_bar_slideshow -%}
@@ -73,7 +60,7 @@
       <announcement-bar-slider
         class='swiper announcement-bar__slider'
         data-autoplay-interval='{{- section.settings.slider_autoplay_interval | times: 1000 -}}'
-        {{ data_swiper_options | replace: ' ', '' | strip_newlines }}
+        data-swiper-options='{{ swiper_options }}'
       >
         <div class='swiper-wrapper'>
           {%- for block in text_slide_blocks -%}
