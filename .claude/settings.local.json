@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Read(//e/shopify project/Tulips/**)"
+      "Read(//e/shopify project/Tulips/**)",
+      "Read(//e/shopify project/**)",
+      "Bash(cat:*)",
+      "Bash(cd:*)",
+      "Bash(for:*)",
+      "Bash(do if [ ! -f \"assets/$file\" ])",
+      "Bash(then echo \"❌ Missing: $file\")",
+      "Bash(else echo \"✅ Found: $file\")",
+      "Bash(fi:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
