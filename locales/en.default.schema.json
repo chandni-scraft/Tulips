@@ -1257,6 +1257,23 @@
         "info": "Offset the section vertically"
       }
     },
+    "section_width": {
+      "label": "Section width",
+      "options": {
+        "page": {
+          "label": "Page"
+        },
+        "fluid": {
+          "label": "Fluid"
+        },
+        "full": {
+          "label": "Full"
+        }
+      }
+    },
+    "color_scheme": {
+      "label": "Color scheme"
+    },
     "settings": {
       "show_on": {
         "label": "Show on",
