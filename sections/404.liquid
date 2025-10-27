@@ -1,23 +1,147 @@
-{% comment %}
-  This section is used in the 404 template to render page shown when customers
-  enter an invalid store URL.
+{{ 'section-404.css' | asset_url | stylesheet_tag }}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/404
-{% endcomment %}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
 
-<h1>{{ '404.title' | t }}</h1>
+<div class="error-404 section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="container {{ section.settings.section_width }}">
+    <div class="error-404__content">
+      <div class="error-404__icon">
+        {% render 'icon', icon_name: 'theme-close', size: 80 %}
+      </div>
 
-<p>
-  {{ '404.not_found' | t }}
-</p>
+      <h1 class="error-404__title">{{ '404.title' | t }}</h1>
 
-<a href="{{ routes.all_products_collection_url }}">
-  {{ '404.back_to_shopping' | t }}
-</a>
+      <p class="error-404__description">
+        {{ '404.not_found' | t }}
+      </p>
+
+      {% if section.settings.show_search_form %}
+        <div class="error-404__search">
+          <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+            <div class="search-form__wrapper">
+              <input
+                type="search"
+                name="q"
+                placeholder="{{ 'search.placeholder' | t }}"
+                class="search-form__input"
+                value="{{ search.terms | escape }}"
+              >
+              <button type="submit" class="search-form__button" aria-label="{{ 'search.submit' | t }}">
+                {% render 'icon', icon_name: 'theme-arrow' %}
+              </button>
+            </div>
+          </form>
+        </div>
+      {% endif %}
+
+      <div class="error-404__actions">
+        <a href="{{ routes.root_url }}" class="button button--secondary">
+          {{ 'general.404.go_home' | t | default: 'Go to homepage' }}
+        </a>
+
+        <a href="{{ routes.all_products_collection_url }}" class="button button--primary">
+          {{ '404.back_to_shopping' | t }}
+        </a>
+      </div>
+
+      {% if section.settings.show_popular_links %}
+        <div class="error-404__links">
+          <h3 class="error-404__links-title">{{ 'general.404.popular_links' | t | default: 'Popular Pages' }}</h3>
+          <nav class="error-404__nav">
+            <ul class="error-404__link-list">
+              {% for link in linklists[section.settings.link_list].links limit: 5 %}
+                <li class="error-404__link-item">
+                  <a href="{{ link.url }}" class="error-404__link">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
-  "name": "t:general.404",
-  "settings": []
+  "name": "404 Page",
+  "class": "section-404",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search_form",
+      "label": "Show search form",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popular_links",
+      "label": "Show popular links",
+      "default": false
+    },
+    {
+      "type": "link_list",
+      "id": "link_list",
+      "label": "Link list",
+      "info": "Select a link list to show popular pages",
+      "default": "main-menu"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "404 Page"
+    }
+  ]
 }
 {% endschema %}

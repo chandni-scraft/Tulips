@@ -1,0 +1,120 @@
+/* Collection Banner Section */
+.collection-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-banner__content {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collection-banner__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.collection-banner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection-banner__overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 800px;
+  border-radius: var(--style-border-radius-cards);
+}
+
+.collection-banner__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--color-background);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.collection-banner__description {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-background-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.collection-banner__meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.collection-banner__count {
+  font-size: var(--font-size-base);
+  color: var(--color-background-secondary);
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--style-border-radius-buttons);
+}
+
+/* Responsive Design */
+@media (max-width: 989px) {
+  .collection-banner__content {
+    min-height: 250px;
+  }
+
+  .collection-banner__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .collection-banner__description {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 749px) {
+  .collection-banner__content {
+    min-height: 200px;
+  }
+
+  .collection-banner__overlay {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+  }
+
+  .collection-banner__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .collection-banner__description {
+    font-size: var(--font-size-sm);
+  }
+
+  .collection-banner__meta {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .collection-banner__overlay {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.collection-banner:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

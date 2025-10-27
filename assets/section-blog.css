@@ -1,0 +1,292 @@
+/* Main Blog Section */
+.main-blog {
+  padding-top: var(--section-spacing-top, 2rem);
+  padding-bottom: var(--section-spacing-bottom, 4rem);
+}
+
+/* Blog Header */
+.blog-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.blog-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-foreground);
+  line-height: var(--line-height-tight);
+}
+
+.blog-description {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-foreground-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Blog Articles Grid */
+.blog-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.blog-article {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--style-border-radius-cards);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blog-article__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-article__image-link {
+  display: block;
+  aspect-ratio: 16/9;
+}
+
+.blog-article__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.blog-article:hover .blog-article__image {
+  transform: scale(1.05);
+}
+
+.blog-article__content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-article__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-foreground-secondary);
+}
+
+.blog-article__date {
+  font-weight: 500;
+}
+
+.blog-article__author {
+  color: var(--color-foreground-secondary);
+}
+
+.blog-article__title {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.blog-article__title-link {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.blog-article__title-link:hover {
+  color: var(--color-accent);
+}
+
+.blog-article__excerpt {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-foreground-secondary);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.blog-article__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.blog-article__read-more {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  transition: var(--transition-fast);
+}
+
+.blog-article__read-more:hover {
+  color: var(--color-foreground);
+}
+
+.blog-article__read-more .icon {
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-fast);
+}
+
+.blog-article__read-more:hover .icon {
+  transform: translateX(2px);
+}
+
+.blog-article__comments {
+  color: var(--color-foreground-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: var(--transition-fast);
+}
+
+.blog-article__comments:hover {
+  color: var(--color-accent);
+}
+
+/* Blog Pagination */
+.blog-pagination {
+  margin-top: var(--spacing-xl);
+}
+
+/* Blog Empty State */
+.blog-empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--style-border-radius-cards);
+}
+
+.blog-empty h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-foreground);
+}
+
+.blog-empty p {
+  color: var(--color-foreground-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Responsive Design */
+@media (max-width: 989px) {
+  .blog-articles {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 749px) {
+  .main-blog {
+    padding-top: var(--section-spacing-top, 1rem);
+    padding-bottom: var(--section-spacing-bottom, 2rem);
+  }
+
+  .blog-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .blog-description {
+    font-size: var(--font-size-base);
+  }
+
+  .blog-articles {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .blog-article__content {
+    padding: var(--spacing-md);
+  }
+
+  .blog-article__title-link {
+    font-size: var(--font-size-lg);
+  }
+
+  .blog-article__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Animation for visual enhancement */
+.blog-article {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.blog-article:nth-child(1) { animation-delay: 0.1s; }
+.blog-article:nth-child(2) { animation-delay: 0.2s; }
+.blog-article:nth-child(3) { animation-delay: 0.3s; }
+.blog-article:nth-child(4) { animation-delay: 0.4s; }
+.blog-article:nth-child(5) { animation-delay: 0.5s; }
+.blog-article:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .blog-article {
+    animation: none;
+  }
+
+  .blog-article__image {
+    transition: none;
+  }
+
+  .blog-article:hover {
+    transform: none;
+  }
+
+  .blog-article__title-link,
+  .blog-article__read-more,
+  .blog-article__comments {
+    transition: none;
+  }
+
+  .blog-article__read-more .icon {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.blog-article:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.blog-article__title-link:focus,
+.blog-article__read-more:focus,
+.blog-article__comments:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,274 @@
+/* Collections List Section */
+.collections-list {
+  padding-top: var(--section-spacing-top, 2rem);
+  padding-bottom: var(--section-spacing-bottom, 4rem);
+}
+
+/* Collections Header */
+.collections-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.collections-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-foreground);
+  line-height: var(--line-height-tight);
+}
+
+.collections-description {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-foreground-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Collections Grid */
+.collections-grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.collections--compact {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.collections--medium {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.collections--large {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.collection-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--style-border-radius-cards);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.collection-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.collection-card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.collection-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.collection-card:hover .collection-card__image {
+  transform: scale(1.1);
+}
+
+.collection-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-md);
+  transition: var(--transition-normal);
+}
+
+.collection-card:hover .collection-card__overlay {
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.collection-card__overlay-content {
+  text-align: left;
+  transform: translateY(0);
+  transition: var(--transition-normal);
+}
+
+.collection-card:hover .collection-card__overlay-content {
+  transform: translateY(-4px);
+}
+
+.collection-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-background);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.collection-card__count {
+  font-size: var(--font-size-sm);
+  color: var(--color-background-secondary);
+  font-weight: 500;
+}
+
+.collection-card__content {
+  padding: var(--spacing-md);
+}
+
+.collection-card__description {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-foreground-secondary);
+  margin: 0;
+}
+
+/* Collections Empty State */
+.collections-empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--style-border-radius-cards);
+}
+
+.collections-empty h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-foreground);
+}
+
+.collections-empty p {
+  color: var(--color-foreground-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 989px) {
+  .collections--compact {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .collections--medium {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .collections--large {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 749px) {
+  .collections-list {
+    padding-top: var(--section-spacing-top, 1rem);
+    padding-bottom: var(--section-spacing-bottom, 2rem);
+  }
+
+  .collections-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .collections-description {
+    font-size: var(--font-size-base);
+  }
+
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .collection-card__image-wrapper {
+    aspect-ratio: 16/9;
+  }
+
+  .collection-card__overlay {
+    padding: var(--spacing-sm);
+  }
+
+  .collection-card__title {
+    font-size: var(--font-size-base);
+  }
+
+  .collection-card__count {
+    font-size: var(--font-size-xs);
+  }
+
+  .collection-card__content {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Animation for visual enhancement */
+.collection-card {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.collection-card:nth-child(1) { animation-delay: 0.1s; }
+.collection-card:nth-child(2) { animation-delay: 0.2s; }
+.collection-card:nth-child(3) { animation-delay: 0.3s; }
+.collection-card:nth-child(4) { animation-delay: 0.4s; }
+.collection-card:nth-child(5) { animation-delay: 0.5s; }
+.collection-card:nth-child(6) { animation-delay: 0.6s; }
+.collection-card:nth-child(7) { animation-delay: 0.7s; }
+.collection-card:nth-child(8) { animation-delay: 0.8s; }
+.collection-card:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .collection-card {
+    animation: none;
+  }
+
+  .collection-card__image {
+    transition: none;
+  }
+
+  .collection-card:hover {
+    transform: none;
+  }
+
+  .collection-card__overlay,
+  .collection-card__overlay-content {
+    transition: none;
+  }
+
+  .collection-card:hover .collection-card__overlay-content {
+    transform: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.collection-card:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.collection-card__link:focus {
+  outline: none;
+}
+
+.collection-card:focus-within .collection-card__link {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

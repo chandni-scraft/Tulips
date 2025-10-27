@@ -1,0 +1,117 @@
+/* Pagination Component */
+.pagination-wrapper {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--style-border-radius-buttons);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.pagination__item:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  border-color: var(--color-accent);
+}
+
+.pagination__item--current {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  border-color: var(--color-accent);
+  font-weight: 600;
+}
+
+.pagination__item--prev,
+.pagination__item--next {
+  padding: 0;
+}
+
+.pagination__item-arrow .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.pagination__item--next .icon {
+  transform: rotate(90deg);
+}
+
+.pagination__item--prev .icon {
+  transform: rotate(-90deg);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 749px) {
+  .pagination__list {
+    gap: var(--spacing-xxs);
+  }
+
+  .pagination__item {
+    min-width: 36px;
+    height: 36px;
+    font-size: var(--font-size-xs);
+    padding: 0 var(--spacing-xs);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .pagination__item {
+    transition: none;
+  }
+
+  .pagination__item-arrow .icon {
+    transition: none;
+  }
+}
+
+/* Focus styles */
+.pagination__item:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.pagination__item:hover:focus {
+  outline-color: var(--color-background);
+  outline-offset: 1px;
+}

@@ -30,6 +30,14 @@
         assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15L9.29412 20L21 4" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
       when 'theme-arrow'
         assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 6L20 12L14 18M19 12H4" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      when 'theme-minus'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
+      when 'theme-plus'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
+      when 'theme-grid'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/></svg>'
+      when 'theme-list'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="2" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><rect x="3" y="11" width="18" height="2" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><rect x="3" y="18" width="18" height="2" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/></svg>'
       else
         assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
     endcase

@@ -1,0 +1,49 @@
+{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+
+{%- if paginate.parts.size > 0 -%}
+  <div class="pagination-wrapper">
+    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+      <ul class="pagination__list" role="list">
+        {%- if paginate.previous -%}
+          <li>
+            <a href="{{ paginate.previous.url }}" class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.previous' | t }}">
+              {% render 'icon', icon_name: 'theme-chevron' %}
+              <span class="visually-hidden">{{ 'general.pagination.previous' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+            <li>
+              <a href="{{ part.url }}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                {{- part.title -}}
+              </a>
+            </li>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <li>
+                <a class="pagination__item pagination__item--current" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                  {{- part.title -}}
+                </a>
+              </li>
+            {%- else -%}
+              <li>
+                <span class="pagination__item">{{ part.title }}</span>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if paginate.next -%}
+          <li>
+            <a href="{{ paginate.next.url }}" class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.next' | t }}">
+              <span class="visually-hidden">{{ 'general.pagination.next' | t }}</span>
+              {% render 'icon', icon_name: 'theme-chevron' %}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}

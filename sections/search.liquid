@@ -1,70 +1,231 @@
-{% comment %}
-  This section is used in the search template to render search results for
-  products, articles, and pages.
+{{ 'section-search.css' | asset_url | stylesheet_tag }}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/search
-{% endcomment %}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
 
-<h1>{{ 'search.title' | t }}</h1>
-
-<form action="{{ routes.search_url }}" method="get" role="search">
-  <input
-    type="search"
-    size="50"
-    name="q"
-    value="{{ search.terms | escape }}"
-    placeholder="{{ 'search.placeholder' | t }}"
-  >
-  <button type="submit">{{ 'search.submit' | t }}</button>
-</form>
-
-{% if search.performed %}
-  {% if search.results_count == 0 %}
-    <p>{{ 'search.no_results_html' | t: terms: search.terms }}</p>
-  {% else %}
-    <p>{{ 'search.results_for_html' | t: terms: search.terms, count: search.results_count }}</p>
-
-    <div class="search-results">
-      {% paginate search.results by 20 %}
-        {% # Search result items may be an article, a page, or a product. %}
-        {% for result in search.results %}
-          <div class="search-result">
-            {% assign featured_image = result.featured_image | default: result.image %}
-            {% if featured_image %}
-              {% render 'image', class: 'search-result__image', image: featured_image, url: result.url, width: 400 %}
-            {% endif %}
-            <div class="search-result__content">
-              <p>
-                {{ result.title | link_to: result.url }}
-                {% if result.price %}
-                  {{ result.price | money_with_currency }}
-                {% endif %}
-              </p>
-            </div>
+<div class="main-search section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="container {{ section.settings.section_width }}">
+    <!-- Search Header -->
+    <div class="search-header">
+      <h1 class="search-title">{{ 'search.title' | t }}</h1>
+      {% if section.settings.show_search_form %}
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+          <div class="search-form__wrapper">
+            <input
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="{{ 'search.placeholder' | t }}"
+              class="search-form__input"
+              autocomplete="off"
+            >
+            <button type="submit" class="search-form__button" aria-label="{{ 'search.submit' | t }}">
+              {% render 'icon', icon_name: 'theme-arrow' %}
+            </button>
           </div>
-        {% endfor %}
-
-        {{ paginate | default_pagination }}
-      {% endpaginate %}
+        </form>
+      {% endif %}
     </div>
-  {% endif %}
-{% endif %}
 
-{% stylesheet %}
-  .search-results {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-  .search-results .prev,
-  .search-results .page,
-  .search-results .next {
-    grid-column: 1 / -1;
-  }
-{% endstylesheet %}
+    <!-- Search Results -->
+    {% if search.performed %}
+      <div class="search-results-header">
+        {% if search.results_count == 0 %}
+          <p class="search-results__count">
+            {{ 'search.no_results_html' | t: terms: search.terms }}
+          </p>
+        {% else %}
+          <p class="search-results__count">
+            {{ 'search.results_for_html' | t: terms: search.terms, count: search.results_count }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if search.results_count > 0 %}
+        {% paginate search.results by section.settings.results_per_page %}
+          <div class="search-results">
+            {% for result in search.results %}
+              <div class="search-result">
+                {% assign featured_image = result.featured_image | default: result.image %}
+
+                {% if featured_image %}
+                  <div class="search-result__image-wrapper">
+                    <a href="{{ result.url }}" class="search-result__image-link">
+                      {{
+                        featured_image
+                        | image_url: width: 400
+                        | image_tag:
+                          widths: '200, 300, 400',
+                          sizes: '(max-width: 749px) 50vw, 25vw',
+                          class: 'search-result__image',
+                          loading: 'lazy'
+                      }}
+                    </a>
+                  </div>
+                {% endif %}
+
+                <div class="search-result__content">
+                  {% if result.object_type == 'product' %}
+                    <div class="search-result__type">
+                      {{ 'products.product.product' | t | default: 'Product' }}
+                    </div>
+                    {% if result.compare_at_price > result.price %}
+                      <div class="search-result__price search-result__price--sale">
+                        <span class="search-result__current-price">{{ result.price | money }}</span>
+                        <span class="search-result__compare-price">{{ result.compare_at_price | money }}</span>
+                      </div>
+                    {% else %}
+                      <div class="search-result__price">
+                        <span class="search-result__current-price">{{ result.price | money }}</span>
+                      </div>
+                    {% endif %}
+                  {% elsif result.object_type == 'article' %}
+                    <div class="search-result__type">
+                      {{ 'blogs.article.blog' | t | default: 'Article' }}
+                    </div>
+                    {% if result.published_at %}
+                      <div class="search-result__date">
+                        {{ result.published_at | date: format: 'date' }}
+                      </div>
+                    {% endif %}
+                  {% elsif result.object_type == 'page' %}
+                    <div class="search-result__type">
+                      {{ 'general.page' | t | default: 'Page' }}
+                    </div>
+                  {% endif %}
+
+                  <h3 class="search-result__title">
+                    <a href="{{ result.url }}" class="search-result__title-link">
+                      {{ result.title }}
+                    </a>
+                  </h3>
+
+                  {% if result.content %}
+                    <div class="search-result__excerpt">
+                      {{ result.content | strip_html | truncate: 150 }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <!-- Pagination -->
+          {%- if paginate.pages > 1 -%}
+            <div class="search-pagination">
+              {% render 'pagination', paginate: paginate %}
+            </div>
+          {%- endif -%}
+        {% endpaginate %}
+      {% endif %}
+    {% else %}
+      <!-- Search Suggestions -->
+      {% if section.settings.show_popular_searches %}
+        <div class="search-suggestions">
+          <h3 class="search-suggestions__title">
+            {{ 'search.popular_searches' | t | default: 'Popular Searches' }}
+          </h3>
+          <div class="search-suggestions__list">
+            {% for suggestion in section.settings.popular_search_terms | split: ',' limit: 8 %}
+              <a href="{{ routes.search_url }}?q={{ suggestion | strip | url_encode }}" class="search-suggestion">
+                {{ suggestion | strip }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
 
 {% schema %}
 {
-  "name": "t:general.search",
-  "settings": []
+  "name": "Search",
+  "class": "section-main-search",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search_form",
+      "label": "Show search form",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "results_per_page",
+      "label": "Results per page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popular_searches",
+      "label": "Show popular searches",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "popular_search_terms",
+      "label": "Popular search terms",
+      "info": "Separate terms with commas",
+      "default": "shoes, clothing, accessories, new arrivals"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Search"
+    }
+  ]
 }
 {% endschema %}

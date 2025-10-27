@@ -1,17 +1,268 @@
-{% comment %}
-  This section is used in the page template to render store pages like About us
-  or Contact us.
+{{ 'section-page.css' | asset_url | stylesheet_tag }}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/page
-{% endcomment %}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
 
-<h1>{{ page.title }}</h1>
+<div class="main-page section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="container {{ section.settings.section_width }}">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 class="page-title">{{ page.title }}</h1>
 
-{{ page.content }}
+      {% if page.handle == 'contact' and section.settings.show_contact_info %}
+        <div class="page-contact-info">
+          {% if section.settings.contact_email != blank %}
+            <div class="contact-info-item">
+              {% render 'icon', icon_name: 'theme-box', size: 20 %}
+              <a href="mailto:{{ section.settings.contact_email }}" class="contact-info-link">
+                {{ section.settings.contact_email }}
+              </a>
+            </div>
+          {% endif %}
+
+          {% if section.settings.contact_phone != blank %}
+            <div class="contact-info-item">
+              {% render 'icon', icon_name: 'theme-box', size: 20 %}
+              <a href="tel:{{ section.settings.contact_phone | replace: ' ', '' | replace: '-', '' | replace: '(', '' | replace: ')', '' }}" class="contact-info-link">
+                {{ section.settings.contact_phone }}
+              </a>
+            </div>
+          {% endif %}
+
+          {% if section.settings.contact_address != blank %}
+            <div class="contact-info-item">
+              {% render 'icon', icon_name: 'theme-box', size: 20 %}
+              <span class="contact-info-text">
+                {{ section.settings.contact_address | newline_to_br }}
+              </span>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-content">
+      {% if section.settings.show_breadcrumb %}
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item">
+              <a href="{{ routes.root_url }}" class="breadcrumb__link">
+                {{ 'general.breadcrumbs.home' | t | default: 'Home' }}
+              </a>
+              {% render 'icon', icon_name: 'theme-chevron' %}
+            </li>
+            <li class="breadcrumb__item">
+              <span class="breadcrumb__current">{{ page.title }}</span>
+            </li>
+          </ol>
+        </nav>
+      {% endif %}
+
+      <div class="page-content__wrapper">
+        <div class="page-content__text">
+          {{ page.content }}
+        </div>
+
+        {% if page.handle == 'contact' and section.settings.enable_contact_form %}
+          <div class="page-contact-form">
+            <h2 class="contact-form__title">{{ section.settings.contact_form_title }}</h2>
+            {% form 'contact' %}
+              {%- if form.posted_successfully? -%}
+                <div class="contact-form__success">
+                  {{ 'contact.form.post_success' | t | default: 'Thank you for your message. We will get back to you soon!' }}
+                </div>
+              {%- endif -%}
+
+              {%- if form.errors -%}
+                <div class="contact-form__error">
+                  {{ 'contact.form.error' | t | default: 'Oops! There was an error with your submission.' }}
+                  <ul class="contact-form__error-list">
+                    {%- for field in form.errors -%}
+                      <li>
+                        {{ form.errors.messages[field] }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+
+              <div class="contact-form__fields">
+                <div class="contact-form__field">
+                  <label for="ContactFormName" class="contact-form__label">
+                    {{ 'contact.form.name' | t | default: 'Name' }}
+                  </label>
+                  <input
+                    type="text"
+                    id="ContactFormName"
+                    name="contact[name]"
+                    class="contact-form__input"
+                    value="{% if form.name %}{{ form.name }}{% endif %}"
+                    required
+                  >
+                </div>
+
+                <div class="contact-form__field">
+                  <label for="ContactFormEmail" class="contact-form__label">
+                    {{ 'contact.form.email' | t | default: 'Email' }}
+                  </label>
+                  <input
+                    type="email"
+                    id="ContactFormEmail"
+                    name="contact[email]"
+                    class="contact-form__input"
+                    value="{% if form.email %}{{ form.email }}{% endif %}"
+                    required
+                  >
+                </div>
+
+                <div class="contact-form__field">
+                  <label for="ContactFormPhone" class="contact-form__label">
+                    {{ 'contact.form.phone' | t | default: 'Phone' }}
+                  </label>
+                  <input
+                    type="tel"
+                    id="ContactFormPhone"
+                    name="contact[phone]"
+                    class="contact-form__input"
+                    value="{% if form.phone %}{{ form.phone }}{% endif %}"
+                  >
+                </div>
+
+                <div class="contact-form__field">
+                  <label for="ContactFormMessage" class="contact-form__label">
+                    {{ 'contact.form.message' | t | default: 'Message' }}
+                  </label>
+                  <textarea
+                    rows="10"
+                    id="ContactFormMessage"
+                    name="contact[body]"
+                    class="contact-form__textarea"
+                    required
+                  >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                </div>
+
+                <div class="contact-form__submit">
+                  <button type="submit" class="button button--primary">
+                    {{ 'contact.form.send' | t | default: 'Send message' }}
+                  </button>
+                </div>
+              </div>
+            {% endform %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
-  "name": "t:general.page",
-  "settings": []
+  "name": "Page",
+  "class": "section-main-page",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show breadcrumb",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Contact Page Settings",
+      "info": "These settings apply only to the contact page"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_info",
+      "label": "Show contact information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "hello@example.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Contact phone",
+      "default": "+1 (555) 123-4567"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_address",
+      "label": "Contact address",
+      "default": "123 Main Street\nNew York, NY 10001"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_contact_form",
+      "label": "Enable contact form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_form_title",
+      "label": "Contact form title",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page"
+    }
+  ]
 }
 {% endschema %}

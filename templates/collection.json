@@ -9,12 +9,28 @@
  */
 {
   "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_top": 0,
+        "spacing_bottom": 2
+      }
+    },
     "main": {
-      "type": "collection",
-      "settings": {}
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 12,
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": 2,
+        "spacing_bottom": 4
+      }
     }
   },
   "order": [
+    "banner",
     "main"
   ]
 }

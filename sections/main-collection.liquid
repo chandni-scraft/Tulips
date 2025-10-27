@@ -1,0 +1,234 @@
+{{ 'section-main-collection.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
+
+<div class="main-collection section-{{ section.id }}">
+  <div class="container {{ section.settings.section_width }}">
+    <!-- Collection Header -->
+    <div class="collection-header">
+      <h1 class="collection-title">{{ collection.title }}</h1>
+
+      {% if collection.description != blank %}
+        <div class="collection-description">
+          {{ collection.description }}
+        </div>
+      {% endif %}
+
+      <div class="collection-meta">
+        {% if collection.all_products_count > 0 %}
+          <span class="collection-count">
+            {{ 'collections.general.items_count' | t: count: collection.all_products_count }}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Sorting and Filtering -->
+    <div class="collection-toolbar">
+      <div class="collection-toolbar__left">
+        <div class="collection-sort">
+          <label for="sort-by">{{ 'collections.general.sort_by' | t }}</label>
+          <select id="sort-by" class="sort-select">
+            <option value="manual">{{ 'collections.general.sort_by.featured' | t }}</option>
+            <option value="price-ascending">{{ 'collections.general.sort_by.price_ascending' | t }}</option>
+            <option value="price-descending">{{ 'collections.general.sort_by.price_descending' | t }}</option>
+            <option value="title-ascending">{{ 'collections.general.sort_by.title_ascending' | t }}</option>
+            <option value="title-descending">{{ 'collections.general.sort_by.title_descending' | t }}</option>
+            <option value="created-ascending">{{ 'collections.general.sort_by.created_ascending' | t }}</option>
+            <option value="created-descending">{{ 'collections.general.sort_by.created_descending' | t }}</option>
+            <option value="best-selling">{{ 'collections.general.sort_by.best_selling' | t }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="collection-toolbar__right">
+        <div class="collection-view">
+          <button class="view-btn view-btn--grid active" data-view="grid" aria-label="{{ 'collections.general.grid_view' | t }}">
+            {% render 'icon', icon_name: 'theme-grid' %}
+          </button>
+          <button class="view-btn view-btn--list" data-view="list" aria-label="{{ 'collections.general.list_view' | t }}">
+            {% render 'icon', icon_name: 'theme-list' %}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="collection-products" id="collection-products">
+      {% assign products_per_page = section.settings.products_per_page %}
+      {% paginate collection.products by products_per_page %}
+        <div class="products-grid" data-view="grid">
+          {% for product in collection.products %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-card__image-link">
+                {% if product.featured_image %}
+                  {{
+                    product.featured_image
+                    | image_url: width: 400
+                    | image_tag:
+                      widths: '200, 300, 400',
+                      sizes: '(max-width: 749px) 50vw, 25vw',
+                      class: 'product-card__image',
+                      loading: 'lazy'
+                  }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'product-card__image' }}
+                {% endif %}
+              </a>
+
+              <div class="product-card__content">
+                <h3 class="product-card__title">
+                  <a href="{{ product.url }}">
+                    {{ product.title }}
+                  </a>
+                </h3>
+
+                <div class="product-card__price">
+                  {% if product.compare_at_price > product.price %}
+                    <span class="product-card__price--sale">
+                      {{ product.price | money }}
+                    </span>
+                    <span class="product-card__price--compare">
+                      {{ product.compare_at_price | money }}
+                    </span>
+                  {% else %}
+                    <span class="product-card__price--regular">
+                      {{ product.price | money }}
+                    </span>
+                  {% endif %}
+                </div>
+
+                {% if product.available %}
+                  <form method="post" action="{{ routes.cart_add_url }}" class="product-card__form">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="product-card__button button button--primary" name="add">
+                      {{ 'products.product.add_to_cart' | t }}
+                    </button>
+                  </form>
+                {% else %}
+                  <button class="product-card__button button button--disabled" disabled>
+                    {{ 'products.product.sold_out' | t }}
+                  </button>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <div class="collection-pagination">
+            {% render 'pagination', paginate: paginate %}
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+
+    <!-- No Products State -->
+    {% if collection.products.size == 0 %}
+      <div class="no-products">
+        <p>{{ 'collections.general.no_products' | t }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+// Sort functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const sortSelect = document.getElementById('sort-by');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function() {
+      const sortValue = this.value;
+      const url = new URL(window.location.href);
+      url.searchParams.set('sort_by', sortValue);
+      window.location.href = url.toString();
+    });
+  }
+
+  // View toggle
+  const viewButtons = document.querySelectorAll('.view-btn');
+  const productsGrid = document.querySelector('.products-grid');
+
+  viewButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const view = this.dataset.view;
+
+      // Update active state
+      viewButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Update grid class
+      productsGrid.setAttribute('data-view', view);
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "class": "section-main-collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 24",
+      "step": 4",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,210 @@
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
+
+{%- assign current_product = product -%}
+{%- assign current_collection = product.collections.first -%}
+
+{%- if recommendations.performed and recommendations.products_count > 0 -%}
+  {%- assign related_products = recommendations.products -%}
+{%- else -%}
+  {%- assign related_products = collections[current_collection.handle].products -%}
+{%- endif -%}
+
+{%- if related_products.size > 0 -%}
+  <div class="related-products section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+    <div class="container {{ section.settings.section_width }}">
+      <div class="related-products__header">
+        <h2 class="related-products__title">{{ section.settings.heading }}</h2>
+        {% if section.settings.description != blank %}
+          <p class="related-products__description">{{ section.settings.description }}</p>
+        {% endif %}
+      </div>
+
+      <div class="related-products__grid" data-view="grid">
+        {%- for related_product in related_products limit: section.settings.products_to_show -%}
+          {%- unless related_product.handle == current_product.handle -%}
+            <div class="related-product-card">
+              <a href="{{ related_product.url }}" class="related-product-card__image-link">
+                {% if related_product.featured_image %}
+                  {{
+                    related_product.featured_image
+                    | image_url: width: 400
+                    | image_tag:
+                      widths: '200, 300, 400',
+                      sizes: '(max-width: 749px) 50vw, 25vw',
+                      class: 'related-product-card__image',
+                      loading: 'lazy'
+                  }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'related-product-card__image' }}
+                {% endif %}
+              </a>
+
+              <div class="related-product-card__content">
+                <h3 class="related-product-card__title">
+                  <a href="{{ related_product.url }}">
+                    {{ related_product.title }}
+                  </a>
+                </h3>
+
+                <div class="related-product-card__price">
+                  {% if related_product.compare_at_price > related_product.price %}
+                    <span class="related-product-card__price--sale">
+                      {{ related_product.price | money }}
+                    </span>
+                    <span class="related-product-card__price--compare">
+                      {{ related_product.compare_at_price | money }}
+                    </span>
+                  {% else %}
+                    <span class="related-product-card__price--regular">
+                      {{ related_product.price | money }}
+                    </span>
+                  {% endif %}
+                </div>
+
+                {% if related_product.available %}
+                  <form method="post" action="{{ routes.cart_add_url }}" class="related-product-card__form">
+                    <input type="hidden" name="id" value="{{ related_product.variants.first.id }}">
+                    <button type="submit" class="related-product-card__button button button--primary" name="add">
+                      {{ 'products.product.add_to_cart' | t }}
+                    </button>
+                  </form>
+                {% else %}
+                  <button class="related-product-card__button button button--disabled" disabled>
+                    {{ 'products.product.sold_out' | t }}
+                  </button>
+                {% endif %}
+              </div>
+            </div>
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+
+      {% if section.settings.show_view_all and related_products.size > section.settings.products_to_show %}
+        <div class="related-products__actions">
+          <a href="{{ current_collection.url }}" class="button button--secondary">
+            {{ 'products.product.view_all' | t }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    // Related Products functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const productGrid = document.querySelector('.related-products__grid');
+      const viewButtons = document.querySelectorAll('.view-btn');
+
+      if (viewButtons.length > 0) {
+        viewButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const view = this.dataset.view;
+
+            // Update active state
+            viewButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update grid class
+            productGrid.setAttribute('data-view', view);
+          });
+        });
+      }
+    });
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Related Products",
+  "class": "section-related-products",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Related products are dynamically selected based on product collections and tags. For best results, ensure products are properly organized in collections."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover more products that complement your selection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}
