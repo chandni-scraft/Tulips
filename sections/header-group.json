@@ -11,6 +11,42 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
+    "announcement_bar_Tzq8JW": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_slide_8nNAWt": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>Free Delivery on orders above ₹399</p>",
+            "icon": ""
+          }
+        },
+        "text_slide_niChG3": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>India’s Most Loved Hygiene Brand Since 1999</p>",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_slide_8nNAWt",
+        "text_slide_niChG3"
+      ],
+      "custom_css": [
+        "announcement-bar__link {display: flex; align-items: center; gap: 0.6rem; white-space: nowrap; background: white; color: black;}",
+        ".announcement-bar {padding-top: 0; padding-bottom: 0.5rem;}"
+      ],
+      "name": "t:sections.announcement-bar.name",
+      "settings": {
+        "text_block_behaviour": "marquee",
+        "slider_autoplay_interval": 5,
+        "font_weight": "700",
+        "section_offset": 0,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-d817e687-d441-4d0d-9067-97ff6d3fa3e4"
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -47,42 +83,10 @@
         "color_scheme_for_dropdown": "",
         "color_scheme_for_drawer": ""
       }
-    },
-    "announcement_bar_Tzq8JW": {
-      "type": "announcement-bar",
-      "blocks": {
-        "text_slide_8nNAWt": {
-          "type": "text-slide",
-          "settings": {
-            "content": "<p>Free Delivery on orders above ₹399</p>",
-            "icon": "theme-box"
-          }
-        },
-        "text_slide_niChG3": {
-          "type": "text-slide",
-          "settings": {
-            "content": "<p>India’s Most Loved Hygiene Brand Since 1999</p>",
-            "icon": "theme-box"
-          }
-        }
-      },
-      "block_order": [
-        "text_slide_8nNAWt",
-        "text_slide_niChG3"
-      ],
-      "name": "t:sections.announcement-bar.name",
-      "settings": {
-        "text_block_behaviour": "slider",
-        "slider_autoplay_interval": 3,
-        "font_weight": "700",
-        "section_offset": 0,
-        "section_width": "max-w-full",
-        "color_scheme": "scheme-d817e687-d441-4d0d-9067-97ff6d3fa3e4"
-      }
     }
   },
   "order": [
-    "header",
-    "announcement_bar_Tzq8JW"
+    "announcement_bar_Tzq8JW",
+    "header"
   ]
 }
