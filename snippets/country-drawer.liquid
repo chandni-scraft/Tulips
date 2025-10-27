@@ -1,0 +1,201 @@
+{%- comment -%}
+Simple country/region selector for the current theme
+Accepts:
+- append_id {String} - Required unique identifier
+{%- endcomment -%}
+
+{% liquid
+  assign country_name = localization.country.name
+  assign currency_code = localization.country.currency.iso_code
+  assign button_text = country_name | append: ' | ' | append: currency_code
+%}
+
+<div class="country-selector" id="Country-selector-{{ append_id }}">
+  <button class="country-selector__button" onclick="toggleCountryDrawer('{{ append_id }}')">
+    <span class="country-selector__text">{{ button_text }}</span>
+    {% render 'icon', icon_name: 'theme-chevron-down', custom_class: 'country-selector__icon' %}
+  </button>
+
+  <div class="country-selector__drawer" id="Country-drawer-{{ append_id }}" style="display: none;">
+    <div class="country-selector__header">
+      <h3 class="country-selector__title">Select your country/region</h3>
+      <button class="country-selector__close" onclick="toggleCountryDrawer('{{ append_id }}')">
+        {% render 'icon', icon_name: 'theme-close' %}
+      </button>
+    </div>
+
+    <div class="country-selector__content">
+      {% form 'localization', id: append_id %}
+        <div class="country-selector__form-group">
+          <label for="country-select-{{ append_id }}" class="country-selector__label">
+            Country/Region
+          </label>
+          <div class="country-selector__select-wrapper">
+            <select
+              name="country_code"
+              id="country-select-{{ append_id }}"
+              class="country-selector__select"
+              onchange="this.form.submit()"
+            >
+              {% for country in localization.available_countries %}
+                <option value="{{ country.iso_code }}" {% if localization.country.iso_code == country.iso_code %}selected{% endif %}>
+                  {{ country.name }} ({{ country.currency.iso_code }})
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <noscript>
+          <button type="submit" class="country-selector__submit">
+            Update
+          </button>
+        </noscript>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<style>
+.country-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.country-selector__button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border, #ccc);
+  background: var(--color-background, #fff);
+  color: var(--color-foreground, #333);
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.country-selector__button:hover {
+  background: var(--color-background-secondary, #f5f5f5);
+}
+
+.country-selector__icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s;
+}
+
+.country-selector__drawer {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  min-width: 300px;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-border, #ccc);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.country-selector__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border, #ccc);
+}
+
+.country-selector__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.country-selector__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country-selector__content {
+  padding: 1rem;
+}
+
+.country-selector__form-group {
+  margin-bottom: 1rem;
+}
+
+.country-selector__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.country-selector__select-wrapper {
+  position: relative;
+}
+
+.country-selector__select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border, #ccc);
+  border-radius: 0.25rem;
+  background: var(--color-background, #fff);
+  font-size: 0.875rem;
+}
+
+.country-selector__submit {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-foreground, #333);
+  color: var(--color-background, #fff);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.country-selector__submit:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 749px) {
+  .country-selector__drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: auto;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+</style>
+
+<script>
+function toggleCountryDrawer(id) {
+  const drawer = document.getElementById('Country-drawer-' + id);
+  if (drawer) {
+    drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+  }
+}
+
+// Close drawer when clicking outside
+document.addEventListener('click', function(event) {
+  if (event.target.closest('.country-selector')) return;
+
+  const drawers = document.querySelectorAll('.country-selector__drawer');
+  drawers.forEach(drawer => {
+    drawer.style.display = 'none';
+  });
+});
+</script>

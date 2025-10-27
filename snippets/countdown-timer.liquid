@@ -1,0 +1,153 @@
+{%- comment -%}
+Simple countdown timer for the current theme
+{%- endcomment -%}
+
+<div class="countdown-timer {{ class }}" id="timer-{{ id }}">
+  {%- if custom_text -%}
+    <div class="countdown-timer__text">
+      {{ custom_text }}
+    </div>
+  {%- endif -%}
+
+  <div class="countdown-timer__columns">
+    {% if show_timer_days %}
+      <div class="countdown-timer__column">
+        <span class="countdown-timer__number" data-unit="days">00</span>
+        <span class="countdown-timer__label">{% if timer_text_first_letter %}D{% else %}Days{% endif %}</span>
+      </div>
+    {% endif %}
+
+    {% if show_timer_hours %}
+      <div class="countdown-timer__column">
+        <span class="countdown-timer__number" data-unit="hours">00</span>
+        <span class="countdown-timer__label">{% if timer_text_first_letter %}H{% else %}Hours{% endif %}</span>
+      </div>
+    {% endif %}
+
+    {% if show_timer_minutes %}
+      <div class="countdown-timer__column">
+        <span class="countdown-timer__number" data-unit="minutes">00</span>
+        <span class="countdown-timer__label">{% if timer_text_first_letter %}M{% else %}Minutes{% endif %}</span>
+      </div>
+    {% endif %}
+
+    {% if show_timer_seconds %}
+      <div class="countdown-timer__column">
+        <span class="countdown-timer__number" data-unit="seconds">00</span>
+        <span class="countdown-timer__label">{% if timer_text_first_letter %}S{% else %}Seconds{% endif %}</span>
+      </div>
+    {% endif %}
+  </div>
+
+  {% if timer_end_message %}
+    <div class="countdown-timer__message" style="display: none;">
+      {{ timer_end_message }}
+    </div>
+  {% endif %}
+</div>
+
+{% if timer_year and timer_month and timer_day %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const timerElement = document.getElementById('timer-{{ id }}');
+      if (!timerElement) return;
+
+      const targetDate = new Date({{ timer_year }}, {{ timer_month | minus: 1 }}, {{ timer_day }}, {{ timer_hour | default: 0 }}, {{ timer_minute | default: 0 }});
+      const messageElement = timerElement.querySelector('.countdown-timer__message');
+
+      function updateTimer() {
+        const now = new Date();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+          if (messageElement) {
+            timerElement.querySelector('.countdown-timer__columns').style.display = 'none';
+            messageElement.style.display = 'block';
+          }
+          return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        const daysElement = timerElement.querySelector('[data-unit="days"]');
+        const hoursElement = timerElement.querySelector('[data-unit="hours"]');
+        const minutesElement = timerElement.querySelector('[data-unit="minutes"]');
+        const secondsElement = timerElement.querySelector('[data-unit="seconds"]');
+
+        if (daysElement) daysElement.textContent = String(days).padStart(2, '0');
+        if (hoursElement) hoursElement.textContent = String(hours).padStart(2, '0');
+        if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, '0');
+        if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    });
+  </script>
+{% endif %}
+
+<style>
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countdown-timer__columns {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countdown-timer__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.countdown-timer__number {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.countdown-timer__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.countdown-timer__text {
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.countdown-timer__message {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 749px) {
+  .countdown-timer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .countdown-timer__columns {
+    gap: 0.25rem;
+  }
+
+  .countdown-timer__number {
+    font-size: 1rem;
+  }
+
+  .countdown-timer__label {
+    font-size: 0.625rem;
+  }
+}
+</style>

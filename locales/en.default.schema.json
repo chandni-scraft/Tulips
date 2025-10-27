@@ -33,6 +33,145 @@
     "theme": "Theme",
     "typography": "Typography"
   },
+  "global": {
+    "header": {
+      "fine_tuning": {
+        "content": "Fine tuning",
+        "info": "Fine tune the appearance of this section"
+      },
+      "settings": {
+        "content": "Settings",
+        "info": "Settings for this section"
+      }
+    },
+    "element": {
+      "font": {
+        "weight": {
+          "label": "Font weight",
+          "options": {
+            "normal": {
+              "label": "Normal"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "bold": {
+              "label": "Bold"
+            }
+          }
+        }
+      },
+      "link": {
+        "label": "Link"
+      },
+      "link_label": {
+        "label": "Link label"
+      },
+      "icon": {
+        "label": "Icon",
+        "info": "Select an icon from the list",
+        "custom_icon": {
+          "label": "Custom icon",
+          "info": "Upload a custom icon image"
+        }
+      }
+    },
+    "section": {
+      "offset": {
+        "label": "Section offset",
+        "info": "Offset the section up or down"
+      },
+      "width": {
+        "label": "Section width",
+        "options": {
+          "page": {
+            "label": "Page"
+          },
+          "fluid": {
+            "label": "Fluid"
+          },
+          "full": {
+            "label": "Full"
+          }
+        }
+      }
+    },
+    "color_scheme": {
+      "label": "Color scheme"
+    },
+    "settings": {
+      "show_on": {
+        "label": "Show on",
+        "options": {
+          "desktop": {
+            "label": "Desktop"
+          },
+          "mobile": {
+            "label": "Mobile"
+          },
+          "both": {
+            "label": "Both"
+          }
+        }
+      },
+      "timer": {
+        "settings": {
+          "timer_year": {
+            "label": "Year"
+          },
+          "timer_month": {
+            "label": "Month",
+            "options": {
+              "options__1": "January",
+              "options__2": "February",
+              "options__3": "March",
+              "options__4": "April",
+              "options__5": "May",
+              "options__6": "June",
+              "options__7": "July",
+              "options__8": "August",
+              "options__9": "September",
+              "options__10": "October",
+              "options__11": "November",
+              "options__12": "December"
+            }
+          },
+          "timer_day": {
+            "label": "Day"
+          },
+          "timer_hour": {
+            "label": "Hour"
+          },
+          "timer_minute": {
+            "label": "Minute"
+          },
+          "show_timer_days": {
+            "label": "Show days"
+          },
+          "show_timer_hours": {
+            "label": "Show hours"
+          },
+          "show_timer_minutes": {
+            "label": "Show minutes"
+          },
+          "show_timer_seconds": {
+            "label": "Show seconds"
+          }
+        }
+      },
+      "localization": {
+        "name": "Localization"
+      }
+    }
+  },
+  "callout-banner": {
+    "settings": {
+      "timer_end_message": {
+        "label": "Timer end message",
+        "info": "Message to show when timer ends"
+      }
+    }
+  },
   "labels": {
     "alignment": "Alignment",
     "background": "Background",
@@ -48,6 +187,46 @@
     "show_payment_icons": "Show payment icons",
     "text_style": "Text style",
     "text": "Text"
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "Announcement bar",
+      "settings": {
+        "text_block_behaviour": {
+          "label": "Text block behaviour",
+          "options": {
+            "options__1": {
+              "label": "Static"
+            },
+            "options__2": {
+              "label": "Marquee"
+            },
+            "options__3": {
+              "label": "Slider"
+            }
+          }
+        },
+        "slider_autoplay_interval": {
+          "label": "Change slides every"
+        }
+      },
+      "blocks": {
+        "link": {
+          "name": "Link"
+        },
+        "timer": {
+          "name": "Timer"
+        },
+        "text-slide": {
+          "name": "Text slide",
+          "settings": {
+            "content": {
+              "label": "Content"
+            }
+          }
+        }
+      }
+    }
   },
   "options": {
     "alignment": {

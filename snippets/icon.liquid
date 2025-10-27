@@ -1,0 +1,40 @@
+{%- liquid
+  assign size = size | default: 24
+  assign size = size | append: 'px'
+  assign custom_icon = custom_icon | default: nil
+  assign icon_alt = icon_alt | default: ''
+  assign stroke_width = stroke_width | default: 2
+
+  if custom_icon != blank
+    assign img_class = 'icon--custom'
+    if custom_class != blank
+      assign img_class = img_class | append: ' ' | append: custom_class
+    endif
+    echo custom_icon | image_url: width: size | image_tag: width: size, height: size, class: img_class, alt: icon_alt, loading: 'lazy'
+  else
+    assign icon_class = 'icon'
+    if custom_class != blank
+      assign icon_class = icon_class | append: ' ' | append: custom_class
+    endif
+
+    case icon_name
+      when 'theme-box'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
+      when 'theme-chevron'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      when 'theme-chevron-down'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9L12 17L20 9" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      when 'theme-close'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
+      when 'theme-check'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15L9.29412 20L21 4" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      when 'theme-arrow'
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 6L20 12L14 18M19 12H4" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      else
+        assign icon_svg = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="' | append: stroke_width | append: '"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="' | append: stroke_width | append: '" stroke-linecap="round"/></svg>'
+    endcase
+  -%}
+  <div class='{{ icon_class }}' style='width: {{ size }}; height: {{ size }}; display: inline-block;'>
+    {{ icon_svg }}
+  </div>
+{%- endif -%}
