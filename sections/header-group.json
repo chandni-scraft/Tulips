@@ -34,7 +34,7 @@
         "text_slide_niChG3"
       ],
       "custom_css": [
-        "announcement-bar__link {display: flex; align-items: center; gap: 0.6rem; white-space: nowrap; background: white; color: black;}",
+        ".marquee__item icon text--label{display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; background: white; color: black;}",
         ".announcement-bar {padding-top: 0; padding-bottom: 0.5rem;}"
       ],
       "name": "t:sections.announcement-bar.name",
