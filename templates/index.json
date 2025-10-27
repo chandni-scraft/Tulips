@@ -9,12 +9,71 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "title": "Welcome to Our Store",
+        "subtitle": "Premium quality products for your everyday needs",
+        "button_text": "Shop Now",
+        "button_link": "/collections/all",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_top": 0,
+        "spacing_bottom": 4
+      }
+    },
+    "featured_collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Shop by Category",
+        "heading_size": "h2",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": 2,
+        "spacing_bottom": 4
+      }
+    },
+    "featured_products_1": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Best Sellers",
+        "heading_size": "h2",
+        "collection": "frontpage",
+        "max_products": 8,
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": 2,
+        "spacing_bottom": 4
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "heading_size": "h2",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-2",
+        "spacing_top": 2,
+        "spacing_bottom": 4
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Stay Updated",
+        "description": "Subscribe to get special offers and updates",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": 2,
+        "spacing_bottom": 4
+      }
     }
   },
   "order": [
-    "main"
+    "hero_banner",
+    "featured_collections",
+    "featured_products_1",
+    "testimonials",
+    "newsletter"
   ]
 }

@@ -1,0 +1,142 @@
+{{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
+
+<div class="hero-banner section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="container {{ section.settings.section_width }}">
+    <div class="hero-banner__content">
+      <div class="hero-banner__text">
+        {% if section.settings.title != blank %}
+          <h1 class="hero-banner__title">
+            {{ section.settings.title }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <p class="hero-banner__subtitle">
+            {{ section.settings.subtitle }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="hero-banner__button button button--primary">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="hero-banner__image">
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              widths: '600, 900, 1200',
+              sizes: '(max-width: 749px) 100vw, 50vw',
+              class: 'hero-banner__img',
+              loading: 'eager'
+          }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium quality products for your everyday needs"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-fluid"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,133 @@
+{{ 'section-newsletter.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-spacing-top: {{ section.settings.spacing_top }}rem;
+    --section-spacing-bottom: {{ section.settings.spacing_bottom }}rem;
+  }
+{%- endstyle -%}
+
+<div class="newsletter section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="container {{ section.settings.section_width }}">
+    <div class="newsletter__content">
+      {% if section.settings.title != blank %}
+        <h2 class="newsletter__title">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="newsletter__description">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
+
+      {% form 'customer', class: 'newsletter__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <div class="newsletter__form-group">
+          <input
+            type="email"
+            name="contact[email]"
+            class="newsletter__input"
+            value="{{ form.email }}"
+            placeholder="{{ 'sections.newsletter.placeholder' | t }}"
+            required
+            aria-label="{{ 'sections.newsletter.placeholder' | t }}"
+          >
+
+          <button type="submit" class="newsletter__button button button--primary" name="commit">
+            {{ 'sections.newsletter.button_text' | t }}
+          </button>
+        </div>
+
+        {% if form.posted_successfully? %}
+          <div class="newsletter__success">
+            {{ 'sections.newsletter.success_message' | t }}
+          </div>
+        {% elsif form.errors %}
+          <div class="newsletter__error">
+            {{ form.errors.translated_fields['email'] | default: form.errors.messages.default }}
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Stay Updated"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Subscribe to get special offers and updates delivered to your inbox"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full"
+        }
+      ],
+      "default": "max-w-page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

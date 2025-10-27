@@ -1,4 +1,28 @@
 {
+  "accessibility": {
+    "skip_to_text": "Skip to content"
+  },
+  "products": {
+    "product": {
+      "items": "items",
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out"
+    }
+  },
+  "sections": {
+    "featured_products": {
+      "no_products": "No products found in this collection."
+    },
+    "testimonials": {
+      "no_testimonials": "No testimonials available."
+    },
+    "newsletter": {
+      "placeholder": "Enter your email address",
+      "button_text": "Subscribe",
+      "success_message": "Thank you for subscribing!",
+      "privacy_note": "We respect your privacy. Unsubscribe at any time."
+    }
+  },
   "404": {
     "title": "404",
     "not_found": "Page not found.",
