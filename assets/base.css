@@ -190,9 +190,9 @@ form[action*="/cart/add"] .button:hover {
 a.custom-header-text.header__nav-link[href*="combo"],
 a.custom-header-text.header__nav-link[href*="multipack"],
 a.custom-header-text.header__nav-link[href*="Combo"],
-a.custom-header-text.header__nav-link[href*="Multipack"]
+a.custom-header-text.header__nav-link[href*="Multipack"],
 a.custom-header-text.header__nav-link[href*="diwali-silver-sparkle"],
-a.custom-header-text.header__nav-link[title*="Diwali Silver Sparkle Sale T&C"] 
+a.custom-header-text.header__nav-link[title*="Diwali Silver Sparkle Sale T&C"]
   {
   background-color: #A4C86E !important;
   color: white !important;
@@ -810,10 +810,6 @@ h6 em,
   line-height: 0;
 }
 /* italic heading styling -- end */
-
-h2 {
-  font-family: 'TT Neoris light' !important;
-}
 
 h1,
 .h1 {
