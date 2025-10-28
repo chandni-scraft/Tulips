@@ -627,6 +627,7 @@
     },
     "featured_collections": {
       "type": "featured-collections",
+      "disabled": true,
       "settings": {
         "heading": "Shop by Category",
         "description": "Explore our carefully curated collections",
@@ -642,6 +643,7 @@
     },
     "featured_products_1": {
       "type": "featured-products",
+      "disabled": true,
       "settings": {
         "layout": "layout-1",
         "enable_new_styles": false,
