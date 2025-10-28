@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "hero_banner": {
+    "1658995208ad05f95f": {
       "type": "hero-banner",
       "blocks": {
-        "slide_6WWhtQ": {
+        "slide_78fFiC": {
           "type": "slide",
           "settings": {
             "banner_layout": "hero-banner--full",
@@ -22,14 +22,14 @@
             "subheading": "",
             "subheading_link": "",
             "text": "",
-            "button_link_1": "/",
+            "button_link_1": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
             "button_link_1_type": "button",
             "button_label_1": "",
             "button_style_1": "button--filled",
             "button_link_2": "/",
-            "button_label_2": "View more",
+            "button_label_2": "",
             "button_style_2": "button--outlined",
-            "content_position": "end",
+            "content_position": "center",
             "content_alignment": "center",
             "image": "shopify://shop_images/diwali-silver-sparkle-sale-d.webp",
             "link": "https://tulipshygiene.store/collections/best-sellers",
@@ -43,19 +43,151 @@
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
           }
+        },
+        "8d591e0b-d408-44f1-8bd2-9b71f529aa90": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-aa211da1-afa4-43f4-a90f-9e0b85e85751",
+            "header_menu_text_color": "#589f69",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "shopify://collections/adult-diaper-pants",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "shopify://collections/adult-diaper-pants",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/boman-irani-launch-adult-diapers-d_2.webp",
+            "link": "shopify://collections/adult-diaper-pants",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/boman-irani-launch-adult-diapers-m_382c4d32-85dd-46d4-ab35-c43e3143683f.webp",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        },
+        "slide_cbJr6p": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-aa211da1-afa4-43f4-a90f-9e0b85e85751",
+            "header_menu_text_color": "#589f69",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "shopify://collections/baby-wet-wipes",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/Baby_Wipes_Banner_Web_6.webp",
+            "link": "shopify://collections/baby-wet-wipes",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/Baby_Wipes_Banner_Mobile_0cb6410d-fd28-4d5b-997a-d1bb4d0987dd.png",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        },
+        "slide_xFPCzN": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-631d1265-b6bd-4f65-a3bb-72aab9e9d046",
+            "header_menu_text_color": "#ffffff",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "shopify://collections/handmade-soaps",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/Soaps_Banner_Web_7.webp",
+            "link": "shopify://collections/handmade-soaps",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": true,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/Soaps_Banner_Mobile_c2a82641-ce42-4766-9436-75cf7ee1c5ce.png",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        },
+        "slide_XVAdBC": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
+            "header_menu_text_color": "#ffffff",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/Micellar_Water_Banner_Web_6.webp",
+            "link": "shopify://products/premium-micellar-cleansing-water-makeup-remover",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": true,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/Micellar_Water_Banner_Mobile_dce0bd83-7d4a-48a0-b685-d788217187fa.png",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
         }
       },
       "block_order": [
-        "slide_6WWhtQ"
+        "slide_78fFiC",
+        "8d591e0b-d408-44f1-8bd2-9b71f529aa90",
+        "slide_cbJr6p",
+        "slide_xFPCzN",
+        "slide_XVAdBC"
       ],
       "settings": {
         "slider_height": 100,
-        "slideshow_autoplay_interval": 6,
+        "slideshow_autoplay_interval": 3,
         "show_slideshow_navigation": true,
-        "slideshow_navigation_position": "hero__swiper-buttons--start",
-        "color_scheme_arrows": "",
-        "show_slideshow_pagination": true,
-        "slideshow_pagination_style": "style-1",
+        "slideshow_navigation_position": "hero__swiper-buttons--sides",
+        "color_scheme_arrows": "scheme-6",
+        "show_slideshow_pagination": false,
+        "slideshow_pagination_style": "style-2",
         "floating_bar": false
       }
     },
@@ -115,7 +247,7 @@
     }
   },
   "order": [
-    "hero_banner",
+    "1658995208ad05f95f",
     "featured_collections",
     "featured_products_1",
     "testimonials",
