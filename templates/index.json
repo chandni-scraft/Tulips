@@ -671,14 +671,30 @@
     },
     "testimonials": {
       "type": "testimonials",
+      "blocks": {
+        "testimonial_qXzkny": {"type": "testimonial", "settings": {"author": "Isha Keskar", "quote": "<p><strong>Tulips Cotton Pad<\/strong><\/p><p>Undoubtedly one of the best. Been using for years and ordering multiple times. Will definitely recommend.<br\/><br\/><\/p>", "rating_score": 5, "color_scheme": "scheme-1"}},
+        "testimonial_NUmDwd": {"type": "testimonial", "settings": {"author": "Sonali Umare", "quote": "<p><strong>Wow! Amazing product ,like no one in the market<\/strong><\/p><p>Amazing cotton pads—truly the best in the market! Double-sided, high-quality, and perfect for sensitive skin. I use them with micellar water every night, and they visibly remove dirt. Great packaging, multipurpose, and budget-friendly. Highly recommended!\"<\/p>", "rating_score": 4, "color_scheme": "scheme-1"}},
+        "testimonial_KRiPJ3": {"type": "testimonial", "settings": {"author": "Jyotsassy Arya", "quote": "<p><strong>Affordable and best <\/strong><\/p><p>Go for it without any second thoughts. It is very nice soft and thick cotton pad. Can easily remove makeup. Is gentle on your skin and Very affordable. Go for it at this price you won't get 50 pads in other brands.<\/p>", "rating_score": 5, "color_scheme": "scheme-1"}},
+        "testimonial_jbrGqN": {"type": "testimonial", "settings": {"author": "Vaidehee", "quote": "<p><strong>Good product to remove make up<\/strong><\/p><p>Tulips has good quality products! I used their cotton pad to wipe off my sister's make up. Cotton pad has different textures on both sides. One sides has soft and other has long ridges. It's easy to use and removes smudge proof and water proof make up easily. Moves softly on skin. Good quality and bought it at cheap price.<\/p>", "rating_score": 5, "color_scheme": "scheme-1"}},
+        "testimonial_7Myfw8": {"type": "testimonial", "settings": {"author": "Sneha Singh", "quote": "<p><strong>The best in the market<\/strong><\/p><p>It comes in a neat zip lock packet which is so convenient. It doesn’t leave fibers on you while you rub your face with it.<\/p>", "rating_score": 5, "color_scheme": "scheme-1"}}
+      },
+      "block_order": ["testimonial_qXzkny", "testimonial_NUmDwd", "testimonial_KRiPJ3", "testimonial_jbrGqN", "testimonial_7Myfw8"],
       "settings": {
-        "heading": "What Our Customers Say",
-        "description": "Real reviews from our valued customers",
-        "heading_size": "h2",
-        "spacing_top": 2,
-        "spacing_bottom": 4,
+        "heading": "From Our Happy Customers",
+        "heading_size": "h3",
+        "subheading": "Our promise of purity, proven by the people who use Our Products daily",
+        "rating_icon": "star",
+        "layout": "carousel-none-media",
+        "slider_autoplay": 4,
+        "image": "shopify://shop_images/istockphoto-813464504-612x612.jpg",
+        "image_position": "image-end",
+        "image_aspect_ratio": "4/3",
+        "media_show_on": "desktop",
+        "spacing_inner": "2",
         "section_width": "max-w-page",
-        "color_scheme": "scheme-2"
+        "color_scheme": "scheme-5",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
       }
     },
     "newsletter": {
