@@ -98,8 +98,8 @@
     "header": {
       "type": "header",
       "custom_css": [
-        ".header__inner {padding: 5px 0 !important;}",
-        ".header__logo img,.header__logo svg {width: 100%; height: auto; position: absolute; margin-top: -5%;}"
+        ".header__inner {padding: 8px 0;}",
+        ".header__logo img,.header__logo svg {width: 100%; height: auto; position: static; margin-top: 0;}"
       ],
       "settings": {
         "layout": "header--nav-centered",
