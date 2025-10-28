@@ -509,6 +509,122 @@
         "spacing_bottom": "2"
       }
     },
+    "featured_products_xUeMRk": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_Wg9GhG": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "toothpicks",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_Wg9GhG"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "custom",
+        "custom_add_to_cart_bg": "#ffffff",
+        "custom_add_to_cart_text": "#a4c86e",
+        "custom_add_to_cart_outline": "#A4C86E",
+        "custom_buy_now_bg": "#a4c86e",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#a4c86e",
+        "product_filter": "all",
+        "heading": "Wooden Sticks",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
+    "featured_products_V6Eycb": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_6bDiNQ": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "nail-polish-remover-wipes",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        },
+        "collection_dCbxJp": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "makeup-remover",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        },
+        "collection_DRDtPU": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "micellar-cleansing-water",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_6bDiNQ",
+        "collection_dCbxJp",
+        "collection_DRDtPU"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "custom",
+        "custom_add_to_cart_bg": "#ffffff",
+        "custom_add_to_cart_text": "#a4c86e",
+        "custom_add_to_cart_outline": "#A4C86E",
+        "custom_buy_now_bg": "#a4c86e",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#a4c86e",
+        "product_filter": "all",
+        "heading": "Makeup & Nail Paint Removal",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
     "featured_collections": {
       "type": "featured-collections",
       "settings": {
@@ -584,6 +700,8 @@
     "featured_products_mG3rKM",
     "featured_products_yqyAfm",
     "featured_products_TGQ4M3",
+    "featured_products_xUeMRk",
+    "featured_products_V6Eycb",
     "featured_collections",
     "featured_products_1",
     "testimonials",
