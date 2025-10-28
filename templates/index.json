@@ -9,6 +9,24 @@
  */
 {
   "sections": {
+    "tulips_section_1_3p6rNL": {
+      "type": "tulips-section-1",
+      "custom_css": [],
+      "settings": {
+        "title": "Premium quality Personal Hygiene products.",
+        "description": "TULIPS is one of the largest & the most qualitative manufacturer / exporter of Personal Hygiene products in Asia.",
+        "icon_1": "shopify://shop_images/Vector_1.png",
+        "label_1": "Microbiologically Tested",
+        "para1_1": "",
+        "icon_2": "shopify://shop_images/Vector_2.png",
+        "label_2": "GMP Certified",
+        "para1_2": "",
+        "icon_3": "shopify://shop_images/Vector_3.png",
+        "label_3": "Dermatologically Tested",
+        "para1_3": "",
+        "para2_3": ""
+      }
+    },
     "1658995208ad05f95f": {
       "type": "hero-banner",
       "blocks": {
@@ -723,6 +741,7 @@
     "featured_collections",
     "featured_products_1",
     "testimonials",
+    "tulips_section_1_3p6rNL",
     "newsletter"
   ]
 }

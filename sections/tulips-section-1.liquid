@@ -90,7 +90,9 @@
       <div class="grid-item">
         {% if section.settings[icon_key] %}
           <div class="icon-box">
-            <img src="{{ section.settings[icon_key] | img_url: '60x60' }}" alt="{{ section.settings[label_key] }}">
+            {{ section.settings[icon_key]
+              | image_url: width: 60, height: 60
+              | image_tag: alt: section.settings[label_key], width: 60, height: 60, loading: 'lazy' }}
           </div>
         {% endif %}
 
@@ -211,10 +213,7 @@
       /* Text Styling */
       h3 {
         color: {{ settings.colors.header_text }};
-    font-family: 'TT Neoris light';
-
-  }
-
+        font-family: 'TT Neoris light';
       }
 
       p {
