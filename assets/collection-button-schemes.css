@@ -1,0 +1,23 @@
+/* Button schemes for featured-products section */
+.collection-buttons-custom .custom_styled_button {
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 10px 16px;
+  line-height: 1;
+}
+
+.collection-buttons-custom .shopify-payment-button__button {
+  border-radius: 999px;
+}
+
+/* Minimal resets to avoid CLS */
+.card-product-slider__buttons .swiper-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+

@@ -206,21 +206,72 @@
         "color_scheme": "scheme-1"
       }
     },
-    "featured_products_1": {
+    "featured_products_bQBzhX": {
       "type": "featured-products",
-      "settings": {
-        "heading": "Best Sellers",
-        "description": "Discover our most popular products",
-        "collection": "frontpage",
-        "max_products": 8,
-        "show_view_all": true,
-        "view_all_text": "View All Products",
-        "heading_size": "h2",
-        "spacing_top": 2,
-        "spacing_bottom": 4,
-        "section_width": "max-w-page",
-        "color_scheme": "scheme-1"
-      }
+      "blocks": {
+        "collection_n9grP8": {"type": "collection", "settings": {"title": "", "collection": "cotton-buds", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_yreyNV": {"type": "collection", "settings": {"title": "", "collection": "cotton-ball", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_dXCqHG": {"type": "collection", "settings": {"title": "", "collection": "cotton-pad", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_t8WpUE": {"type": "collection", "settings": {"title": "", "collection": "cotton-rolls", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_qRYDQz": {"type": "collection", "settings": {"title": "", "collection": "cosmetic-tips", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_n9grP8", "collection_yreyNV", "collection_dXCqHG", "collection_t8WpUE", "collection_qRYDQz"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#ffffff", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ffffff", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Cottons", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-5", "spacing_top": "4", "spacing_bottom": "2"}
+    },
+    "featured_products_MLXqyY": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_Q8N7q3": {"type": "collection", "settings": {"title": "", "collection": "refreshing-wet-wipes", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_qCMeCm": {"type": "collection", "settings": {"title": "", "collection": "facial-tissues", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_9EBVDb": {"type": "collection", "disabled": true, "settings": {"title": "", "collection": "nail-polish-remover-wipes", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_Q8N7q3", "collection_qCMeCm", "collection_9EBVDb"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ffffff", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Wet Wipes & Dry Tissues", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "2", "spacing_bottom": "2"}
+    },
+    "featured_products_cYzx3M": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_cjfkf3": {"type": "collection", "settings": {"title": "", "collection": "handmade-soaps", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_nbHpVx": {"type": "collection", "settings": {"title": "", "collection": "shower-gel", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_cjfkf3", "collection_nbHpVx"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ffffff", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Bathing Range", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "4", "spacing_bottom": "2"}
+    },
+    "featured_products_xNExge": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_EBYDkF": {"type": "collection", "settings": {"title": "", "collection": "baby-wet-wipes", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_YDWUgx": {"type": "collection", "settings": {"title": "", "collection": "safety-swabs", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_EBYDkF", "collection_YDWUgx"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ebebeb", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Baby Range", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "2", "spacing_bottom": "2"}
+    },
+    "featured_products_Farfkt": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_tjJWfN": {"type": "collection", "settings": {"title": "", "collection": "adult-diaper-pants", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_tjJWfN"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ffffff", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Adult Diaper", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "2", "spacing_bottom": "2"}
+    },
+    "featured_products_pk4h7A": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_MmdPQ4": {"type": "collection", "settings": {"title": "", "collection": "toothpicks", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_EzpkMw": {"type": "collection", "disabled": true, "settings": {"title": "", "collection": "wooden-skewers", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_MmdPQ4", "collection_EzpkMw"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ebebeb", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Wooden Sticks", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-fluid", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "2", "spacing_bottom": "2"}
+    },
+    "featured_products_wRkqw7": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_qwbcNf": {"type": "collection", "settings": {"title": "", "collection": "nail-polish-remover-wipes", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_NLehtR": {"type": "collection", "settings": {"title": "", "collection": "makeup-remover-wipes", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}},
+        "collection_VJVt9c": {"type": "collection", "settings": {"title": "", "collection": "micellar-cleansing-water", "products": [], "vendor": "", "collection_of_products": "", "show_unavailable_products": false}}
+      },
+      "block_order": ["collection_qwbcNf", "collection_NLehtR", "collection_VJVt9c"],
+      "settings": {"layout": "layout-2", "enable_new_styles": true, "button_color_scheme": "custom", "custom_add_to_cart_bg": "#a4c86e", "custom_add_to_cart_text": "#a4c86e", "custom_add_to_cart_outline": "#a4c86e", "custom_buy_now_bg": "#a4c86e", "custom_buy_now_text": "#ffffff", "custom_buy_now_outline": "#a4c86e", "product_filter": "all", "heading": "Makeup & Nail Paint Removal", "heading_size": "h3", "subheading": "", "button_label": "", "button_link": "", "button_style": "button--filled", "max_products": 99, "show_navigation_arrows": true, "slideshow_autoplay_interval": 4, "tab_button_style": "button--filled", "section_width": "max-w-page", "color_scheme": "scheme-494c727e-6b46-499f-bdd3-1b2662fa23e0", "spacing_top": "2", "spacing_bottom": "2"}
     },
     "testimonials": {
       "type": "testimonials",
@@ -249,7 +300,13 @@
   "order": [
     "1658995208ad05f95f",
     "featured_collections",
-    "featured_products_1",
+    "featured_products_bQBzhX",
+    "featured_products_MLXqyY",
+    "featured_products_cYzx3M",
+    "featured_products_xNExge",
+    "featured_products_Farfkt",
+    "featured_products_pk4h7A",
+    "featured_products_wRkqw7",
     "testimonials",
     "newsletter"
   ]
