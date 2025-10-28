@@ -347,6 +347,168 @@
         "spacing_bottom": "2"
       }
     },
+    "featured_products_mG3rKM": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_d6qNW3": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "handmade-soaps",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        },
+        "collection_zNiKHQ": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "shower-gel",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_d6qNW3",
+        "collection_zNiKHQ"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "custom",
+        "custom_add_to_cart_bg": "#ffffff",
+        "custom_add_to_cart_text": "#a4c86e",
+        "custom_add_to_cart_outline": "#A4C86E",
+        "custom_buy_now_bg": "#a4c86e",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#a4c86e",
+        "product_filter": "all",
+        "heading": "Bathing Range",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
+    "featured_products_yqyAfm": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_eV3jXT": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "baby-wet-wipes",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        },
+        "collection_9rprgb": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "safety-swabs",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_eV3jXT",
+        "collection_9rprgb"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "custom",
+        "custom_add_to_cart_bg": "#ffffff",
+        "custom_add_to_cart_text": "#a4c86e",
+        "custom_add_to_cart_outline": "#A4C86E",
+        "custom_buy_now_bg": "#a4c86e",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#a4c86e",
+        "product_filter": "all",
+        "heading": "Baby Range",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
+    "featured_products_TGQ4M3": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_9FJEFg": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "adult-diaper-pants",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_9FJEFg"
+      ],
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-2",
+        "enable_new_styles": true,
+        "button_color_scheme": "custom",
+        "custom_add_to_cart_bg": "#ffffff",
+        "custom_add_to_cart_text": "#a4c86e",
+        "custom_add_to_cart_outline": "#A4C86E",
+        "custom_buy_now_bg": "#a4c86e",
+        "custom_buy_now_text": "#ffffff",
+        "custom_buy_now_outline": "#a4c86e",
+        "product_filter": "all",
+        "heading": "Adult Diaper",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 99,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "4",
+        "spacing_bottom": "2"
+      }
+    },
     "featured_collections": {
       "type": "featured-collections",
       "settings": {
@@ -419,6 +581,9 @@
     "1658995208ad05f95f",
     "featured_products_N7dFGf",
     "featured_products_J3W3n6",
+    "featured_products_mG3rKM",
+    "featured_products_yqyAfm",
+    "featured_products_TGQ4M3",
     "featured_collections",
     "featured_products_1",
     "testimonials",
