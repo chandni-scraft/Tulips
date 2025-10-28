@@ -9,6 +9,39 @@
  */
 {
   "sections": {
+    "blog_articles_ThCgzt": {
+      "type": "blog-articles",
+      "blocks": {
+        "article_hBazez": {"type": "article", "settings": {"article": "news/refreshing-wet-wipes-your-on-the-go-skincare-companion"}},
+        "article_RgPDPL": {"type": "article", "settings": {"article": "news/beauty-routines-boost-your-skincare"}},
+        "article_e3EQqz": {"type": "article", "settings": {"article": "news/baby-wet-wipes-parenting-made-convenient"}},
+        "article_3YFqPb": {"type": "article", "settings": {"article": "news/biodegradable-cotton-earbuds-for-a-sustainable-world"}}
+      },
+      "block_order": ["article_hBazez", "article_RgPDPL", "article_e3EQqz", "article_3YFqPb"],
+      "custom_css": [
+        ".section__head--in {display: flex: align-items: center; justify-content: center;}",
+        "h2 {font-family: \"TheSeasonsLT\", sans-serif;}"
+      ],
+      "settings": {
+        "heading": "Blogs",
+        "heading_size": "h3",
+        "blog": "news",
+        "button_text": "Visit Blog",
+        "layout": "layout-2",
+        "card_media_aspect_ratio": "4/3",
+        "show_excerpt": true,
+        "show_date": true,
+        "show_author": true,
+        "show_read_more": true,
+        "content_alignment": "text-start",
+        "button_style": "button--text",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_grid": "4",
+        "spacing_top": "1",
+        "spacing_bottom": "6"
+      }
+    },
     "tulips_section_1_3p6rNL": {
       "type": "tulips-section-1",
       "custom_css": [],
@@ -742,6 +775,7 @@
     "featured_products_1",
     "testimonials",
     "tulips_section_1_3p6rNL",
+    "blog_articles_ThCgzt",
     "newsletter"
   ]
 }
