@@ -11,16 +11,52 @@
   "sections": {
     "hero_banner": {
       "type": "hero-banner",
+      "blocks": {
+        "slide_6WWhtQ": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-35177663-0967-4eff-a171-cd894797a9a7",
+            "header_menu_text_color": "#ffffff",
+            "heading": "",
+            "subheading": "",
+            "subheading_link": "",
+            "text": "",
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--filled",
+            "button_link_2": "/",
+            "button_label_2": "View more",
+            "button_style_2": "button--outlined",
+            "content_position": "end",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/diwali-silver-sparkle-sale-d.webp",
+            "link": "https://tulipshygiene.store/collections/best-sellers",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": true,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/diwali-silver-sparkle-sale-m_2c7ba880-53f7-4be8-8800-6338f261f6b0.webp",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "slide_6WWhtQ"
+      ],
       "settings": {
-        "title": "",
-        "subtitle": "",
-        "button_text": "",
-        "button_link": "/collections/all",
-        "image": "shopify://shop_images/diwali-silver-sparkle-sale-d.webp",
-        "spacing_top": 0,
-        "spacing_bottom": 4,
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1"
+        "slider_height": 100,
+        "slideshow_autoplay_interval": 6,
+        "show_slideshow_navigation": true,
+        "slideshow_navigation_position": "hero__swiper-buttons--start",
+        "color_scheme_arrows": "",
+        "show_slideshow_pagination": true,
+        "slideshow_pagination_style": "style-1",
+        "floating_bar": false
       }
     },
     "featured_collections": {
