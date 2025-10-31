@@ -52,8 +52,8 @@
       "type": "custom-home-banner",
       "name": "Hero Banner",
       "settings": {
-        "slide_1": "shopify://shop_images/diwali-silver-sparkle-sale-d.webp",
-        "slide_1_mobile": "shopify://shop_images/diwali-silver-sparkle-sale-m.webp"
+        "slide_1": "shopify://shop_images/Tulips_Desktop_banner_2_c3bd687c-f303-45f7-b07a-f1cba9cfd420.webp",
+        "slide_1_mobile": "shopify://shop_images/Tulips_Mobile_banner_1_1.webp"
       }
     },
     "main": {
