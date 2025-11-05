@@ -40,6 +40,24 @@
     .product-card__media {
       --product-card-media-aspect-ratio: {{ settings.product_card_media_aspect_ratio }};
       --product-card-media-object-fit: {{ settings.product_card_media_object_fit }};
+      position: relative;
+    }
+    /* Collection badge styles */
+    .collection-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #d32f2f; /* red */
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      padding: 6px 8px;
+      border-radius: 4px;
+      z-index: 2;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      pointer-events: none;
+      white-space: nowrap;
     }
   </style>
 
@@ -48,6 +66,9 @@
     class="{{ media_classes }}"
     data-update-media="{% if product_ref.first_available_variant == product_ref.selected_variant %}true{% else %}false{% endif %}"
   >
+    {% if collection and collection.metafields.custom.badges != blank %}
+      <span class="collection-badge">{{ collection.metafields.custom.badges }}</span>
+    {% endif %}
     {% liquid
       assign hover_media = product_ref.media[1]
 
