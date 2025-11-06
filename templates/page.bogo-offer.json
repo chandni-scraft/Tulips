@@ -78,9 +78,9 @@
       "type": "seo-content",
       "settings": {
         "section_layout": "normal",
-        "heading": "<strong>Diwali Silver Sparkle Sale</strong>",
+        "heading": "<strong>Buy 1 Get 1 Free Offer – Terms & Conditions</strong>",
         "heading_size": "h2",
-        "text": "<p><strong>Diwali Silver Sparkle Sale</strong> is a festive offer celebrating <strong>Diwali</strong> with <strong>Tulips customers. </strong>Buy Now and get a chance to win Silver Coin.<strong> 10 lucky winners</strong> will each receive a <strong>10-gram Silver Coin</strong>. Winners will be chosen randomly and notified after the campaign ends.</p><p>There is <strong>NO MINIMUM PURCHASE</strong> requirement; all purchases from the official Tulips website during the campaign period are eligible. Winners will be chosen randomly and notified after the campaign ends.</p>",
+        "text": "",
         "content_alignment": "start",
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
@@ -104,9 +104,9 @@
       "type": "seo-content",
       "settings": {
         "section_layout": "boxed",
-        "heading": "<strong>Legal Restrictions & State Exclusions</strong>",
+        "heading": "<strong>Offer Eligibility</strong>",
         "heading_size": "h3",
-        "text": "<p>People (Residents) from below mentioned states are restricted from taking part in this campaigns or require additional approvals. These include:</p><ul><li><strong>Assam</strong></li><li><strong>Nagaland</strong></li><li><strong>Sikkim</strong></li><li><strong>Tamil Nadu</strong></li><li><strong>Andhra Pradesh</strong></li><li><strong>Telangana</strong></li><li><strong>Odisha</strong></li></ul>",
+        "text": "<p>This Buy 1 Get 1 Free (BOGO) offer is valid only on selected and eligible products listed under the campaign section on the Tulips website.</p>",
         "content_alignment": "start",
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
@@ -117,12 +117,11 @@
     },
     "legal_review": {
       "type": "seo-content",
-      "disabled": true,
       "settings": {
         "section_layout": "boxed",
-        "heading": "<strong>Legal Review Recommendations</strong>",
+        "heading": "<strong>Offer Details:</strong>",
         "heading_size": "h3",
-        "text": "<p></p><ul><li>Clearly mention that the offer is not linked to any purchase value threshold.</li><li>Ensure a fair and transparent process for random winner selection. (<em><strong>random.org </strong></em><em>or </em><em><strong>wheelofnames.com can be used for winner selection</strong></em>)</li><li>Record the entire process via screen recording (for audit transparency).</li><li>Add disclaimers on marketing materials regarding ineligible states.</li><li>Ensure communication transparency for winner announcements.</li><li>Conduct legal vetting under the <strong>Consumer Protection Act, 2019</strong> and <strong>ASCI guidelines</strong> (<a href=\"https://www.google.com/search?sca_esv=f442afecdae9aeb2&rlz=1C1CHBD_enIN1151IN1151&sxsrf=AE3TifPgd9jlSgTOeGMiErpEW5dccgNoWA%3A1759918945550&q=Advertising+Standards+Council+of+India&sa=X&sqi=2&ved=2ahUKEwiL39T8sJSQAxXcyjgGHUuDA3gQxccNegQIHRAB&mstk=AUtExfAG6QkAdFgcgBwbapS9XYeHqpGH8WJ_VZbyI194Qz6Lo5RZ1XAbsaWGw1-As85XVFQ3hQIzHlifHaUM_xQSir1Ok5NbhHpikB9uCfZ0P1PZqgCefEYpIoihR6qXjvOU-aWfxaZiUDwKZI0wAdAOg5ithn4jBHLUGUVtQZRioaaYNvEg08_lcrEM0nSydGNvKKXINb0rL84nNmxNaLCTgpZcY906kK4IadGUYG-MS3JxKGoLvcn6Wo4FxtzI3qOnCfKDIJm5aiVAahBOQ6P-rqmN&csui=3\" title=\"https://www.google.com/search?sca_esv=f442afecdae9aeb2&rlz=1C1CHBD_enIN1151IN1151&sxsrf=AE3TifPgd9jlSgTOeGMiErpEW5dccgNoWA%3A1759918945550&q=Advertising+Standards+Council+of+India&sa=X&sqi=2&ved=2ahUKEwiL39T8sJSQAxXcyjgGHUuDA3gQxccNegQIHRAB&mstk=AUtExfAG6QkAdFgcgBwbapS9XYeHqpGH8WJ_VZbyI194Qz6Lo5RZ1XAbsaWGw1-As85XVFQ3hQIzHlifHaUM_xQSir1Ok5NbhHpikB9uCfZ0P1PZqgCefEYpIoihR6qXjvOU-aWfxaZiUDwKZI0wAdAOg5ithn4jBHLUGUVtQZRioaaYNvEg08_lcrEM0nSydGNvKKXINb0rL84nNmxNaLCTgpZcY906kK4IadGUYG-MS3JxKGoLvcn6Wo4FxtzI3qOnCfKDIJm5aiVAahBOQ6P-rqmN&csui=3\">Advertising Standards Council of India</a>).</li><li>Retain all campaign data and selection records for at least 90 days post-event.</li><li>Ensure communication transparency for winner<br/>announcements.</li></ul>",
+        "text": "<ul><li>Customers purchasing one eligible product will receive one additional unit of the same product free of cost.</li><li>The free product will be automatically added to the cart once the qualifying purchase is made.</li><li>No separate coupon code is required to avail of this offer. And no other offer or coupon can be clubbed with this offer.<br/></li></ul>",
         "content_alignment": "start",
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
@@ -133,18 +132,32 @@
     },
     "conclusion": {
       "type": "seo-content",
-      "disabled": true,
       "settings": {
         "section_layout": "boxed",
-        "heading": "<strong>Conclusion</strong>",
+        "heading": "<strong>Validity Period:</strong>",
         "heading_size": "h3",
-        "text": "<h3></h3><p>The <strong>\"Tulips Silver Sale\"</strong> initiative is crafted to enhance consumer engagement, celebrate the festive season, and strengthen brand loyalty. With proper compliance and transparency, this campaign can establish a strong precedent for future Tulips promotions.</p><p></p>",
+        "text": "<p>The offer is valid for a limited time only and may be withdrawn or modified by Tulips at any time without prior notice.</p>",
         "content_alignment": "start",
-        "section_width": "max-w-narrower",
+        "section_width": "max-w-page",
         "color_scheme": "scheme-1",
         "spacing_inner": "2",
         "spacing_top": "2",
-        "spacing_bottom": "4"
+        "spacing_bottom": "2"
+      }
+    },
+    "seo_content_C6rPRp": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "boxed",
+        "heading": "<strong>Shipping & Charges:</strong>",
+        "heading_size": "h3",
+        "text": "<ul><li>Standard shipping charges, taxes, and other applicable fees will continue to apply as per Tulips’ existing policies.</li><li>No additional discounts, cashback, or promotional offers can be clubbed with this offer.<br/></li></ul>",
+        "content_alignment": "start",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
       }
     },
     "accordions_CtJaPY": {
@@ -358,6 +371,7 @@
     "legal_restrictions",
     "legal_review",
     "conclusion",
+    "seo_content_C6rPRp",
     "accordions_CtJaPY",
     "seo_content_cXwGrB",
     "custom_liquid_RHpiCy"
