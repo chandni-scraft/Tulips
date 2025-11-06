@@ -341,6 +341,7 @@
         "topic_nXfTyL",
         "topic_39mX3M"
       ],
+      "disabled": true,
       "name": "t:sections.accordions.name",
       "settings": {
         "heading": "<strong>FREQUENTLY ASKED QUESTIONS</strong>",
@@ -353,6 +354,7 @@
     },
     "seo_content_cXwGrB": {
       "type": "seo-content",
+      "disabled": true,
       "settings": {
         "section_layout": "normal",
         "heading": "<strong>Key Terms & Conditions</strong>",
