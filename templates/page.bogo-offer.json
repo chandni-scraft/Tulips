@@ -160,6 +160,21 @@
         "spacing_bottom": "2"
       }
     },
+    "seo_content_8YJYxq": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "boxed",
+        "heading": "<strong>General Conditions:</strong>",
+        "heading_size": "h3",
+        "text": "<ul><li>Offer valid while stocks last.</li><li>Tulips reserves the right to cancel, modify, or revoke the offer at any time without prior notice.</li><li>In case of any dispute, the decision of Tulips shall be final and binding.<br/></li></ul>",
+        "content_alignment": "start",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "accordions_CtJaPY": {
       "type": "accordions",
       "blocks": {
@@ -372,6 +387,7 @@
     "legal_review",
     "conclusion",
     "seo_content_C6rPRp",
+    "seo_content_8YJYxq",
     "accordions_CtJaPY",
     "seo_content_cXwGrB",
     "custom_liquid_RHpiCy"
