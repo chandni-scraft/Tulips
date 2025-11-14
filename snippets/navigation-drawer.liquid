@@ -64,6 +64,7 @@
                     <a
                       href="{{ link.url }}"
                       class="h4{% if is_diwali_tnc %} diwali-tnc{% endif %}"
+                      title="{{ link.title | escape }}"
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
