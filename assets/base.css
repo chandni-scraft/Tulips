@@ -214,9 +214,9 @@ a.custom-header-text.header__nav-link[href*="Multipack"]:focus {
 /* Diwali Silver Sparkle T&C button - same styling as deals-offers */
 a[title="B1G1 T&C"] {
   display: inline-block;
-  background-color: #A4C86E;
+  background-color: #A4C86E !important;
   color: white;
-  padding: 4px 18px; /* Padding for button shape */
+  padding: 4px 18px !important; /* Padding for button shape */
   border-radius: 28px; /* Rounded corners */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
