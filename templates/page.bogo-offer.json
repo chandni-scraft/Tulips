@@ -78,10 +78,10 @@
       "type": "seo-content",
       "settings": {
         "section_layout": "normal",
-        "heading": "<strong>Buy 1 Get 1 Free Offer – Terms & Conditions</strong>",
+        "heading": "To avail the Buy 1 Get 1 offer, make sure to add quantity 2 of the same product to your cart.",
         "heading_size": "h2",
         "text": "",
-        "content_alignment": "start",
+        "content_alignment": "center",
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
         "spacing_inner": "2",
