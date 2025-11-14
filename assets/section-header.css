@@ -1406,32 +1406,3 @@ a[href="/pages/deals-offers"]:hover {
   }
 }
 
-/* Diwali T&C Mobile Menu Styling */
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .b1g1,
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.b1g1,
-nav.slide-out-menu div.menu-panels ul li .b1g1,
-nav.slide-out-menu div.menu-panels button.b1g1 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 2rem !important;
-  width: 100% !important;
-  background-color: #a4c86e !important;
-  color: #fff !important;
-  border-radius: 28px !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  transition: background-color .3s ease !important;
-  margin-top: -2% !important;
-  height: 27.5px !important;
-  letter-spacing: 1px !important;
-}
-
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .b1g1:hover,
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.b1g1:hover,
-nav.slide-out-menu div.menu-panels ul li .b1g1:hover,
-nav.slide-out-menu div.menu-panels button.b1g1:hover {
-  background-color: #98bb55 !important;
-  color: #fff !important;
-  text-decoration: none !important;
-}
