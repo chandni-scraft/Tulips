@@ -191,8 +191,8 @@ a.custom-header-text.header__nav-link[href*="combo"],
 a.custom-header-text.header__nav-link[href*="multipack"],
 a.custom-header-text.header__nav-link[href*="Combo"],
 a.custom-header-text.header__nav-link[href*="Multipack"]
-a.custom-header-text.header__nav-link[href*="diwali-silver-sparkle"],
-a.custom-header-text.header__nav-link[title*="Diwali Silver Sparkle Sale T&C"] 
+a.custom-header-text.header__nav-link[href*="B1G1 T&C"],
+a.custom-header-text.header__nav-link[title*="B1G1 T&C"] 
   {
   background-color: #A4C86E !important;
   color: white !important;
@@ -212,7 +212,7 @@ a.custom-header-text.header__nav-link[href*="Multipack"]:focus {
   border-color: #A4C86E !important;
 }
 /* Diwali Silver Sparkle T&C button - same styling as deals-offers */
-a[title="Diwali Silver Sparkle Sale T&C"] {
+a[title="B1G1 T&C"] {
   display: inline-block;
   background-color: #A4C86E;
   color: white;
@@ -225,7 +225,7 @@ a[title="Diwali Silver Sparkle Sale T&C"] {
   height: 27.5px;
 }
 
-a[title="Diwali Silver Sparkle Sale T&C"]:hover {
+a[title="B1G1 T&C"]:hover {
   background-color: #8FA85A; /* Darker shade on hover */
 }
 
