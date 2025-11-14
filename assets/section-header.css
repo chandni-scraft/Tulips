@@ -1407,10 +1407,10 @@ a[href="/pages/deals-offers"]:hover {
 }
 
 /* Diwali T&C Mobile Menu Styling */
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .diwali-tnc,
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.diwali-tnc,
-nav.slide-out-menu div.menu-panels ul li .diwali-tnc,
-nav.slide-out-menu div.menu-panels button.diwali-tnc {
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .b1g1,
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.b1g1,
+nav.slide-out-menu div.menu-panels ul li .b1g1,
+nav.slide-out-menu div.menu-panels button.b1g1 {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -1427,10 +1427,10 @@ nav.slide-out-menu div.menu-panels button.diwali-tnc {
   letter-spacing: 1px !important;
 }
 
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .diwali-tnc:hover,
-.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.diwali-tnc:hover,
-nav.slide-out-menu div.menu-panels ul li .diwali-tnc:hover,
-nav.slide-out-menu div.menu-panels button.diwali-tnc:hover {
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels ul li .b1g1:hover,
+.header__drawer.mobile-drawer nav.slide-out-menu div.menu-panels button.b1g1:hover,
+nav.slide-out-menu div.menu-panels ul li .b1g1:hover,
+nav.slide-out-menu div.menu-panels button.b1g1:hover {
   background-color: #98bb55 !important;
   color: #fff !important;
   text-decoration: none !important;
