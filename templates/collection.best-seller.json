@@ -56,6 +56,46 @@
         "slide_1_mobile": "shopify://shop_images/Mobile-Banner-800x1200px.jpg"
       }
     },
+    "mixed_text_FY86PP": {
+      "type": "mixed-text",
+      "blocks": {
+        "tile_7MTidq": {
+          "type": "tile",
+          "settings": {
+            "text": "To avail the Buy 1 Get 1 offer, make sure to add quantity 2 of the same product to your cart."
+          }
+        },
+        "image_98bDr3": {
+          "type": "image",
+          "disabled": true,
+          "settings": {}
+        },
+        "tile_PUhXMq": {
+          "type": "tile",
+          "disabled": true,
+          "settings": {
+            "text": "Offer item"
+          }
+        }
+      },
+      "block_order": [
+        "tile_7MTidq",
+        "image_98bDr3",
+        "tile_PUhXMq"
+      ],
+      "name": "t:sections.mixed-text.name",
+      "settings": {
+        "content_width": 100,
+        "content_alignment": "align-center text-center justify-center",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--outlined",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "main": {
       "type": "main-collection-best-seller",
       "blocks": {
@@ -141,6 +181,7 @@
     "page_banner_6kWj4z",
     "banner_below_img_4HEkF3",
     "custom_home_banner_gm8F4w",
+    "mixed_text_FY86PP",
     "main",
     "custom_liquid_C4rTWe"
   ]
