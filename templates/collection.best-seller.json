@@ -52,8 +52,8 @@
       "type": "custom-home-banner",
       "name": "Hero Banner",
       "settings": {
-        "slide_1": "shopify://shop_images/Tulips_Desktop_banner_2_c3bd687c-f303-45f7-b07a-f1cba9cfd420.webp",
-        "slide_1_mobile": "shopify://shop_images/Tulips_Mobile_banner_1_1.webp"
+        "slide_1": "shopify://shop_images/Desktop-Banner-1920x720-px.jpg",
+        "slide_1_mobile": "shopify://shop_images/Mobile-Banner-800x1200px.jpg"
       }
     },
     "main": {
