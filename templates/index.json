@@ -275,6 +275,7 @@
     },
     "banner_below_img_bQbKAV": {
       "type": "banner-below-img",
+      "disabled": true,
       "settings": {
         "wave_image": "shopify://shop_images/Group_7381_2.png"
       }
