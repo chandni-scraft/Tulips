@@ -106,7 +106,7 @@
         "section_layout": "boxed",
         "heading": "<strong>Offer Eligibility</strong>",
         "heading_size": "h3",
-        "text": "<p>This Buy 1 Get 1 Free (BOGO) offer is valid only on selected and eligible products listed under the campaign section on the Tulips website.</p>",
+        "text": "<p>This Buy 1 Get 1 Free (BOGO) offer is valid only on selected and eligible products listed under the campaign section on the Tulips website.</p><ul><li>To avail the Buy 1 Get 1 offer, make sure to add quantity 2 of the same product to your cart.</li></ul>",
         "content_alignment": "start",
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
