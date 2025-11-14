@@ -52,8 +52,8 @@
       "type": "custom-home-banner",
       "name": "Hero Banner",
       "settings": {
-        "slide_1": "shopify://shop_images/Desktop-Banner-1920x720-px.jpg",
-        "slide_1_mobile": "shopify://shop_images/Mobile-Banner-800x1200px.jpg"
+        "slide_1": "shopify://shop_images/Desktop-Banner-1920-x-720-px.jpg",
+        "slide_1_mobile": "shopify://shop_images/Mobile-Banner-800x1200px_1.jpg"
       }
     },
     "mixed_text_FY86PP": {
